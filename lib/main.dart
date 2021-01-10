@@ -112,7 +112,7 @@ class HomePage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              Center(child: Text("Neve ad Anagni",style: TextStyle(fontSize: 15),)),
+              Center(child: Text("Ciao",style: TextStyle(fontSize: 15),)),
               Center(child: Text ("Mercatini Natale a Subiaco",style: TextStyle(fontSize: 15),))
             ]
           ),
