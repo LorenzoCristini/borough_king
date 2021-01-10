@@ -26,10 +26,12 @@ class HomePage extends StatelessWidget {
 
         children: <Widget>[
           Container(
+            // Questo container serve per creare la barra di ricerca
             margin: EdgeInsets.all(8),
             alignment: Alignment.center,
             width: 300,
               height: 120,
+              //Il bottone è di tipo Raised non so che significa però è bello
               child: RaisedButton(
                   shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(10.0))),
@@ -51,7 +53,7 @@ class HomePage extends StatelessWidget {
                 child: Text('Dove vuoi andare?',
                 style: TextStyle(fontSize: 19,color: Colors.black),),
                 ),
-
+                //Utilizzo i padding per spostare a mio piacimento le icone e il testo
                 Padding(
                 padding: EdgeInsets.fromLTRB(70, 0, 0, 0),
                 child: Icon(
@@ -66,9 +68,11 @@ class HomePage extends StatelessWidget {
             ),
           ),
           Center(child: Text("Inverno nei borghi del Lazio",textScaleFactor: 2,)),
+          //Ci metto una box invisibile per dare spazio
           SizedBox(
             height: 25,
           ),
+          //Ora metto il nome delle attrazioni per riga e le sposto per centrarle rispetto all'immagine
           Row(
             children: <Widget>[
           Padding(
@@ -98,6 +102,7 @@ class HomePage extends StatelessWidget {
                 onTap: (){Navigator.push(
                   context,MaterialPageRoute(builder: (context) => notImplemented()),
                 );},
+                //In questo modo inserisco le immagini tramite la cartella "assets" e con GestureDetector posso gestire il tocco
                 child : Image.asset('assets/images/villaggioTolfa.jpg', fit: BoxFit.cover,width: 150,height: 150),
               ),
               GestureDetector(
@@ -156,6 +161,7 @@ class HomePage extends StatelessWidget {
         ],
       ),
 
+      //Il drawer è il menù hamburger
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -167,6 +173,7 @@ class HomePage extends StatelessWidget {
             color: Colors.white,
               ),
              ),
+                //Un modo per inserire un'immagine
                 decoration: BoxDecoration(
                   color: Color(0xff90EE90),
                   image: DecorationImage(
@@ -260,7 +267,7 @@ class HomePage extends StatelessWidget {
     );
   }
 }
-
+//Ogni pagina è un Widget, quindi creo un widget per la pagina "Non implementata"
 class notImplemented extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
