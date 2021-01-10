@@ -26,8 +26,7 @@ class HomePage extends StatelessWidget {
 
         children: <Widget>[
           Container(
-            margin: EdgeInsets.all(24),
-            padding: EdgeInsets.only(top: 30),
+            margin: EdgeInsets.all(8),
             alignment: Alignment.center,
             width: 300,
               height: 120,
@@ -68,78 +67,86 @@ class HomePage extends StatelessWidget {
           ),
           Center(child: Text("Inverno nei borghi del Lazio",textScaleFactor: 2,)),
           SizedBox(
-            height: 30,
+            height: 25,
           ),
           Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Center(child: Text("Villaggio di Babbo Natale a Tolfa",style: TextStyle(fontSize: 15),)),
-                Center(child: Text ("Presepe vivente a Calcata",style: TextStyle(fontSize: 15),))
-              ]
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              Container(
-                width: 150,
-                height: 150,
-                decoration: BoxDecoration(
-                    color: Color(0xff90EE90),
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/villaggioTolfa.jpg'),
-                      fit: BoxFit.cover,
-                    )
-                ),
-              ),
-              Container(
-                width: 150,
-                height: 150,
-                decoration: BoxDecoration(
-                    color: Color(0xff90EE90),
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/presepeCalcata.jpg'),
-                      fit: BoxFit.cover,
-                    )
-                ),
-              ),
-
-
-            ],
-          ),
-          SizedBox(
-            height: 50,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          Padding(
+            padding: EdgeInsets.fromLTRB(25, 0, 0, 0),
+          child: Column(
             children: <Widget>[
-              Center(child: Text("Ciao",style: TextStyle(fontSize: 15),)),
-              Center(child: Text ("Mercatini Natale a Subiaco",style: TextStyle(fontSize: 15),))
+              Text("Villaggio di Babbo Natale",style: TextStyle(fontSize: 15)),
+              Text("A Tolfa",style: TextStyle(fontSize: 15)),
+            ]
+          ),
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(50, 0, 0, 0),
+            child: Column(
+            children: <Widget>[
+            Text("Presepe Vivente",style: TextStyle(fontSize: 15)),
+            Text("A Calcata",style: TextStyle(fontSize: 15)),
+            ]
+            ),
+          ),
             ]
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              Container(
-                width: 150,
-                height: 150,
-                decoration: BoxDecoration(
-                    color: Color(0xff90EE90),
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/neveAnagni.jpg'),
-                      fit: BoxFit.cover,
-                    )
-                ),
+              GestureDetector(
+                onTap: (){Navigator.push(
+                  context,MaterialPageRoute(builder: (context) => notImplemented()),
+                );},
+                child : Image.asset('assets/images/villaggioTolfa.jpg', fit: BoxFit.cover,width: 150,height: 150),
               ),
-              Container(
-                width: 150,
-                height: 150,
-                decoration: BoxDecoration(
-                    color: Color(0xff90EE90),
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/mercatiniSubiaco.jpg'),
-                      fit: BoxFit.cover,
-                    )
+              GestureDetector(
+                onTap: (){Navigator.push(
+                  context,MaterialPageRoute(builder: (context) => notImplemented()),
+                );},
+                child : Image.asset('assets/images/presepeCalcata.jpg', fit: BoxFit.cover,width: 150,height: 150),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          Row(
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.fromLTRB(80, 0, 0, 0),
+                  child: Column(
+                      children: <Widget>[
+                        Text("Neve",style: TextStyle(fontSize: 15)),
+                        Text("Ad Anagni",style: TextStyle(fontSize: 15)),
+                      ]
+                  ),
                 ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(90, 0, 0, 0),
+                  child: Column(
+                      children: <Widget>[
+                        Text("Mercatini di Natale",style: TextStyle(fontSize: 15)),
+                        Text("A Subiaco",style: TextStyle(fontSize: 15)),
+                      ]
+                  ),
+                ),
+              ]
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              GestureDetector(
+                onTap: (){Navigator.push(
+                  context,MaterialPageRoute(builder: (context) => notImplemented()),
+                );},
+                child : Image.asset('assets/images/neveAnagni.jpg', fit: BoxFit.cover,width: 150,height: 150),
+              ),
+              GestureDetector(
+                onTap: (){Navigator.push(
+                  context,MaterialPageRoute(builder: (context) => notImplemented()),
+                );},
+                child : Image.asset('assets/images/mercatiniSubiaco.jpg', fit: BoxFit.cover,width: 150,height: 150),
               ),
 
 
