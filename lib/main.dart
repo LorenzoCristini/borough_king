@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "pazzesco King",
+      title: "Borough King",
       home: HomePage(),
     );
   }
