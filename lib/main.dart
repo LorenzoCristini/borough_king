@@ -1,5 +1,5 @@
 import 'dart:math';
-
+// Liberare lo stack ogni volta che si ritorna alla home (?)
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import "package:flutter/material.dart";
@@ -80,7 +80,7 @@ class HomePage extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Text("Villaggio di Babbo Natale",style: TextStyle(fontSize: 15)),
-              Text("A Tolfa",style: TextStyle(fontSize: 15)),
+              Text("a Tolfa",style: TextStyle(fontSize: 15)),
             ]
           ),
           ),
@@ -89,7 +89,7 @@ class HomePage extends StatelessWidget {
             child: Column(
             children: <Widget>[
             Text("Presepe Vivente",style: TextStyle(fontSize: 15)),
-            Text("A Calcata",style: TextStyle(fontSize: 15)),
+            Text("a Calcata",style: TextStyle(fontSize: 15)),
             ]
             ),
           ),
@@ -123,7 +123,7 @@ class HomePage extends StatelessWidget {
                   child: Column(
                       children: <Widget>[
                         Text("Neve",style: TextStyle(fontSize: 15)),
-                        Text("Ad Anagni",style: TextStyle(fontSize: 15)),
+                        Text("ad Anagni",style: TextStyle(fontSize: 15)),
                       ]
                   ),
                 ),
@@ -132,7 +132,7 @@ class HomePage extends StatelessWidget {
                   child: Column(
                       children: <Widget>[
                         Text("Mercatini di Natale",style: TextStyle(fontSize: 15)),
-                        Text("A Subiaco",style: TextStyle(fontSize: 15)),
+                        Text("a Subiaco",style: TextStyle(fontSize: 15)),
                       ]
                   ),
                 ),
