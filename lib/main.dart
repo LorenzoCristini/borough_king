@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import "package:flutter/material.dart";
+import "package:borough_king/widgets/preferiti.dart";
 
 void main() => runApp(MyApp());
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-///github push try 111
+
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -257,7 +258,7 @@ class HomePage extends StatelessWidget {
           } else if (value > 0) {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => notImplemented()),
+              MaterialPageRoute(builder: (context) => preferiti()),
             );
           }
         },
@@ -344,7 +345,7 @@ class notImplemented extends StatelessWidget {
             if (value > 0) {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => notImplemented()),
+                MaterialPageRoute(builder: (context) => preferiti()),
               );
             }
           }
