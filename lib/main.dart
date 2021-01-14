@@ -14,6 +14,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Borough King",
       home: HomePage(),
+      routes: {
+        'HomePage' : (context) => HomePage(),
+        'NotImplemented' : (context) => notImplemented(),
+        'preferiti' : (context) => preferiti(),
+      },
     );
   }
 }
@@ -27,8 +32,8 @@ class HomePage extends StatelessWidget {
           title: Text("Borough King", style: TextStyle(color: Colors.black)),
           backgroundColor: Color(0xff90EE90),
           iconTheme: IconThemeData(color: Colors.black)),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+      body: ListView(
+
         children: <Widget>[
           Container(
             // Questo container serve per creare la barra di ricerca
@@ -52,6 +57,7 @@ class HomePage extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
                 child: Row(
+
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Container(
@@ -79,48 +85,83 @@ class HomePage extends StatelessWidget {
           ),
           Center(
               child: Text(
-            "Inverno nei borghi del Lazio...",
-            textScaleFactor: 2,
+            "Inverno nei borghi del Lazio",
+            style: TextStyle(fontSize : 30),
           )),
           //Ci metto una box invisibile per dare spazio
           SizedBox(
             height: 25,
           ),
           //Ora metto il nome delle attrazioni per riga e le sposto per centrarle rispetto all'immagine
-
           Card(
             clipBehavior: Clip.antiAlias,
-            child: Column (
-              children: <Widget>[
-                ListTile(leading: Icon(Icons.arrow_drop_down_circle),
-                  title: Text("Villaggio di Babbo Natale"),
-                  subtitle: Text('widgets.Tolfa', style: TextStyle(color: Colors.black.withOpacity(0.6)),
+            child: Column(
+              children: [
+                ListTile(
+                  title: Text('Villaggio di Babbo Natale',style: TextStyle(fontSize: 25),),
+                  subtitle: Text(
+                    'Tolfa',
+                    style: TextStyle(color: Colors.black.withOpacity(0.8),fontSize: 18),
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.all(16.0),
-                  child: Text('Pog description', style: TextStyle(color: Colors.black.withOpacity(0.6)),),
-                ),
-                ButtonBar(
-                  alignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    FlatButton(
-                      textColor: const Color(0xFF6200EE),
-                      onPressed: () {
-                        // Perform some action
-                      },
-                      child: const Text('ACTION 1'),
-                    ),
-                    FlatButton(
-                      textColor: const Color(0xFF6200EE),
-                      onPressed: () {
-                        // Perform some action
-                      },
-                      child: const Text('ACTION 2'),
-                    ),
-                  ],
-                ),
                 Image.asset('assets/images/villaggioTolfa.jpg'),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 25,
+          ),
+          Card(
+            clipBehavior: Clip.antiAlias,
+            child: Column(
+              children: [
+                ListTile(
+                  title: Text('Presepe vivente',style: TextStyle(fontSize: 25),),
+                  subtitle: Text(
+                    'Calcata',
+                    style: TextStyle(color: Colors.black.withOpacity(0.8),fontSize: 18),
+                  ),
+                ),
+
+                Image.asset('assets/images/presepeCalcata.jpg'),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 25,
+          ),
+          Card(
+            clipBehavior: Clip.antiAlias,
+            child: Column(
+              children: [
+                ListTile(
+                  title: Text('Paesaggi innevati',style: TextStyle(fontSize: 25),),
+                  subtitle: Text(
+                    'Anagni',
+                    style: TextStyle(color: Colors.black.withOpacity(0.8),fontSize: 18),
+                  ),
+                ),
+
+                Image.asset('assets/images/neveAnagni.jpg'),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 25,
+          ),
+          Card(
+            clipBehavior: Clip.antiAlias,
+            child: Column(
+              children: [
+                ListTile(
+                  title: Text('Mercatini Tipici',style: TextStyle(fontSize: 25),),
+                  subtitle: Text(
+                    'Subiaco',
+                    style: TextStyle(color: Colors.black.withOpacity(0.8),fontSize: 18),
+                  ),
+                ),
+
+                Image.asset('assets/images/mercatiniSubiaco.jpg'),
               ],
             ),
           ),
