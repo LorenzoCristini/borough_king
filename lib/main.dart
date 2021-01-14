@@ -87,21 +87,46 @@ class HomePage extends StatelessWidget {
             height: 25,
           ),
           //Ora metto il nome delle attrazioni per riga e le sposto per centrarle rispetto all'immagine
-          Row(children: <Widget>[
-            Card(
-              clipBehavior: Clip.antiAlias,
-              child: Column (
-                children: [
-                  ListTile(leading: Icon(Icons.arrow_drop_down_circle),
-                  title: const Text("Villaggio di Babbo Natale"),
-                  subtitle: Text('Tolfa', style: TextStyle(color: Colors.black.withOpacity(0.6)),
-                  ),
-                  ),
 
-                ]
-              )
+          Card(
+            clipBehavior: Clip.antiAlias,
+            child: Column (
+              children: <Widget>[
+                ListTile(leading: Icon(Icons.arrow_drop_down_circle),
+                  title: Text("Villaggio di Babbo Natale"),
+                  subtitle: Text('widgets.Tolfa', style: TextStyle(color: Colors.black.withOpacity(0.6)),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(16.0),
+                  child: Text('Pog description', style: TextStyle(color: Colors.black.withOpacity(0.6)),),
+                ),
+                ButtonBar(
+                  alignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    FlatButton(
+                      textColor: const Color(0xFF6200EE),
+                      onPressed: () {
+                        // Perform some action
+                      },
+                      child: const Text('ACTION 1'),
+                    ),
+                    FlatButton(
+                      textColor: const Color(0xFF6200EE),
+                      onPressed: () {
+                        // Perform some action
+                      },
+                      child: const Text('ACTION 2'),
+                    ),
+                  ],
+                ),
+                Image.asset('assets/images/villaggioTolfa.jpg'),
+              ],
+            ),
+          ),
 
-            )
+          /*Row(children: <Widget>[
+
             /*Padding(
               padding: EdgeInsets.fromLTRB(25, 0, 0, 0),
               child: Column(children: <Widget>[
@@ -117,7 +142,7 @@ class HomePage extends StatelessWidget {
                 Text("a Calcata", style: TextStyle(fontSize: 15)),
               ]),
             ),*/
-          ]),
+          ]),*/ //Row
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[/*
