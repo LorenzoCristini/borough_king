@@ -33,9 +33,10 @@ class HomePage extends StatelessWidget {
             // Questo container serve per creare la barra di ricerca
             margin: EdgeInsets.all(8),
             alignment: Alignment.center,
-            width: 300,
+            //width: 320,
             height: 120,
             //Il bottone è di tipo Raised non so che significa però è bello
+            child: ButtonTheme(   minWidth: 200.0,   height: 70.0,
             child: RaisedButton(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(10.0))),
@@ -54,10 +55,10 @@ class HomePage extends StatelessWidget {
                   children: <Widget>[
                     Container(
                       color: Colors.white,
-                      padding: EdgeInsets.fromLTRB(10, 4, 4, 4),
+                      padding: EdgeInsets.fromLTRB(40, 4, 4, 4),
                       child: Text(
                         'Dove vuoi andare?',
-                        style: TextStyle(fontSize: 19, color: Colors.black),
+                        style: TextStyle(fontSize: 25, color: Colors.black),
                       ),
                     ),
                     //Utilizzo i padding per spostare a mio piacimento le icone e il testo
@@ -66,7 +67,7 @@ class HomePage extends StatelessWidget {
                       child: Icon(
                         Icons.search,
                         color: Colors.black,
-                        size: 25,
+                        size: 35,
                       ),
                     ),
                   ],
@@ -74,9 +75,10 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ),
+          ),
           Center(
               child: Text(
-            "Inverno nei borghi del Lazio",
+            "Inverno nei borghi del Lazio...",
             textScaleFactor: 2,
           )),
           //Ci metto una box invisibile per dare spazio
@@ -85,7 +87,21 @@ class HomePage extends StatelessWidget {
           ),
           //Ora metto il nome delle attrazioni per riga e le sposto per centrarle rispetto all'immagine
           Row(children: <Widget>[
-            Padding(
+            Card(
+              clipBehavior: Clip.antiAlias,
+              child: Column (
+                children: [
+                  ListTile(leading: Icon(Icons.arrow_drop_down_circle),
+                  title: const Text("Villaggio di Babbo Natale"),
+                  subtitle: Text('Tolfa', style: TextStyle(color: Colors.black.withOpacity(0.6)),
+                  ),
+                  ),
+
+                ]
+              )
+
+            )
+            /*Padding(
               padding: EdgeInsets.fromLTRB(25, 0, 0, 0),
               child: Column(children: <Widget>[
                 Text("Villaggio di Babbo Natale",
@@ -99,11 +115,11 @@ class HomePage extends StatelessWidget {
                 Text("Presepe Vivente", style: TextStyle(fontSize: 15)),
                 Text("a Calcata", style: TextStyle(fontSize: 15)),
               ]),
-            ),
+            ),*/
           ]),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
+            children: <Widget>[/*
               GestureDetector(
                 onTap: () {
                   Navigator.push(
@@ -125,52 +141,11 @@ class HomePage extends StatelessWidget {
                 child: Image.asset('assets/images/presepeCalcata.jpg',
                     fit: BoxFit.cover, width: 150, height: 150),
               ),
-            ],
+            */],
           ),
           SizedBox(
             height: 30,
           ),
-          Row(children: <Widget>[
-            Padding(
-              padding: EdgeInsets.fromLTRB(80, 0, 0, 0),
-              child: Column(children: <Widget>[
-                Text("Neve", style: TextStyle(fontSize: 15)),
-                Text("ad Anagni", style: TextStyle(fontSize: 15)),
-              ]),
-            ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(90, 0, 0, 0),
-              child: Column(children: <Widget>[
-                Text("Mercatini di Natale", style: TextStyle(fontSize: 15)),
-                Text("a Subiaco", style: TextStyle(fontSize: 15)),
-              ]),
-            ),
-          ]),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => notImplemented()),
-                  );
-                },
-                child: Image.asset('assets/images/neveAnagni.jpg',
-                    fit: BoxFit.cover, width: 150, height: 150),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => notImplemented()),
-                  );
-                },
-                child: Image.asset('assets/images/mercatiniSubiaco.jpg',
-                    fit: BoxFit.cover, width: 150, height: 150),
-              ),
-            ],
-          )
         ],
       ),
 
@@ -272,7 +247,7 @@ class HomePage extends StatelessWidget {
             icon: Icon(Icons.favorite),
           ),
           BottomNavigationBarItem(
-            label: 'BorghiPerImmagini',
+            label: 'ChancheFotografiche',
             icon: Icon(Icons.panorama),
           ),
         ],
