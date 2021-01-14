@@ -3,7 +3,7 @@ import 'package:borough_king/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import "package:flutter/material.dart";
-
+import "package:borough_king/widgets/preferiti.dart";
 class search extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -13,6 +13,50 @@ class search extends StatelessWidget {
           backgroundColor: Color(0xff90EE90),
           iconTheme: IconThemeData(color: Colors.black)),
 
+      bottomNavigationBar: BottomNavigationBar(
+        // Serve per inserire la barra inferiore
+        currentIndex: 0,
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Color(0xff90EE90),
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.black.withOpacity(.60),
+        selectedFontSize: 15,
+        unselectedFontSize: 15,
+        onTap: (value) {
+          // Respond to item press.
+          //Ogni bottone ha un indice e gli indici partono da 0 quindi il primo è la home e gli altri a seguire
+          if (value == 0) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HomePage()),
+            );
+          } else if (value == 1) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => search()),
+            );
+          } else if (value == 2) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => notImplemented()),
+            );
+          }
+        },
+        items: [
+          BottomNavigationBarItem(
+            label: 'Home',
+            icon: Icon(Icons.home),
+          ),
+          BottomNavigationBarItem(
+            label: 'Preferiti',
+            icon: Icon(Icons.favorite),
+          ),
+          BottomNavigationBarItem(
+            label: 'OccasioniFotografiche',
+            icon: Icon(Icons.panorama),
+          ),
+        ],
+      ),
       body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
@@ -40,7 +84,7 @@ class search extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
             child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
+
               children: <Widget>[
                 Container(
                   color: Colors.white,
@@ -65,45 +109,31 @@ class search extends StatelessWidget {
         ),
       ),
     ),
-    ]),
-      bottomNavigationBar: BottomNavigationBar(
-        // Serve per inserire la barra inferiore
-        currentIndex: 0,
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Color(0xff90EE90),
-        selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.black.withOpacity(.60),
-        selectedFontSize: 15,
-        unselectedFontSize: 15,
-        onTap: (value) {
-          // Respond to item press.
-          //Ogni bottone ha un indice e gli indici partono da 0 quindi il primo è la home e gli altri a seguire
-          if (value == 0) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => HomePage()),
-            );
-          } else if (value > 0) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => search()),
-            );
-          }
-        },
-        items: [
-          BottomNavigationBarItem(
-            label: 'Home',
-            icon: Icon(Icons.home),
-          ),
-          BottomNavigationBarItem(
-            label: 'Preferiti',
-            icon: Icon(Icons.favorite),
-          ),
-          BottomNavigationBarItem(
-            label: 'OccasioniFotografiche',
-            icon: Icon(Icons.panorama),
-          ),
-        ],
+      Container(
+            child: Text("Consigliati",style : TextStyle(fontSize : 20)),
+              padding: EdgeInsets.only(right: 250),
+      ),
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 20.0),
+              height: 300.0,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: <Widget>[
+
+                  Card(
+                    clipBehavior: Clip.antiAlias,
+                    elevation: 5,
+                    child: Column(
+
+                      children: [
+                        Image.asset('assets/images/mercatiniSubiaco.jpg',fit: BoxFit.fill,),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+     ],
       ),
     );
 

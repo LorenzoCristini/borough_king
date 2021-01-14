@@ -9,7 +9,7 @@ class preferiti extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-        title: Text("Borough King", style: TextStyle(color: Colors.black)),
+        title: Text("I miei preferiti", style: TextStyle(color: Colors.black)),
     backgroundColor: Color(0xff90EE90),
     iconTheme: IconThemeData(color: Colors.black)),
       bottomNavigationBar: BottomNavigationBar(
@@ -29,10 +29,15 @@ class preferiti extends StatelessWidget {
               context,
               MaterialPageRoute(builder: (context) => HomePage()),
             );
-          } else if (value > 0) {
+          } else if (value == 1) {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => preferiti()),
+            );
+          } else if (value == 2) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => notImplemented()),
             );
           }
         },

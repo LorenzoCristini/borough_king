@@ -102,6 +102,7 @@ class HomePage extends StatelessWidget {
             },
           child: Card(
             clipBehavior: Clip.antiAlias,
+            elevation: 5,
             child: Column(
               children: [
                 ListTile(
@@ -128,6 +129,7 @@ class HomePage extends StatelessWidget {
             },
             child: Card(
             clipBehavior: Clip.antiAlias,
+              elevation: 5,
             child: Column(
               children: [
                 ListTile(
@@ -154,6 +156,7 @@ class HomePage extends StatelessWidget {
             );
             },
             child: Card(
+              elevation: 5,
             clipBehavior: Clip.antiAlias,
             child: Column(
               children: [
@@ -182,6 +185,7 @@ class HomePage extends StatelessWidget {
             },
             child: Card(
             clipBehavior: Clip.antiAlias,
+            elevation: 5,
             child: Column(
               children: [
                 ListTile(
@@ -284,10 +288,15 @@ class HomePage extends StatelessWidget {
               context,
               MaterialPageRoute(builder: (context) => HomePage()),
             );
-          } else if (value > 0) {
+          } else if (value == 1) {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => preferiti()),
+            );
+          } else if (value == 2) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => notImplemented()),
             );
           }
         },
@@ -371,10 +380,15 @@ class notImplemented extends StatelessWidget {
               context,
               MaterialPageRoute(builder: (context) => HomePage()),
             );
-            if (value > 0) {
+            if (value == 1) {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => preferiti()),
+              );
+            } else if (value == 2) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => notImplemented()),
               );
             }
           }
