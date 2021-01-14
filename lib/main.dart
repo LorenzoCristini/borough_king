@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import "package:flutter/material.dart";
 import "package:borough_king/widgets/preferiti.dart";
-import "package:borough_king/Icons/app_icons.dart";
 
 void main() => runApp(MyApp());
 
@@ -93,7 +92,14 @@ class HomePage extends StatelessWidget {
             height: 25,
           ),
           //Ora metto il nome delle attrazioni per riga e le sposto per centrarle rispetto all'immagine
-          Card(
+          GestureDetector(
+            onTap: () {
+            Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => notImplemented()),
+            );
+            },
+          child: Card(
             clipBehavior: Clip.antiAlias,
             child: Column(
               children: [
@@ -108,10 +114,18 @@ class HomePage extends StatelessWidget {
               ],
             ),
           ),
+          ),
           SizedBox(
             height: 25,
           ),
-          Card(
+            GestureDetector(
+                    onTap: () {
+            Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => notImplemented()),
+            );
+            },
+            child: Card(
             clipBehavior: Clip.antiAlias,
             child: Column(
               children: [
@@ -127,10 +141,18 @@ class HomePage extends StatelessWidget {
               ],
             ),
           ),
+            ),
           SizedBox(
             height: 25,
           ),
-          Card(
+                    GestureDetector(
+                    onTap: () {
+            Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => notImplemented()),
+            );
+            },
+            child: Card(
             clipBehavior: Clip.antiAlias,
             child: Column(
               children: [
@@ -138,7 +160,7 @@ class HomePage extends StatelessWidget {
                   title: Text('Paesaggi innevati',style: TextStyle(fontSize: 25),),
                   subtitle: Text(
                     'Anagni',
-                    style: TextStyle(color: Colors.black.withOpacity(0.8),fontSize: 18),
+                    style: TextStyle(color: Colors.black.withOpacity(0.8),  fontSize: 18),
                   ),
                 ),
 
@@ -146,10 +168,18 @@ class HomePage extends StatelessWidget {
               ],
             ),
           ),
+            ),
           SizedBox(
             height: 25,
           ),
-          Card(
+          GestureDetector(
+            onTap: () {
+            Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => notImplemented()),
+            );
+            },
+            child: Card(
             clipBehavior: Clip.antiAlias,
             child: Column(
               children: [
@@ -165,51 +195,7 @@ class HomePage extends StatelessWidget {
               ],
             ),
           ),
-
-          /*Row(children: <Widget>[
-
-            /*Padding(
-              padding: EdgeInsets.fromLTRB(25, 0, 0, 0),
-              child: Column(children: <Widget>[
-                Text("Villaggio di Babbo Natale",
-                    style: TextStyle(fontSize: 15)),
-                Text("a Tolfa", style: TextStyle(fontSize: 15)),
-              ]),
             ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(50, 0, 0, 0),
-              child: Column(children: <Widget>[
-                Text("Presepe Vivente", style: TextStyle(fontSize: 15)),
-                Text("a Calcata", style: TextStyle(fontSize: 15)),
-              ]),
-            ),*/
-          ]),*/ //Row
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[/*
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => notImplemented()),
-                  );
-                },
-                //In questo modo inserisco le immagini tramite la cartella "assets" e con GestureDetector posso gestire il tocco
-                child: Image.asset('assets/images/villaggioTolfa.jpg',
-                    fit: BoxFit.cover, width: 150, height: 150),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => notImplemented()),
-                  );
-                },
-                child: Image.asset('assets/images/presepeCalcata.jpg',
-                    fit: BoxFit.cover, width: 150, height: 150),
-              ),
-            */],
-          ),
           SizedBox(
             height: 30,
           ),
