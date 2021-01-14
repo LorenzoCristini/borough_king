@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import "package:flutter/material.dart";
 import "package:borough_king/widgets/preferiti.dart";
+import "package:borough_king/widgets/search.dart";
 
 void main() => runApp(MyApp());
 
@@ -13,6 +14,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Borough King",
       home: HomePage(),
+      routes: {
+        'HomePage' : (context) => HomePage(),
+        'NotImplemented' : (context) => notImplemented(),
+        'preferiti' : (context) => preferiti(),
+      },
     );
   }
 }
@@ -26,8 +32,8 @@ class HomePage extends StatelessWidget {
           title: Text("Borough King", style: TextStyle(color: Colors.black)),
           backgroundColor: Color(0xff90EE90),
           iconTheme: IconThemeData(color: Colors.black)),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+      body: ListView(
+
         children: <Widget>[
           Container(
             // Questo container serve per creare la barra di ricerca
@@ -43,7 +49,7 @@ class HomePage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => notImplemented()),
+                  MaterialPageRoute(builder: (context) => search()),
                 );
               },
               textColor: Colors.black,
@@ -51,6 +57,7 @@ class HomePage extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
                 child: Row(
+
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Container(
@@ -78,71 +85,118 @@ class HomePage extends StatelessWidget {
           ),
           Center(
               child: Text(
-            "Inverno nei borghi del Lazio...",
-            textScaleFactor: 2,
+            "Inverno nei borghi del Lazio",
+            style: TextStyle(fontSize : 30),
           )),
           //Ci metto una box invisibile per dare spazio
           SizedBox(
             height: 25,
           ),
           //Ora metto il nome delle attrazioni per riga e le sposto per centrarle rispetto all'immagine
-          Row(children: <Widget>[
-            Card(
-              clipBehavior: Clip.antiAlias,
-              child: Column (
-                children: [
-                  ListTile(leading: Icon(Icons.arrow_drop_down_circle),
-                  title: const Text("Villaggio di Babbo Natale"),
-                  subtitle: Text('Tolfa', style: TextStyle(color: Colors.black.withOpacity(0.6)),
+          GestureDetector(
+            onTap: () {
+            Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => notImplemented()),
+            );
+            },
+          child: Card(
+            clipBehavior: Clip.antiAlias,
+            child: Column(
+              children: [
+                ListTile(
+                  title: Text('Villaggio di Babbo Natale',style: TextStyle(fontSize: 25),),
+                  subtitle: Text(
+                    'Tolfa',
+                    style: TextStyle(color: Colors.black.withOpacity(0.8),fontSize: 18),
                   ),
-                  ),
-
-                ]
-              )
-
-            )
-            /*Padding(
-              padding: EdgeInsets.fromLTRB(25, 0, 0, 0),
-              child: Column(children: <Widget>[
-                Text("Villaggio di Babbo Natale",
-                    style: TextStyle(fontSize: 15)),
-                Text("a Tolfa", style: TextStyle(fontSize: 15)),
-              ]),
+                ),
+                Image.asset('assets/images/villaggioTolfa.jpg'),
+              ],
             ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(50, 0, 0, 0),
-              child: Column(children: <Widget>[
-                Text("Presepe Vivente", style: TextStyle(fontSize: 15)),
-                Text("a Calcata", style: TextStyle(fontSize: 15)),
-              ]),
-            ),*/
-          ]),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[/*
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => notImplemented()),
-                  );
-                },
-                //In questo modo inserisco le immagini tramite la cartella "assets" e con GestureDetector posso gestire il tocco
-                child: Image.asset('assets/images/villaggioTolfa.jpg',
-                    fit: BoxFit.cover, width: 150, height: 150),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => notImplemented()),
-                  );
-                },
-                child: Image.asset('assets/images/presepeCalcata.jpg',
-                    fit: BoxFit.cover, width: 150, height: 150),
-              ),
-            */],
           ),
+          ),
+          SizedBox(
+            height: 25,
+          ),
+            GestureDetector(
+                    onTap: () {
+            Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => notImplemented()),
+            );
+            },
+            child: Card(
+            clipBehavior: Clip.antiAlias,
+            child: Column(
+              children: [
+                ListTile(
+                  title: Text('Presepe vivente',style: TextStyle(fontSize: 25),),
+                  subtitle: Text(
+                    'Calcata',
+                    style: TextStyle(color: Colors.black.withOpacity(0.8),fontSize: 18),
+                  ),
+                ),
+
+                Image.asset('assets/images/presepeCalcata.jpg'),
+              ],
+            ),
+          ),
+            ),
+          SizedBox(
+            height: 25,
+          ),
+                    GestureDetector(
+                    onTap: () {
+            Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => notImplemented()),
+            );
+            },
+            child: Card(
+            clipBehavior: Clip.antiAlias,
+            child: Column(
+              children: [
+                ListTile(
+                  title: Text('Paesaggi innevati',style: TextStyle(fontSize: 25),),
+                  subtitle: Text(
+                    'Anagni',
+                    style: TextStyle(color: Colors.black.withOpacity(0.8),  fontSize: 18),
+                  ),
+                ),
+
+                Image.asset('assets/images/neveAnagni.jpg'),
+              ],
+            ),
+          ),
+            ),
+          SizedBox(
+            height: 25,
+          ),
+          GestureDetector(
+            onTap: () {
+            Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => notImplemented()),
+            );
+            },
+            child: Card(
+            clipBehavior: Clip.antiAlias,
+            child: Column(
+              children: [
+                ListTile(
+                  title: Text('Mercatini Tipici',style: TextStyle(fontSize: 25),),
+                  subtitle: Text(
+                    'Subiaco',
+                    style: TextStyle(color: Colors.black.withOpacity(0.8),fontSize: 18),
+                  ),
+                ),
+
+                Image.asset('assets/images/mercatiniSubiaco.jpg'),
+              ],
+            ),
+          ),
+            ),
           SizedBox(
             height: 30,
           ),
