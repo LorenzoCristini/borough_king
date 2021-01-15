@@ -51,7 +51,7 @@ class preferiti extends StatelessWidget {
             icon: Icon(Icons.favorite),
           ),
           BottomNavigationBarItem(
-            label: 'BorghiPerImmagini',
+            label: '   Occasioni\n Fotografiche',
             icon: Icon(Icons.panorama),
           ),
         ],

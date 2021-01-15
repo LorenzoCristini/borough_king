@@ -9,6 +9,7 @@ class occasioniFotografiche extends StatelessWidget {
   final List<String> images = ['assets/images/OccFotograf/rocca.jpg','assets/images/OccFotograf/pal_ragione.JPG','assets/images/OccFotograf/lago.jpg','assets/images/OccFotograf/monastero.jpg'];
   final List<String> names = ['La Rocca','Palazzo della ragione','Lago','Monastero di Santa Scolastica'];
   final List<String> places = ['Tolfa','Anagni','Bracciano','Subiaco'];
+  final List<StatelessWidget> classi = [notImplemented(),notImplemented(),notImplemented(),notImplemented()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,9 +29,14 @@ class occasioniFotografiche extends StatelessWidget {
             crossAxisCount: 2,
           ),
           itemBuilder: (BuildContext context, int index) {
-            return Padding(
+            return
+              GestureDetector(
+                onTap: (){
+                  Navigator.push(context,MaterialPageRoute(builder: (context) => classi[index]));
+                },
+                child: Padding(
                 padding: EdgeInsets.all(5),
-                child: Card(
+                child:   Card(
                   elevation: 5,
                     semanticContainer: true,
                     shape: RoundedRectangleBorder(
@@ -61,7 +67,7 @@ class occasioniFotografiche extends StatelessWidget {
                               style: TextStyle(fontSize: 18.0),
                             )),
                       ],
-                    )));
+                    ))));
           },
         ),
       bottomNavigationBar: BottomNavigationBar(
@@ -103,7 +109,7 @@ class occasioniFotografiche extends StatelessWidget {
             icon: Icon(Icons.favorite),
           ),
           BottomNavigationBarItem(
-            label: 'OccasioniFotografiche',
+            label: '   Occasioni\n Fotografiche',
             icon: Icon(Icons.panorama),
           ),
         ],

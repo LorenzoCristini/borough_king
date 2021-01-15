@@ -248,7 +248,7 @@ class search extends StatelessWidget {
             icon: Icon(Icons.favorite),
           ),
           BottomNavigationBarItem(
-            label: 'OccasioniFotografiche',
+            label: '   Occasioni\n Fotografiche',
             icon: Icon(Icons.panorama),
           ),
         ],

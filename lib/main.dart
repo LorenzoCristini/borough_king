@@ -10,6 +10,8 @@ import "package:borough_king/cardHP/villaggioNatale.dart";
 import "package:borough_king/cardHP/mercatiniSubiaco.dart";
 import "package:borough_king/cardHP/neveAnagni.dart";
 import "package:borough_king/cardHP/presepCal.dart";
+import 'package:flutter/painting.dart';
+import 'package:flutter/rendering.dart';
 
 void main() => runApp(MyApp());
 
@@ -90,6 +92,8 @@ class HomePage extends StatelessWidget {
             style: TextStyle(fontSize : 28, fontFamily: 'Georgia',  ),
 
           )),
+
+
           //Ci metto una box invisibile per dare spazio
           SizedBox(
             height: 25,
@@ -222,6 +226,7 @@ class HomePage extends StatelessWidget {
                   image: AssetImage('assets/images/logoBK.jpg'),
                   fit: BoxFit.cover,
                 )),
+            child: null
           ),
           Padding(
           child: Text("Ciao viaggiatore! ♡",style: TextStyle(fontSize: 20),),
@@ -313,7 +318,7 @@ class HomePage extends StatelessWidget {
             icon: Icon(Icons.favorite),
           ),
           BottomNavigationBarItem(
-            label: 'OccasioniFotografiche',
+            label: '   Occasioni\n Fotografiche',
             icon: Icon(Icons.panorama),
           ),
         ],
@@ -406,7 +411,7 @@ class notImplemented extends StatelessWidget {
             icon: Icon(Icons.favorite),
           ),
           BottomNavigationBarItem(
-            label: 'BorghiPerImmagini',
+            label: '   Occasioni\n Fotografiche',
             icon: Icon(Icons.panorama),
           ),
         ],
