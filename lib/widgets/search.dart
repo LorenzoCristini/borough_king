@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:borough_king/main.dart';
+import 'package:borough_king/widgets/occasioni_fotografiche.dart';
 import 'package:borough_king/widgets/preferiti.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -225,13 +226,16 @@ class search extends StatelessWidget {
               context,
               MaterialPageRoute(builder: (context) => HomePage()),
             );
-          } else if (value > 0) {
+          } else if (value == 1) {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => preferiti()),
             );
-
-
+          } else if (value == 2) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => occasioniFotografiche()),
+            );
           }
         },
         items: [

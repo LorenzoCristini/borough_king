@@ -214,20 +214,20 @@ class HomePage extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: <Widget>[
           DrawerHeader(
-            child: new Text(
-              'Ciao viaggiatore!',
-              style: TextStyle(
-                color: Colors.white,
-              ),
-            ),
             //Un modo per inserire un'immagine
             decoration: BoxDecoration(
                 color: Color(0xff90EE90),
                 image: DecorationImage(
-                  image: NetworkImage(
-                      'https://i.kym-cdn.com/photos/images/newsfeed/001/878/329/dfa.jpg'),
+                  image: AssetImage('assets/images/logoBK.jpg'),
                   fit: BoxFit.cover,
                 )),
+          ),
+          Padding(
+          child: Text("Ciao viaggiatore!",style: TextStyle(fontSize: 20),),
+            padding: EdgeInsets.only(left: 10)
+          ),
+          SizedBox(
+            height: 10,
           ),
           ListTile(
             leading: Icon(Icons.person),
@@ -239,6 +239,7 @@ class HomePage extends StatelessWidget {
               );
             },
           ),
+
           Divider(
             height: 1,
             thickness: 1,
@@ -311,7 +312,7 @@ class HomePage extends StatelessWidget {
             icon: Icon(Icons.favorite),
           ),
           BottomNavigationBarItem(
-            label: 'ChancheFotografiche',
+            label: 'OccasioniFotografiche',
             icon: Icon(Icons.panorama),
           ),
         ],
@@ -389,7 +390,7 @@ class notImplemented extends StatelessWidget {
             } else if (value == 2) {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => notImplemented()),
+                MaterialPageRoute(builder: (context) => occasioniFotografiche()),
               );
             }
           }
