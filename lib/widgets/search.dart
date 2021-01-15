@@ -216,8 +216,8 @@ class search extends StatelessWidget {
         backgroundColor: Color(0xff90EE90),
         selectedItemColor: Colors.black.withOpacity(.60),
         unselectedItemColor: Colors.black.withOpacity(.60),
-        selectedFontSize: 15,
-        unselectedFontSize: 15,
+        selectedFontSize: 13.5,
+        unselectedFontSize: 13.5,
         onTap: (value) {
           // Respond to item press.
           //Ogni bottone ha un indice e gli indici partono da 0 quindi il primo è la home e gli altri a seguire
