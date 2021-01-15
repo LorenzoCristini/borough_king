@@ -1,4 +1,4 @@
-# borough_king
+# Borough King
 
 A new Flutter application.
 
