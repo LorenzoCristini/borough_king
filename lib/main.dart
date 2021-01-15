@@ -5,6 +5,11 @@ import 'package:flutter/foundation.dart';
 import "package:flutter/material.dart";
 import "package:borough_king/widgets/preferiti.dart";
 import "package:borough_king/widgets/search.dart";
+import "package:borough_king/widgets/occasioni_fotografiche.dart";
+import "package:borough_king/cardHP/villaggioNatale.dart";
+import "package:borough_king/cardHP/mercatiniSubiaco.dart";
+import "package:borough_king/cardHP/neveAnagni.dart";
+import "package:borough_king/cardHP/presepCal.dart";
 
 void main() => runApp(MyApp());
 
@@ -14,11 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Borough King",
       home: HomePage(),
-      routes: {
-        'HomePage' : (context) => HomePage(),
-        'NotImplemented' : (context) => notImplemented(),
-        'preferiti' : (context) => preferiti(),
-      },
+
     );
   }
 }
@@ -97,7 +98,7 @@ class HomePage extends StatelessWidget {
             onTap: () {
             Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => notImplemented()),
+            MaterialPageRoute(builder: (context) => villaggio()),
             );
             },
           child: Card(
@@ -124,7 +125,7 @@ class HomePage extends StatelessWidget {
                     onTap: () {
             Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => notImplemented()),
+            MaterialPageRoute(builder: (context) => presepe()),
             );
             },
             child: Card(
@@ -152,7 +153,7 @@ class HomePage extends StatelessWidget {
                     onTap: () {
             Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => notImplemented()),
+            MaterialPageRoute(builder: (context) => neve()),
             );
             },
             child: Card(
@@ -180,7 +181,7 @@ class HomePage extends StatelessWidget {
             onTap: () {
             Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => notImplemented()),
+            MaterialPageRoute(builder: (context) => mercatini()),
             );
             },
             child: Card(
@@ -296,7 +297,7 @@ class HomePage extends StatelessWidget {
           } else if (value == 2) {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => notImplemented()),
+              MaterialPageRoute(builder: (context) => occasioniFotografiche()),
             );
           }
         },
