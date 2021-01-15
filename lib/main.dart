@@ -311,7 +311,7 @@ class HomePage extends StatelessWidget {
             icon: Icon(Icons.favorite),
           ),
           BottomNavigationBarItem(
-            label: 'ChancheFotografiche',
+            label: 'OccasioniFotografiche',
             icon: Icon(Icons.panorama),
           ),
         ],
