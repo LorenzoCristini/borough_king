@@ -87,7 +87,8 @@ class HomePage extends StatelessWidget {
           Center(
               child: Text(
             "Inverno nei borghi del Lazio",
-            style: TextStyle(fontSize : 30),
+            style: TextStyle(fontSize : 28, fontFamily: 'Georgia',  ),
+
           )),
           //Ci metto una box invisibile per dare spazio
           SizedBox(
@@ -110,7 +111,7 @@ class HomePage extends StatelessWidget {
                   title: Text('Villaggio di Babbo Natale',style: TextStyle(fontSize: 25),),
                   subtitle: Text(
                     'Tolfa',
-                    style: TextStyle(color: Colors.black.withOpacity(0.8),fontSize: 18),
+                    style: TextStyle(color: Colors.black.withOpacity(0.8),fontSize: 18, fontFamily: 'Times New Roman',),
                   ),
                 ),
                 Image.asset('assets/images/villaggioTolfa.jpg'),
@@ -137,7 +138,7 @@ class HomePage extends StatelessWidget {
                   title: Text('Presepe vivente',style: TextStyle(fontSize: 25),),
                   subtitle: Text(
                     'Calcata',
-                    style: TextStyle(color: Colors.black.withOpacity(0.8),fontSize: 18),
+                    style: TextStyle(color: Colors.black.withOpacity(0.8),fontSize: 18, fontFamily: 'Times New Roman',),
                   ),
                 ),
 
@@ -165,7 +166,7 @@ class HomePage extends StatelessWidget {
                   title: Text('Paesaggi innevati',style: TextStyle(fontSize: 25),),
                   subtitle: Text(
                     'Anagni',
-                    style: TextStyle(color: Colors.black.withOpacity(0.8),  fontSize: 18),
+                    style: TextStyle(color: Colors.black.withOpacity(0.8),  fontSize: 18, fontFamily: 'Times New Roman',),
                   ),
                 ),
 
@@ -193,7 +194,7 @@ class HomePage extends StatelessWidget {
                   title: Text('Mercatini Tipici',style: TextStyle(fontSize: 25),),
                   subtitle: Text(
                     'Subiaco',
-                    style: TextStyle(color: Colors.black.withOpacity(0.8),fontSize: 18),
+                    style: TextStyle(color: Colors.black.withOpacity(0.8),fontSize: 18, fontFamily: 'Times New Roman',),
                   ),
                 ),
 
