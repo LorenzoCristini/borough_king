@@ -117,15 +117,14 @@ class Borghi_Attivita_Tolfa extends StatelessWidget {
                   child: Image.asset(
                       'assets/images/Icons/${attivita[index].foto}'),
                 ),
-                trailing: IconButton(
-                  icon: Icon(
+                trailing: Icon(
                     Icons.arrow_forward,
                     color: Colors.black,
                     size: 30,
                   ),
-                  onPressed: () {},
+
                 ),
-              )),
+              ),
             );
           },
         )
@@ -259,15 +258,14 @@ class Borghi_Attivita_Subiaco extends StatelessWidget {
                   child: Image.asset(
                       'assets/images/Icons/${attivita[index].foto}'),
                 ),
-                trailing: IconButton(
-                  icon: Icon(
+                trailing: Icon(
                     Icons.arrow_forward,
                     color: Colors.black,
                     size: 30,
                   ),
-                  onPressed: () {},
+
                 ),
-              )),
+              ),
             );
           },
         )
@@ -405,15 +403,14 @@ class Borghi_Attivita_Anagni extends StatelessWidget {
                       child: Image.asset(
                           'assets/images/Icons/${attivita[index].foto}'),
                     ),
-                    trailing: IconButton(
-                      icon: Icon(
+                    trailing: Icon(
                         Icons.arrow_forward,
                         color: Colors.black,
                         size: 30,
                       ),
-                      onPressed: () {},
+
                     ),
-                  )),
+                  ),
             );
           },
         )
@@ -551,15 +548,14 @@ class Borghi_Attivita_Bracciano extends StatelessWidget {
                       child: Image.asset(
                           'assets/images/Icons/${attivita[index].foto}'),
                     ),
-                    trailing: IconButton(
-                      icon: Icon(
+                    trailing: Icon(
                         Icons.arrow_forward,
                         color: Colors.black,
                         size: 30,
                       ),
-                      onPressed: () {},
+
                     ),
-                  )),
+                  ),
             );
           },
         )
@@ -697,15 +693,14 @@ class Borghi_Attivita_Calcata extends StatelessWidget {
                       child: Image.asset(
                           'assets/images/Icons/${attivita[index].foto}'),
                     ),
-                    trailing: IconButton(
-                      icon: Icon(
+                    trailing: Icon(
                         Icons.arrow_forward,
                         color: Colors.black,
                         size: 30,
                       ),
-                      onPressed: () {},
+
                     ),
-                  )),
+                  ),
             );
           },
         )
