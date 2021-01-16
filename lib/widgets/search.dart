@@ -311,11 +311,9 @@ class Search extends SearchDelegate {
           title: Text(
             suggestionList[index],
           ),
-          trailing: suggestionList[index] == 'Qui vicino' ?  null :Column(
-            children: <Widget>[
-              IconButton(
+          trailing: suggestionList[index] == 'Qui vicino' ?  null : IconButton(
                 icon: Icon(Icons.clear),
-                onPressed: () {},)],),
+                onPressed: () {},),
           onTap: () {
             selectedResult = suggestionList[index];
             showResults(context);
