@@ -8,7 +8,7 @@ import "package:borough_king/widgets/occasioni_fotografiche.dart";
 import "package:flutter/src/rendering/box.dart";
 import 'package:flutter/src/rendering/sliver_multi_box_adaptor.dart';
 import 'package:borough_king/main.dart';
-
+import 'package:borough_king/widgets/Tolfa/info.dart';
 class Attivita {
   String nome;
   String foto;
@@ -51,6 +51,20 @@ class Borghi_Attivita_Tolfa extends StatelessWidget {
             Container(
               child: Image.asset('assets/images/tolfa.jpg'),
             ),
+            Container(
+                alignment: Alignment.topRight,
+                child: IconButton(
+                    icon: Icon(
+                      Icons.info_outlined,
+                      color: Colors.white,
+                      size: 35.0,
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Info_Tolfa()));
+                    })),
             Padding(
               padding: EdgeInsets.fromLTRB(0, 180, 0, 0),
               child: Container(
