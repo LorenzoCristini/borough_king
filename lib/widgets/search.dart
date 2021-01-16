@@ -36,7 +36,7 @@ class search extends StatelessWidget {
                       "Tolfa",
                       "Anagni",
                       "Subiaco",
-                      "widgets.Bracciano",
+                      "Bracciano",
                       "Calcata"
                     ];
                     showSearch(context: context, delegate: Search(borghi));

@@ -107,7 +107,10 @@ class Borghi_Attivita_Tolfa extends StatelessWidget {
                   const EdgeInsets.symmetric(vertical: 2.0, horizontal: 4.0),
               child: Card(
                   child: ListTile(
-                onTap: () {},
+                onTap: () {Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Lista_Attivita()));},
                 title: Text(attivita[index].nome),
                 leading: ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(6.0)),
@@ -116,16 +119,11 @@ class Borghi_Attivita_Tolfa extends StatelessWidget {
                 ),
                 trailing: IconButton(
                   icon: Icon(
-                    Icons.arrow_forward_ios,
+                    Icons.arrow_forward,
                     color: Colors.black,
                     size: 30,
                   ),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => Lista_Attivita()));
-                  },
+                  onPressed: () {},
                 ),
               )),
             );
@@ -263,7 +261,7 @@ class Borghi_Attivita_Subiaco extends StatelessWidget {
                 ),
                 trailing: IconButton(
                   icon: Icon(
-                    Icons.arrow_forward_ios,
+                    Icons.arrow_forward,
                     color: Colors.black,
                     size: 30,
                   ),
@@ -409,7 +407,7 @@ class Borghi_Attivita_Anagni extends StatelessWidget {
                     ),
                     trailing: IconButton(
                       icon: Icon(
-                        Icons.arrow_forward_ios,
+                        Icons.arrow_forward,
                         color: Colors.black,
                         size: 30,
                       ),
@@ -555,7 +553,7 @@ class Borghi_Attivita_Bracciano extends StatelessWidget {
                     ),
                     trailing: IconButton(
                       icon: Icon(
-                        Icons.arrow_forward_ios,
+                        Icons.arrow_forward,
                         color: Colors.black,
                         size: 30,
                       ),
@@ -701,7 +699,7 @@ class Borghi_Attivita_Calcata extends StatelessWidget {
                     ),
                     trailing: IconButton(
                       icon: Icon(
-                        Icons.arrow_forward_ios,
+                        Icons.arrow_forward,
                         color: Colors.black,
                         size: 30,
                       ),

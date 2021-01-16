@@ -7,7 +7,7 @@ class lago extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(235.0),
+        preferredSize: Size.fromHeight(230.0),
         child: AppBar(
             leading: IconButton(
               icon: Icon(
@@ -52,7 +52,7 @@ class lago extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.only(right: 150),
-            child: Text("widgets.Bracciano",
+            child: Text("Bracciano",
                 style: TextStyle(fontSize: 22, fontFamily: "Times New Roman")),
           ),
           Text(
@@ -70,7 +70,7 @@ class lago extends StatelessWidget {
           ),
           Text("Come arrivare?",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-          Text("Partenza: stazione di widgets.Bracciano",
+          Text("Partenza: stazione di Bracciano",
               style: TextStyle(fontSize: 18)),
           Text("Arrivo: Lago", style: TextStyle(fontSize: 18)),
           SizedBox(

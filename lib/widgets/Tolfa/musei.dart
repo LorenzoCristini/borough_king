@@ -11,47 +11,67 @@ import 'package:borough_king/main.dart';
 
 
 class Lista_Attivita extends StatelessWidget {
-  final List<String> List_Attivita = [
-    'Museo Civico',
-    'Museo Civico Archelogico'
-  ];
+  final List<String> images = ['assets/images/OccFotograf/rocca.jpg','assets/images/OccFotograf/ragione.jpg'];
+
+  final List<String> musei = ['Museo civico','Museo archeologico'];
+  final List<StatelessWidget> classi = [notImplemented(),notImplemented()];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Musei a Tolfa", style: TextStyle(color: Colors.black)),
+        title: Text(
+            "Musei", style: TextStyle(color: Colors.black)),
         backgroundColor: Color(0xff90EE90),
         iconTheme: IconThemeData(color: Colors.black),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(
-              Icons.search,
-              color: Colors.black,
-              size: 30,
+      ),
+
+      body: GridView.builder(
+
+            itemCount: 2,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              childAspectRatio: 8.0 / 10.0,
+              crossAxisCount: 2,
             ),
-            onPressed: () {},
-          )
-        ],
-      ),
-      body: ListView.builder(
-        itemCount: List_Attivita.length,
-        itemBuilder: (context, index) {
-          return Card(
-            child: ListTile(
-                onTap: () {},
-                title: Text(List_Attivita[index]),
-                trailing: IconButton(
-                  icon: Icon(
-                    Icons.arrow_forward_ios,
-                    color: Colors.black,
-                    size: 30,
-                  ),
-                  onPressed: () {},
-                )),
-          );
-        },
-      ),
+            itemBuilder: (BuildContext context, int index) {
+              return
+                GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => classi[index]));
+                    },
+                    child: Padding(
+                        padding: EdgeInsets.all(5),
+                        child: Card(
+                            elevation: 5,
+                            semanticContainer: true,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            clipBehavior: Clip.antiAlias,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Expanded(
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                            image: AssetImage(images[index]),
+                                            fit: BoxFit.fill),
+                                      ),
+                                    )),
+                                Padding(
+                                    padding: EdgeInsets.all(5.0),
+                                    child: Text(
+                                      musei[index],
+                                      style: TextStyle(fontSize: 20.0,
+                                          fontWeight: FontWeight.bold),
+                                    )),
+
+                              ],
+                            ))));
+            },
+          ),
       bottomNavigationBar: BottomNavigationBar(
         // Server per inserire la barra inferiore
         currentIndex: 2,
