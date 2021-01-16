@@ -13,15 +13,18 @@ class occasioniFotografiche extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(100.0),
-        child: AppBar(
+      appBar: AppBar(
           title: Text("Occasioni fotografiche", style: TextStyle(color: Colors.black)),
           backgroundColor: Color(0xff90EE90),
           iconTheme: IconThemeData(color: Colors.black),
-        ),),
+        ),
 
-        body: GridView.builder(
+        body: Column(
+          children: <Widget>[
+
+            Padding(padding: EdgeInsets.all(10), child:Text("Se sei amante della fotografia non vorrai perderti questi borghi!",style: TextStyle(fontSize: 23,fontFamily: "Times New Roman")),),
+
+        Expanded(child: GridView.builder(
 
           itemCount: 4,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -69,7 +72,8 @@ class occasioniFotografiche extends StatelessWidget {
                       ],
                     ))));
           },
-        ),
+        ),),
+      ],),
       bottomNavigationBar: BottomNavigationBar(
         // Server per inserire la barra inferiore
         currentIndex: 2,
