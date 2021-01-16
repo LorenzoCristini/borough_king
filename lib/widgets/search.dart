@@ -136,7 +136,7 @@ class search extends StatelessWidget {
                   children: [
                     ListTile(
                       title: Text(
-                        'widgets.Bracciano',
+                        'Bracciano',
                         style: TextStyle(fontSize: 25),
                       ),
                       subtitle: Text(
@@ -371,7 +371,7 @@ class Search extends SearchDelegate {
 
             if (selectedResult == 'Tolfa'){Navigator.push(context, MaterialPageRoute(builder: (context) => Borghi_Attivita_Tolfa()));}
             else if (selectedResult == 'Subiaco'){ Navigator.push(context, MaterialPageRoute(builder: (context) => Borghi_Attivita_Subiaco()));}
-            else if (selectedResult == 'widgets.Bracciano') {Navigator.push(context, MaterialPageRoute(builder: (context) => Borghi_Attivita_Bracciano()));}
+            else if (selectedResult == 'Bracciano') {Navigator.push(context, MaterialPageRoute(builder: (context) => Borghi_Attivita_Bracciano()));}
             else if (selectedResult == 'Anagni') {Navigator.push(context, MaterialPageRoute(builder: (context) => Borghi_Attivita_Anagni()));}
             else if (selectedResult == 'Calcata') {Navigator.push(context, MaterialPageRoute(builder: (context) => Borghi_Attivita_Calcata()));}
             else if (selectedResult == 'Qui vicino') {Navigator.push(context, MaterialPageRoute(builder: (context) => notImplemented()));}

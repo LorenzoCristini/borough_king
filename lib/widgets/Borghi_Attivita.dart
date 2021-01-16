@@ -58,7 +58,7 @@ class Borghi_Attivita_Tolfa extends StatelessWidget {
                     icon: Icon(
                       Icons.info_outlined,
                       color: Colors.white,
-                      size: 35.0,
+                      size: 34.0,
                     ),
                     onPressed: () {
                       Navigator.push(
