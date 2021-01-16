@@ -107,10 +107,8 @@ class Borghi_Attivita_Tolfa extends StatelessWidget {
                   const EdgeInsets.symmetric(vertical: 2.0, horizontal: 4.0),
               child: Card(
                   child: ListTile(
-                onTap: () {Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => Lista_Attivita()));},
+                onTap: () {Navigator.of(context).push(new MaterialPageRoute(builder:
+                    (BuildContext context) => notImplemented()));},
                 title: Text(attivita[index].nome),
                 leading: ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(6.0)),
@@ -480,7 +478,7 @@ class Borghi_Attivita_Bracciano extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("widgets.Bracciano", style: TextStyle(color: Colors.black)),
+        title: Text("Bracciano", style: TextStyle(color: Colors.black)),
         backgroundColor: Color(0xff90EE90),
         iconTheme: IconThemeData(color: Colors.black),
         actions: <Widget>[
