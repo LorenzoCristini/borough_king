@@ -10,6 +10,7 @@ import "package:borough_king/cardHP/villaggioNatale.dart";
 import "package:borough_king/cardHP/mercatiniSubiaco.dart";
 import "package:borough_king/cardHP/neveAnagni.dart";
 import "package:borough_king/cardHP/presepCal.dart";
+import 'package:borough_king/widgets/Borghi_Attivita.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 
@@ -21,11 +22,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Borough King",
       home: HomePage(),
-
     );
   }
 }
-
 
 class HomePage extends StatelessWidget {
   @override
@@ -36,7 +35,6 @@ class HomePage extends StatelessWidget {
           backgroundColor: Color(0xff90EE90),
           iconTheme: IconThemeData(color: Colors.black)),
       body: ListView(
-
         children: <Widget>[
           Container(
             // Questo container serve per creare la barra di ricerca
@@ -45,54 +43,56 @@ class HomePage extends StatelessWidget {
             //width: 320,
             height: 120,
             //Il bottone è di tipo Raised non so che significa però è bello
-            child: ButtonTheme(   minWidth: 200.0,   height: 70.0,
-            child: RaisedButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10.0))),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => search()),
-                );
-              },
-              textColor: Colors.black,
-              color: Colors.white,
-              child: Padding(
-                padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                child: Row(
-
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      color: Colors.white,
-                      padding: EdgeInsets.fromLTRB(40, 4, 4, 4),
-                      child: Text(
-                        'Dove vuoi andare?',
-                        style: TextStyle(fontSize: 25, color: Colors.black),
+            child: ButtonTheme(
+              minWidth: 200.0,
+              height: 70.0,
+              child: RaisedButton(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0))),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => search()),
+                  );
+                },
+                textColor: Colors.black,
+                color: Colors.white,
+                child: Padding(
+                  padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Container(
+                        color: Colors.white,
+                        padding: EdgeInsets.fromLTRB(40, 4, 4, 4),
+                        child: Text(
+                          'Dove vuoi andare?',
+                          style: TextStyle(fontSize: 25, color: Colors.black),
+                        ),
                       ),
-                    ),
-                    //Utilizzo i padding per spostare a mio piacimento le icone e il testo
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(70, 0, 0, 0),
-                      child: Icon(
-                        Icons.search,
-                        color: Colors.black,
-                        size: 35,
+                      //Utilizzo i padding per spostare a mio piacimento le icone e il testo
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(70, 0, 0, 0),
+                        child: Icon(
+                          Icons.search,
+                          color: Colors.black,
+                          size: 35,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
           ),
-          ),
           Center(
               child: Text(
             "Inverno nei borghi del Lazio",
-            style: TextStyle(fontSize : 28, fontFamily: 'Georgia',  ),
-
+            style: TextStyle(
+              fontSize: 28,
+              fontFamily: 'Georgia',
+            ),
           )),
-
 
           //Ci metto una box invisibile per dare spazio
           SizedBox(
@@ -101,112 +101,137 @@ class HomePage extends StatelessWidget {
           //Ora metto il nome delle attrazioni per riga e le sposto per centrarle rispetto all'immagine
           GestureDetector(
             onTap: () {
-            Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => villaggio()),
-            );
-            },
-          child: Card(
-            clipBehavior: Clip.antiAlias,
-            elevation: 5,
-            child: Column(
-              children: [
-                ListTile(
-                  title: Text('Villaggio di Babbo Natale',style: TextStyle(fontSize: 25),),
-                  subtitle: Text(
-                    'Tolfa',
-                    style: TextStyle(color: Colors.black.withOpacity(0.8),fontSize: 18, fontFamily: 'Times New Roman',),
-                  ),
-                ),
-                Image.asset('assets/images/villaggioTolfa.jpg'),
-              ],
-            ),
-          ),
-          ),
-          SizedBox(
-            height: 25,
-          ),
-            GestureDetector(
-                    onTap: () {
-            Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => presepe()),
-            );
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => villaggio()),
+              );
             },
             child: Card(
-            clipBehavior: Clip.antiAlias,
+              clipBehavior: Clip.antiAlias,
               elevation: 5,
-            child: Column(
-              children: [
-                ListTile(
-                  title: Text('Presepe vivente',style: TextStyle(fontSize: 25),),
-                  subtitle: Text(
-                    'Calcata',
-                    style: TextStyle(color: Colors.black.withOpacity(0.8),fontSize: 18, fontFamily: 'Times New Roman',),
+              child: Column(
+                children: [
+                  ListTile(
+                    title: Text(
+                      'Villaggio di Babbo Natale',
+                      style: TextStyle(fontSize: 25),
+                    ),
+                    subtitle: Text(
+                      'Tolfa',
+                      style: TextStyle(
+                        color: Colors.black.withOpacity(0.8),
+                        fontSize: 18,
+                        fontFamily: 'Times New Roman',
+                      ),
+                    ),
                   ),
-                ),
-
-                Image.asset('assets/images/presepeCalcata.jpg'),
-              ],
+                  Image.asset('assets/images/villaggioTolfa.jpg'),
+                ],
+              ),
             ),
           ),
-            ),
-          SizedBox(
-            height: 25,
-          ),
-                    GestureDetector(
-                    onTap: () {
-            Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => neve()),
-            );
-            },
-            child: Card(
-              elevation: 5,
-            clipBehavior: Clip.antiAlias,
-            child: Column(
-              children: [
-                ListTile(
-                  title: Text('Paesaggi innevati',style: TextStyle(fontSize: 25),),
-                  subtitle: Text(
-                    'Anagni',
-                    style: TextStyle(color: Colors.black.withOpacity(0.8),  fontSize: 18, fontFamily: 'Times New Roman',),
-                  ),
-                ),
-
-                Image.asset('assets/images/neveAnagni.jpg'),
-              ],
-            ),
-          ),
-            ),
           SizedBox(
             height: 25,
           ),
           GestureDetector(
             onTap: () {
-            Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => mercatini()),
-            );
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => presepe()),
+              );
             },
             child: Card(
-            clipBehavior: Clip.antiAlias,
-            elevation: 5,
-            child: Column(
-              children: [
-                ListTile(
-                  title: Text('Mercatini Tipici',style: TextStyle(fontSize: 25),),
-                  subtitle: Text(
-                    'Subiaco',
-                    style: TextStyle(color: Colors.black.withOpacity(0.8),fontSize: 18, fontFamily: 'Times New Roman',),
+              clipBehavior: Clip.antiAlias,
+              elevation: 5,
+              child: Column(
+                children: [
+                  ListTile(
+                    title: Text(
+                      'Presepe vivente',
+                      style: TextStyle(fontSize: 25),
+                    ),
+                    subtitle: Text(
+                      'Calcata',
+                      style: TextStyle(
+                        color: Colors.black.withOpacity(0.8),
+                        fontSize: 18,
+                        fontFamily: 'Times New Roman',
+                      ),
+                    ),
                   ),
-                ),
-
-                Image.asset('assets/images/mercatiniSubiaco.jpg'),
-              ],
+                  Image.asset('assets/images/presepeCalcata.jpg'),
+                ],
+              ),
             ),
           ),
+          SizedBox(
+            height: 25,
+          ),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => neve()),
+              );
+            },
+            child: Card(
+              elevation: 5,
+              clipBehavior: Clip.antiAlias,
+              child: Column(
+                children: [
+                  ListTile(
+                    title: Text(
+                      'Paesaggi innevati',
+                      style: TextStyle(fontSize: 25),
+                    ),
+                    subtitle: Text(
+                      'Anagni',
+                      style: TextStyle(
+                        color: Colors.black.withOpacity(0.8),
+                        fontSize: 18,
+                        fontFamily: 'Times New Roman',
+                      ),
+                    ),
+                  ),
+                  Image.asset('assets/images/neveAnagni.jpg'),
+                ],
+              ),
             ),
+          ),
+          SizedBox(
+            height: 25,
+          ),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => mercatini()),
+              );
+            },
+            child: Card(
+              clipBehavior: Clip.antiAlias,
+              elevation: 5,
+              child: Column(
+                children: [
+                  ListTile(
+                    title: Text(
+                      'Mercatini Tipici',
+                      style: TextStyle(fontSize: 25),
+                    ),
+                    subtitle: Text(
+                      'Subiaco',
+                      style: TextStyle(
+                        color: Colors.black.withOpacity(0.8),
+                        fontSize: 18,
+                        fontFamily: 'Times New Roman',
+                      ),
+                    ),
+                  ),
+                  Image.asset('assets/images/mercatiniSubiaco.jpg'),
+                ],
+              ),
+            ),
+          ),
           SizedBox(
             height: 30,
           ),
@@ -219,19 +244,20 @@ class HomePage extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: <Widget>[
           DrawerHeader(
-            //Un modo per inserire un'immagine
-            decoration: BoxDecoration(
-                color: Color(0xff90EE90),
-                image: DecorationImage(
-                  image: AssetImage('assets/images/logoBK.jpg'),
-                  fit: BoxFit.cover,
-                )),
-            child: null
-          ),
+              //Un modo per inserire un'immagine
+              decoration: BoxDecoration(
+                  color: Color(0xff90EE90),
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/logoBK.jpg'),
+                    fit: BoxFit.cover,
+                  )),
+              child: null),
           Padding(
-          child: Text("Ciao viaggiatore! ♡",style: TextStyle(fontSize: 20),),
-            padding: EdgeInsets.only(left: 10)
-          ),
+              child: Text(
+                "Ciao viaggiatore! ♡",
+                style: TextStyle(fontSize: 20),
+              ),
+              padding: EdgeInsets.only(left: 10)),
           SizedBox(
             height: 10,
           ),
@@ -245,7 +271,6 @@ class HomePage extends StatelessWidget {
               );
             },
           ),
-
           Divider(
             height: 1,
             thickness: 1,
@@ -396,7 +421,8 @@ class notImplemented extends StatelessWidget {
             } else if (value == 2) {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => occasioniFotografiche()),
+                MaterialPageRoute(
+                    builder: (context) => occasioniFotografiche()),
               );
             }
           }

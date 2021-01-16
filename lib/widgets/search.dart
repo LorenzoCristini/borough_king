@@ -5,6 +5,7 @@ import 'package:borough_king/widgets/preferiti.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import "package:flutter/material.dart";
+import 'package:borough_king/widgets/Borghi_Attivita.dart';
 
 class search extends StatelessWidget {
   @override
@@ -14,9 +15,8 @@ class search extends StatelessWidget {
           title: Text("Ricerca", style: TextStyle(color: Colors.black)),
           backgroundColor: Color(0xff90EE90),
           iconTheme: IconThemeData(color: Colors.black)),
-
       body: ListView(
-        //mainAxisAlignment: MainAxisAlignment.start,
+          //mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Container(
               // Questo container serve per creare la barra di ricerca
@@ -25,12 +25,20 @@ class search extends StatelessWidget {
               //width: 320,
               height: 120,
               //Il bottone è di tipo Raised non so che significa però è bello
-              child: ButtonTheme(   minWidth: 200.0,   height: 70.0,
+              child: ButtonTheme(
+                minWidth: 200.0,
+                height: 70.0,
                 child: RaisedButton(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10.0))),
                   onPressed: () {
-                    List<String> borghi = ["Tolfa", "Anagni", "Subiaco", "Bracciano", "Calcata"];
+                    List<String> borghi = [
+                      "Tolfa",
+                      "Anagni",
+                      "Subiaco",
+                      "Bracciano",
+                      "Calcata"
+                    ];
                     showSearch(context: context, delegate: Search(borghi));
                     /*Navigator.push(
               context,
@@ -49,7 +57,8 @@ class search extends StatelessWidget {
                           padding: EdgeInsets.fromLTRB(40, 4, 4, 4),
                           child: Text(
                             'Inserisci borgo',
-                            style: TextStyle(fontSize: 21, color: Colors.black12),
+                            style:
+                                TextStyle(fontSize: 21, color: Colors.black12),
                           ),
                         ),
                         //Utilizzo i padding per spostare a mio piacimento le icone e il testo
@@ -69,7 +78,13 @@ class search extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-              child: Text("Consigliati", style: TextStyle(fontSize: 25, color: Colors.black, fontFamily: 'Corbel', fontWeight: FontWeight.bold)),),
+              child: Text("Consigliati",
+                  style: TextStyle(
+                      fontSize: 25,
+                      color: Colors.black,
+                      fontFamily: 'Corbel',
+                      fontWeight: FontWeight.bold)),
+            ),
             SizedBox(
               height: 10,
             ),
@@ -86,10 +101,17 @@ class search extends StatelessWidget {
                 child: Column(
                   children: [
                     ListTile(
-                      title: Text('Anagni',style: TextStyle(fontSize: 25),),
+                      title: Text(
+                        'Anagni',
+                        style: TextStyle(fontSize: 25),
+                      ),
                       subtitle: Text(
                         'Il borgo del Lazio tra storie e leggende',
-                        style: TextStyle(color: Colors.black.withOpacity(0.8),fontSize: 16, fontWeight: FontWeight.w200, fontFamily: 'Times New Roman'),
+                        style: TextStyle(
+                            color: Colors.black.withOpacity(0.8),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w200,
+                            fontFamily: 'Times New Roman'),
                       ),
                     ),
                     Image.asset('assets/images/anagni.jpg'),
@@ -97,7 +119,6 @@ class search extends StatelessWidget {
                 ),
               ),
             ),
-
             SizedBox(
               height: 10,
             ),
@@ -114,10 +135,17 @@ class search extends StatelessWidget {
                 child: Column(
                   children: [
                     ListTile(
-                      title: Text('Bracciano',style: TextStyle(fontSize: 25),),
+                      title: Text(
+                        'Bracciano',
+                        style: TextStyle(fontSize: 25),
+                      ),
                       subtitle: Text(
                         "Il lago, i vicoli pittoreschi e l'atmosfera medievale",
-                        style: TextStyle(color: Colors.black.withOpacity(0.8),fontSize: 16,  fontWeight: FontWeight.w200, fontFamily: 'Times New Roman'),
+                        style: TextStyle(
+                            color: Colors.black.withOpacity(0.8),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w200,
+                            fontFamily: 'Times New Roman'),
                       ),
                     ),
                     Image.asset('assets/images/bracciano.jpg'),
@@ -141,10 +169,17 @@ class search extends StatelessWidget {
                 child: Column(
                   children: [
                     ListTile(
-                      title: Text('Calcata',style: TextStyle(fontSize: 25),),
+                      title: Text(
+                        'Calcata',
+                        style: TextStyle(fontSize: 25),
+                      ),
                       subtitle: Text(
                         'Il borgo magico degli hippie e delle streghe',
-                        style: TextStyle(color: Colors.black.withOpacity(0.8),fontSize: 16,  fontWeight: FontWeight.w200, fontFamily: 'Times New Roman'),
+                        style: TextStyle(
+                            color: Colors.black.withOpacity(0.8),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w200,
+                            fontFamily: 'Times New Roman'),
                       ),
                     ),
                     Image.asset('assets/images/calcata.jpg'),
@@ -168,10 +203,17 @@ class search extends StatelessWidget {
                 child: Column(
                   children: [
                     ListTile(
-                      title: Text('Subiaco',style: TextStyle(fontSize: 25),),
+                      title: Text(
+                        'Subiaco',
+                        style: TextStyle(fontSize: 25),
+                      ),
                       subtitle: Text(
                         'Il borgo che ospita la "soglia del Paradiso"',
-                        style: TextStyle(color: Colors.black.withOpacity(0.8),fontSize: 16,  fontWeight: FontWeight.w200, fontFamily: 'Times New Roman'),
+                        style: TextStyle(
+                            color: Colors.black.withOpacity(0.8),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w200,
+                            fontFamily: 'Times New Roman'),
                       ),
                     ),
                     Image.asset('assets/images/subiaco.jpg'),
@@ -195,10 +237,17 @@ class search extends StatelessWidget {
                 child: Column(
                   children: [
                     ListTile(
-                      title: Text('Tolfa',style: TextStyle(fontSize: 25),),
+                      title: Text(
+                        'Tolfa',
+                        style: TextStyle(fontSize: 25),
+                      ),
                       subtitle: Text(
                         'Il borgo etrusco ricco di tradizioni',
-                        style: TextStyle(color: Colors.black.withOpacity(0.8),fontSize: 16,  fontWeight: FontWeight.w100, fontFamily: 'Times New Roman'),
+                        style: TextStyle(
+                            color: Colors.black.withOpacity(0.8),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w100,
+                            fontFamily: 'Times New Roman'),
                       ),
                     ),
                     Image.asset('assets/images/tolfa.jpg'),
@@ -206,9 +255,7 @@ class search extends StatelessWidget {
                 ),
               ),
             ),
-
           ]),
-
       bottomNavigationBar: BottomNavigationBar(
         // Serve per inserire la barra inferiore
         currentIndex: 1,
@@ -254,7 +301,6 @@ class search extends StatelessWidget {
         ],
       ),
     );
-
   }
 }
 
@@ -265,11 +311,12 @@ class Search extends SearchDelegate {
       IconButton(
         icon: Icon(Icons.close),
         onPressed: () {
-          query="";
+          query = "";
         },
       ),
     ];
   }
+
   @override
   Widget buildLeading(BuildContext context) {
     return IconButton(
@@ -279,6 +326,7 @@ class Search extends SearchDelegate {
       },
     );
   }
+
   @override
   void showResults(BuildContext context) {
     close(context, query);
@@ -288,12 +336,20 @@ class Search extends SearchDelegate {
     );
   }
 
+  void showResults1(BuildContext context) {
+    close(context, query);
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => Borghi_Attivita()),
+    );
+  }
+
   @override
   Widget buildResults(BuildContext context) => notImplemented();
 
   final List<String> listExample;
   Search(this.listExample);
-  List<String> recentList= ['Qui vicino','Tolfa', 'Subiaco'];
+  List<String> recentList = ['Qui vicino', 'Tolfa', 'Subiaco'];
 
   Widget buildSuggestions(BuildContext context) {
     List<String> suggestionList = [];
@@ -301,26 +357,30 @@ class Search extends SearchDelegate {
     query.isEmpty
         ? suggestionList = recentList
         : suggestionList.addAll(listExample.where(
-          (element) => element.contains(query),
-    ));
+            (element) => element.contains(query),
+          ));
     return ListView.builder(
       itemCount: suggestionList.length,
       itemBuilder: (context, index) {
         return ListTile(
-          leading: suggestionList[index] == 'Qui vicino' ?  Icon(Icons.near_me):  Icon(Icons.watch_later_outlined) ,
+          leading: suggestionList[index] == 'Qui vicino'
+              ? Icon(Icons.near_me)
+              : Icon(Icons.watch_later_outlined),
           title: Text(
             suggestionList[index],
           ),
-          trailing: suggestionList[index] == 'Qui vicino' ?  null : IconButton(
-                icon: Icon(Icons.clear),
-                onPressed: () {},),
+          trailing: suggestionList[index] == 'Qui vicino'
+              ? null
+              : IconButton(
+                  icon: Icon(Icons.clear),
+                  onPressed: () {},
+                ),
           onTap: () {
             selectedResult = suggestionList[index];
-            showResults(context);
+            showResults1(context);
           },
         );
       },
     );
   }
 }
-
