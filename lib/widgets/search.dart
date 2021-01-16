@@ -194,7 +194,7 @@ class search extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => notImplemented()),
+                  MaterialPageRoute(builder: (context) => Borghi_Attivita_Subiaco()),
                 );
               },
               child: Card(
@@ -228,7 +228,7 @@ class search extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => notImplemented()),
+                  MaterialPageRoute(builder: (context) => Borghi_Attivita_Tolfa()),
                 );
               },
               child: Card(

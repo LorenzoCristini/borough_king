@@ -254,7 +254,7 @@ class HomePage extends StatelessWidget {
               child: null),
           Padding(
               child: Text(
-                "Ciao viaggiatore! ♡",
+                "Ciao viaggiatore!",
                 style: TextStyle(fontSize: 20),
               ),
               padding: EdgeInsets.only(left: 10)),
