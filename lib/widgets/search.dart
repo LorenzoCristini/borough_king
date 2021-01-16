@@ -92,7 +92,7 @@ class search extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => notImplemented()),
+                  MaterialPageRoute(builder: (context) => Borghi_Attivita_Anagni()),
                 );
               },
               child: Card(
@@ -126,7 +126,7 @@ class search extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => notImplemented()),
+                  MaterialPageRoute(builder: (context) => Borghi_Attivita_Bracciano()),
                 );
               },
               child: Card(
@@ -160,7 +160,7 @@ class search extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => notImplemented()),
+                  MaterialPageRoute(builder: (context) => Borghi_Attivita_Calcata()),
                 );
               },
               child: Card(
