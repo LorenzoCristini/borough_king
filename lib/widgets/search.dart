@@ -16,7 +16,7 @@ class search extends StatelessWidget {
           backgroundColor: Color(0xff90EE90),
           iconTheme: IconThemeData(color: Colors.black)),
       body: ListView(
-          //mainAxisAlignment: MainAxisAlignment.start,
+        //mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Container(
               // Questo container serve per creare la barra di ricerca
@@ -58,7 +58,7 @@ class search extends StatelessWidget {
                           child: Text(
                             'Inserisci borgo',
                             style:
-                                TextStyle(fontSize: 21, color: Colors.black12),
+                            TextStyle(fontSize: 21, color: Colors.black12),
                           ),
                         ),
                         //Utilizzo i padding per spostare a mio piacimento le icone e il testo
@@ -92,7 +92,7 @@ class search extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Borghi_Attivita_Anagni()),
+                  MaterialPageRoute(builder: (context) => notImplemented()),
                 );
               },
               child: Card(
@@ -126,7 +126,7 @@ class search extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Borghi_Attivita_Bracciano()),
+                  MaterialPageRoute(builder: (context) => notImplemented()),
                 );
               },
               child: Card(
@@ -160,7 +160,7 @@ class search extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Borghi_Attivita_Calcata()),
+                  MaterialPageRoute(builder: (context) => notImplemented()),
                 );
               },
               child: Card(
@@ -194,7 +194,7 @@ class search extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Borghi_Attivita_Subiaco()),
+                  MaterialPageRoute(builder: (context) => notImplemented()),
                 );
               },
               child: Card(
@@ -228,7 +228,7 @@ class search extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Borghi_Attivita_Tolfa()),
+                  MaterialPageRoute(builder: (context) => notImplemented()),
                 );
               },
               child: Card(
@@ -336,33 +336,20 @@ class Search extends SearchDelegate {
     );
   }
 
-  void showResults1(BuildContext context) {
-    close(context, query);
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => Borghi_Attivita_Tolfa()),
-    );
-  }
 
   @override
   Widget buildResults(BuildContext context) => notImplemented();
   final List<String> listExample;
   Search(this.listExample);
-  List<StatelessWidget> classe = [
-    notImplemented(),
-    Borghi_Attivita_Tolfa(),
-    Borghi_Attivita_Subiaco()
-  ];
+
   List<String> recentList = ['Qui vicino', 'Tolfa', 'Subiaco'];
 
   Widget buildSuggestions(BuildContext context) {
     List<String> suggestionList = [];
     String selectedResult = '';
-    query.isEmpty
-        ? suggestionList = recentList
-        : suggestionList.addAll(listExample.where(
-            (element) => element.contains(query),
-          ));
+    query.isEmpty  ? suggestionList = recentList : suggestionList.addAll(listExample.where(
+          (element) => element.contains(RegExp('^$query',caseSensitive: false)),
+    ));
     return ListView.builder(
       itemCount: suggestionList.length,
       itemBuilder: (context, index) {
@@ -376,16 +363,18 @@ class Search extends SearchDelegate {
           trailing: suggestionList[index] == 'Qui vicino'
               ? null
               : IconButton(
-                  icon: Icon(Icons.clear),
-                  onPressed: () {},
-                ),
+            icon: Icon(Icons.clear),
+            onPressed: () {},
+          ),
           onTap: () {
             selectedResult = suggestionList[index];
-            close(context, query);
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => classe[index]),
-            );
+
+            if (selectedResult == 'Tolfa'){Navigator.push(context, MaterialPageRoute(builder: (context) => Borghi_Attivita_Tolfa()));}
+            else if (selectedResult == 'Subiaco'){ Navigator.push(context, MaterialPageRoute(builder: (context) => Borghi_Attivita_Subiaco()));}
+            else if (selectedResult == 'Bracciano') {}
+            else if (selectedResult == 'Anagni') {}
+            else if (selectedResult == 'Calcata') {}
+            else if (selectedResult == 'Qui vicino') {Navigator.push(context, MaterialPageRoute(builder: (context) => notImplemented()));}
           },
         );
       },
