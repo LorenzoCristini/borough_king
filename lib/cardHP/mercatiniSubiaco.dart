@@ -28,9 +28,12 @@ class mercatini extends StatelessWidget {
           Text('Mercatini tipici',style: TextStyle(fontSize: 30),) ,
           Padding(
             padding: EdgeInsets.only(right: 300),
-            child: Text("Subiaco",style: TextStyle(fontSize: 25)),
+            child: Text("Subiaco",style: TextStyle(fontSize: 22, fontFamily: "Times New Roman")),
           ),
-          Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu gravida mi, eu fringilla eros. Maecenas ut est eget orci feugiat vestibulum gravida a quam. Cras nec purus eu purus ultrices tempus. In tempus, lectus ac ultrices mollis, massa mi porta lectus, vitae suscipit quam turpis luctus ex. Duis eget consequat diam. Cras neque lacus, rutrum ut fringilla sed, cursus a justo. Integer at metus ac nunc mattis euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla ac elit ac arcu porttitor dictum. Suspendisse consectetur gravida libero sed interdum. Morbi varius libero consectetur convallis pharetra. Cras in venenatis sem. Cras maximus, mi sit amet gravida porta, magna nisl condimentum est, et rhoncus lacus urna semper odio. Ut vel diam ut justo consequat porttitor vitae in tortor. ",style: TextStyle(fontSize: 15),),
+          Text("Non perdere i tradizionali mercatini di Natale lungo le vie del centro storico di Subiaco dove potrai comprare, presso i vari stand, oggetti tipici del luogo da regalare alle persone a te più care - o a te stesso se vuoi viziarti con un bel regalo! ",style: TextStyle(fontSize: 18),),
+          SizedBox(
+            height: 10,
+          ),
           Text("Data",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),
           Text("3-7 Gennaio 2021",style: TextStyle(fontSize: 18)),
           Text("Presso",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),

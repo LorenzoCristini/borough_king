@@ -28,13 +28,16 @@ class villaggio extends StatelessWidget {
               Text('Villaggio di Babbo Natale',style: TextStyle(fontSize: 30),) ,
           Padding(
             padding: EdgeInsets.only(right: 300),
-              child: Text("Tolfa",style: TextStyle(fontSize: 25)),
+              child: Text("Tolfa",style: TextStyle(fontSize: 22, fontFamily: "Times New Roman")),
           ),
-              Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu gravida mi, eu fringilla eros. Maecenas ut est eget orci feugiat vestibulum gravida a quam. Cras nec purus eu purus ultrices tempus. In tempus, lectus ac ultrices mollis, massa mi porta lectus, vitae suscipit quam turpis luctus ex. Duis eget consequat diam. Cras neque lacus, rutrum ut fringilla sed, cursus a justo. Integer at metus ac nunc mattis euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla ac elit ac arcu porttitor dictum. Suspendisse consectetur gravida libero sed interdum. Morbi varius libero consectetur convallis pharetra. Cras in venenatis sem. Cras maximus, mi sit amet gravida porta, magna nisl condimentum est, et rhoncus lacus urna semper odio. Ut vel diam ut justo consequat porttitor vitae in tortor. ",style: TextStyle(fontSize: 15),),
+              Text("Babbo Natale è qui con noi! Il suo villaggio è pronto a ospitarvi e a farvi vivere delle sensazioni magiche! Preparatevi al massimo divertimento tra elfi, renne volanti e tanti dolci. Non dimenticatevi di portare la vostra letterina: Babbo Natale ve la leggerà di persona!",style: TextStyle(fontSize: 18),),
+              SizedBox(
+                height: 10,
+              ),
               Text("Data",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),
               Text("21-24 Dicembre 2020",style: TextStyle(fontSize: 18)),
               Text("Presso",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),
-              Text("Piazza V. Veneto",style: TextStyle(fontSize: 18)),
+              Text("Piazza Vittorio Veneto",style: TextStyle(fontSize: 18)),
             ],
         ),
 

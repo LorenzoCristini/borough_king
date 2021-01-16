@@ -7,14 +7,14 @@ class neve extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(250.0),
+        preferredSize: Size.fromHeight(230.0),
         child : AppBar(
             leading: IconButton(icon: Icon(Icons.clear,size: 35,),onPressed: (){Navigator.pop(context);},),
             flexibleSpace: Image(
               image: AssetImage('assets/images/neveAnagni.jpg'),
               fit: BoxFit.scaleDown,
             ),
-            backgroundColor: Colors.transparent,
+            backgroundColor: Colors.white,
 
             iconTheme: IconThemeData(color: Colors.white)),
       ),
@@ -28,9 +28,12 @@ class neve extends StatelessWidget {
           Text('Paesaggi innevati',style: TextStyle(fontSize: 30),) ,
           Padding(
             padding: EdgeInsets.only(right: 300),
-            child: Text("Anagni",style: TextStyle(fontSize: 25)),
+            child: Text("Anagni",style: TextStyle(fontSize: 22, fontFamily: "Times New Roman")),
           ),
-          Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu gravida mi, eu fringilla eros. Maecenas ut est eget orci feugiat vestibulum gravida a quam. Cras nec purus eu purus ultrices tempus. In tempus, lectus ac ultrices mollis, massa mi porta lectus, vitae suscipit quam turpis luctus ex. Duis eget consequat diam. Cras neque lacus, rutrum ut fringilla sed, cursus a justo. Integer at metus ac nunc mattis euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla ac elit ac arcu porttitor dictum. Suspendisse consectetur gravida libero sed interdum. Morbi varius libero consectetur convallis pharetra. Cras in venenatis sem. Cras maximus, mi sit amet gravida porta, magna nisl condimentum est, et rhoncus lacus urna semper odio. Ut vel diam ut justo consequat porttitor vitae in tortor. ",style: TextStyle(fontSize: 15),),
+          Text("Ad Anagni è finalmente arrivata la neve! I monti sono bianchi e candidi e non aspettano altro che te! Mettiti lo zaino in spalla, guanti e sciarpa e vieni a vivere la magia dell'inverno in questi bellissimi paesaggi. Il miglior pupazzo di neve si aggiudicherà un premio speciale!",style: TextStyle(fontSize: 18),),
+          SizedBox(
+            height:10,
+          ),
           Text("Data",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),
           Text("Variabile ",style: TextStyle(fontSize: 18)),
           Text("Presso",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),
