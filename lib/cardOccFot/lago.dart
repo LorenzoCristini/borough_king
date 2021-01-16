@@ -52,11 +52,11 @@ class lago extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.only(right: 150),
-            child: Text("Bracciano",
+            child: Text("widgets.Bracciano",
                 style: TextStyle(fontSize: 22, fontFamily: "Times New Roman")),
           ),
           Text(
-            "La veduta dal lago di Bracciano è uno dei panorami più meravigliosi del mondo!",
+            "La veduta dal lago di widgets.Bracciano è uno dei panorami più meravigliosi del mondo!",
             style: TextStyle(fontSize: 20),
           ),
           SizedBox(
@@ -70,7 +70,7 @@ class lago extends StatelessWidget {
           ),
           Text("Come arrivare?",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-          Text("Partenza: stazione di Bracciano",
+          Text("Partenza: stazione di widgets.Bracciano",
               style: TextStyle(fontSize: 18)),
           Text("Arrivo: Lago", style: TextStyle(fontSize: 18)),
           SizedBox(

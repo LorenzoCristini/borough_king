@@ -470,7 +470,7 @@ class Borghi_Attivita_Bracciano extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Bracciano", style: TextStyle(color: Colors.black)),
+        title: Text("widgets.Bracciano", style: TextStyle(color: Colors.black)),
         backgroundColor: Color(0xff90EE90),
         iconTheme: IconThemeData(color: Colors.black),
         actions: <Widget>[
