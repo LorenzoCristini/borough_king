@@ -340,15 +340,19 @@ class Search extends SearchDelegate {
     close(context, query);
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => Borghi_Attivita()),
+      MaterialPageRoute(builder: (context) => Borghi_Attivita_Tolfa()),
     );
   }
 
   @override
   Widget buildResults(BuildContext context) => notImplemented();
-
   final List<String> listExample;
   Search(this.listExample);
+  List<StatelessWidget> classe = [
+    notImplemented(),
+    Borghi_Attivita_Tolfa(),
+    Borghi_Attivita_Subiaco()
+  ];
   List<String> recentList = ['Qui vicino', 'Tolfa', 'Subiaco'];
 
   Widget buildSuggestions(BuildContext context) {
@@ -377,7 +381,11 @@ class Search extends SearchDelegate {
                 ),
           onTap: () {
             selectedResult = suggestionList[index];
-            showResults1(context);
+            close(context, query);
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => classe[index]),
+            );
           },
         );
       },
