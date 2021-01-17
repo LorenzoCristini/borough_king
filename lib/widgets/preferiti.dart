@@ -1,9 +1,11 @@
 import 'dart:math';
+import 'dart:ui';
 import 'package:borough_king/main.dart';
 import 'package:borough_king/widgets/occasioni_fotografiche.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import "package:flutter/material.dart";
+
 
 class preferiti extends StatelessWidget {
   @override
@@ -13,7 +15,16 @@ class preferiti extends StatelessWidget {
         title: Text("I miei preferiti", style: TextStyle(color: Colors.black)),
     backgroundColor: Color(0xff90EE90),
     iconTheme: IconThemeData(color: Colors.black)),
-      bottomNavigationBar: BottomNavigationBar(
+      body: Column(
+          children: <Widget>[
+
+      Padding(padding: EdgeInsets.all(10),
+        child:Text("Per non dimenticare dove hai lasciato il ❤",
+            style: TextStyle(fontSize: 23,fontFamily: "Times New Roman"),
+        textAlign: TextAlign.center),
+      ),
+    ]),
+    bottomNavigationBar: BottomNavigationBar(
         // Server per inserire la barra inferiore
         currentIndex: 1,
         type: BottomNavigationBarType.fixed,

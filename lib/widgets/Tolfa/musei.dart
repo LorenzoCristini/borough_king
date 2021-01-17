@@ -8,24 +8,9 @@ import "package:borough_king/widgets/occasioni_fotografiche.dart";
 import "package:flutter/src/rendering/box.dart";
 import 'package:flutter/src/rendering/sliver_multi_box_adaptor.dart';
 import 'package:borough_king/main.dart';
+//import 'package:folding_cell/folding_cell.dart';
 
-class ExpandedWidget extends StatefulWidget {
-  @override
- Lista_Attivita createState() => Lista_Attivita();
-}
-
-class Lista_Attivita extends State<ExpandedWidget> {
-  void initState(){
-    super.initState();
-  }
-  final List<String> images = [
-    'assets/images/OccFotograf/rocca.jpg',
-    'assets/images/OccFotograf/ragione.jpg'
-  ];
-
-  final List<String> musei = ['Museo civico', 'Museo archeologico'];
-  final List<StatelessWidget> classi = [notImplemented(), notImplemented()];
-
+class ListaAttivita extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,74 +21,25 @@ class Lista_Attivita extends State<ExpandedWidget> {
         iconTheme: IconThemeData(color: Colors.black),
       ),
 
-      body: /*GridView.builder(
-            itemCount: 2,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              childAspectRatio: 8.0 / 10.0,
-              crossAxisCount: 2,
-            ),
-            itemBuilder: (BuildContext context, int index) {
-              return Padding(
-                        padding: EdgeInsets.all(5),
-                        child: Card(
-                            elevation: 5,
-                            semanticContainer: true,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                            clipBehavior: Clip.antiAlias,
-                            child: Column(children: <Widget>[
-                              Padding(
-                                padding: EdgeInsets.all(8.0),
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                        image: AssetImage(images[index]),
-                                        fit: BoxFit.fill),
-                                            ),
-                                          ),
-                                   ),
-                          Padding(
-                              padding: EdgeInsets.all(5.0),
-                              child: Text(
-                                musei[index],
-                                style: TextStyle(fontSize: 20.0,
-                                    fontWeight: FontWeight.bold),
-                              ))
-                                ])
-                              )
-                            );}
-              ),
-*/
-      Card(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-        Padding(
-        padding: EdgeInsets.all(5),
-          child: Card(
-            elevation: 5,
-            semanticContainer: true,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0),
-            ),
-            clipBehavior: Clip.antiAlias,
-            child: Column(children: <Widget>[
-              Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage( 'assets/images/OccFotograf/rocca.jpg'),
-                    fit: BoxFit.fill),
-              ),
-            ),
-          ),
-            ])
-            )),
-          ]
-        )
+      body: Container(
+          color: Colors.green,
+          child: ListView(
+              scrollDirection: Axis.vertical,
+              children: <Widget>[
+                /*Container(
+                  child: SimpleFoldingCell(
+                      frontWidget: FrontWidget(),
+                      innerTopWidget:InnerTopWidget(),
+                      innerBottomWidget: InnerBottomWidget,
+                      cellSize: Size(MediaQuery.of(context).size.width,175),
+                      padding: EdgeInsets.all(10.0)
+                  ),
+                )*/
+
+              ]
+          )
       ),
+
       bottomNavigationBar: BottomNavigationBar(
         // Server per inserire la barra inferiore
         currentIndex: 2,
@@ -147,8 +83,26 @@ class Lista_Attivita extends State<ExpandedWidget> {
             icon: Icon(Icons.panorama),
           ),
         ],
-      ),
-    );
+      ),);
   }
 }
 
+
+
+Container FrontWidget(){
+  return Container(
+      color: Colors.deepOrange,
+      alignment: Alignment.center,
+      child: Row(children: <Widget>[
+        Expanded(
+          flex: 1,
+          child: Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15.0),
+
+            ),
+          ),
+        ),
+      ])
+  );
+}
