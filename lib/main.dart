@@ -316,12 +316,7 @@ class HomePage extends StatelessWidget {
         onTap: (value) {
           // Respond to item press.
           //Ogni bottone ha un indice e gli indici partono da 0 quindi il primo è la home e gli altri a seguire
-          if (value == 0) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => HomePage()),
-            );
-          } else if (value == 1) {
+          if (value == 1) {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => preferiti()),

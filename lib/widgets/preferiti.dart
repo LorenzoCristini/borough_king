@@ -61,11 +61,6 @@ class preferiti extends StatelessWidget {
               context,
               MaterialPageRoute(builder: (context) => HomePage()),
             );
-          } else if (value == 1) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => preferiti()),
-            );
           } else if (value == 2) {
             Navigator.push(
               context,
