@@ -291,11 +291,9 @@ class Musei extends StatelessWidget {
                       Center(child: Text("Largo 15 Marzo\nTolfa RM",
                         style: TextStyle(fontSize: 20),))
                     ]),
+                    SizedBox(height: 10,),
                     Align(alignment: Alignment.topLeft,
-                        child: Text(
-                          "Descrizione", style: TextStyle(fontSize: 18),)),
-                    Align(alignment: Alignment.topLeft,
-                        child: Text("Descrizione epica finita male",
+                        child: Text("Descrizione museo civico",
                           style: TextStyle(fontSize: 18),)),
                     SizedBox(height: 10,),
                     Align(alignment: Alignment.topLeft,
