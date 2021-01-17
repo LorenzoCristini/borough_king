@@ -2,7 +2,11 @@ import 'dart:math';
 import 'package:borough_king/main.dart';
 import 'package:borough_king/widgets/Anagni/info.dart';
 import 'package:borough_king/widgets/Bracciano/info.dart';
+import 'package:borough_king/widgets/Calcata/botteghe.dart';
+import 'package:borough_king/widgets/Calcata/monumenti.dart';
+import 'package:borough_king/widgets/Calcata/musei.dart';
 import 'package:borough_king/widgets/Calcata/info.dart';
+import 'package:borough_king/widgets/Calcata/occassioni.dart';
 import 'package:borough_king/widgets/Subiaco/info.dart';
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
@@ -18,7 +22,6 @@ class Attivita {
 
   Attivita({this.nome, this.foto});
 }
-
 
 class Borghi_Attivita_Tolfa extends StatelessWidget {
   @override
@@ -888,6 +891,7 @@ class CalcataState extends State<Calcata> {
 
   @override
   Widget build(BuildContext context) {
+    final List<StatelessWidget> change = [Botteghe_Calcata(), MonuCalcata(), CalcataMusei() ,OccasioniCalcata(),notImplemented()];
     final List<Attivita> attivita = [
       Attivita(nome: 'Botteghe', foto: 'store-24px.jpg'),
       Attivita(nome: 'Monumenti e Parchi', foto: 'account_balance-24px.jpg'),
@@ -954,7 +958,10 @@ class CalcataState extends State<Calcata> {
             const EdgeInsets.symmetric(vertical: 2.0, horizontal: 4.0),
             child: Card(
               child: ListTile(
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).push(new MaterialPageRoute(builder:
+                      (BuildContext context) => change[index]));
+                },
                 title: Text(attivita[index].nome),
                 leading: ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(6.0)),
