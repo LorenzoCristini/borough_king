@@ -8,8 +8,6 @@ import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import "package:borough_king/widgets/preferiti.dart";
 import "package:borough_king/widgets/occasioni_fotografiche.dart";
-import 'package:borough_king/widgets/Tolfa/info.dart';
-import 'package:borough_king/widgets/Tolfa/musei.dart';
 import 'package:borough_king/widgets/search.dart';
 //Anagni
 import 'package:borough_king/widgets/Anagni/info.dart';
@@ -17,7 +15,12 @@ import 'package:borough_king/widgets/Anagni/botteghe.dart';
 import 'package:borough_king/widgets/Anagni/monumenti.dart';
 import 'package:borough_king/widgets/Anagni/occasioni.dart';
 import 'package:borough_king/widgets/Anagni/musei.dart';
-
+//Tolfa
+import 'package:borough_king/widgets/Tolfa/info.dart';
+import 'package:borough_king/widgets/Tolfa/musei.dart';
+import 'package:borough_king/widgets/Tolfa/botteghe.dart';
+import 'package:borough_king/widgets/Tolfa/monumenti.dart';
+import 'package:borough_king/widgets/Tolfa/occasioni.dart';
 class Attivita {
   String nome;
   String foto;
@@ -120,7 +123,7 @@ class PostState extends State<Post> {
 
   @override
   Widget build(BuildContext context) {
-    final List<StatelessWidget> change = [notImplemented(),notImplemented(),Musei(),notImplemented(),notImplemented()];
+    final List<StatelessWidget> change = [BottegheTo(),MonumentiTo(),Musei(),OccasioniTo(),notImplemented()];
     final List<Attivita> attivita = [
       Attivita(nome: 'Botteghe', foto: 'store-24px.jpg'),
       Attivita(nome: 'Monumenti e Parchi', foto: 'account_balance-24px.jpg'),
