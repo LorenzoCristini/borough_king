@@ -306,7 +306,7 @@ class search extends StatelessWidget {
 }
 
 class Search extends SearchDelegate {
-  List<String> recentList = ['Qui vicino', 'Tolfa', 'Subiaco'];
+  List<String> recentList = ['Qui vicino'];
   @override
   List<Widget> buildActions(BuildContext context) {
     return <Widget>[
@@ -367,9 +367,9 @@ class Search extends SearchDelegate {
             ),
             onTap: () {
               selectedResult = suggestionList[index];
+              if(selectedResult != 'Qui vicino'){
               if (recentList.contains(selectedResult)){recentList.remove(selectedResult);}
-              recentList = ['Qui Vicino'] + [selectedResult] + recentList.sublist(1);
-
+              recentList = ['Qui vicino'] + [selectedResult] + recentList.sublist(1);}
               if (selectedResult == 'Tolfa'){Navigator.push(context, MaterialPageRoute(builder: (context) => Borghi_Attivita_Tolfa()));}
               else if (selectedResult == 'Subiaco'){ Navigator.push(context, MaterialPageRoute(builder: (context) => Borghi_Attivita_Subiaco()));}
               else if (selectedResult == 'Bracciano') {Navigator.push(context, MaterialPageRoute(builder: (context) => Borghi_Attivita_Bracciano()));}
@@ -398,6 +398,7 @@ class Search extends SearchDelegate {
             selectedResult = suggestionList[index];
             if(selectedResult != 'Qui vicino'){
             if (recentList.contains(selectedResult)){recentList.remove(selectedResult);}
+
             recentList = ['Qui vicino'] + [selectedResult] + recentList.sublist(1);}
 
             if (selectedResult == 'Tolfa'){Navigator.push(context, MaterialPageRoute(builder: (context) => Borghi_Attivita_Tolfa()));}

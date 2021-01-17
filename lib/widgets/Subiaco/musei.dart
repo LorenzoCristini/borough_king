@@ -5,7 +5,7 @@ import "package:flutter/material.dart";
 import "package:borough_king/widgets/preferiti.dart";
 import "package:borough_king/widgets/occasioni_fotografiche.dart";
 import 'package:folding_cell/folding_cell.dart';
-
+import 'package:borough_king/widgets/search.dart';
 class MuseiSubiaco extends StatelessWidget {
   final _foldingCellKey1 = GlobalKey<SimpleFoldingCellState>();
   final _foldingCellKey2 = GlobalKey<SimpleFoldingCellState>();
@@ -17,6 +17,25 @@ class MuseiSubiaco extends StatelessWidget {
             "Musei", style: TextStyle(color: Colors.black)),
         backgroundColor: Color(0xff90EE90),
         iconTheme: IconThemeData(color: Colors.black),
+        actions: <Widget>[
+      IconButton(
+      icon: Icon(
+      Icons.search,
+      color: Colors.black,
+        size: 30,
+      ),
+      onPressed: () {
+        List<String> borghi = [
+          "Tolfa",
+          "Anagni",
+          "Subiaco",
+          "Bracciano",
+          "Calcata"
+        ];
+        showSearch(context: context, delegate: Search(borghi));
+      },
+    )
+    ],
       ),
 
       body: Container(
