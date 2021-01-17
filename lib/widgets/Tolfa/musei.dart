@@ -225,7 +225,7 @@ class Musei extends StatelessWidget {
                   Row(children: <Widget>[
                     Padding(padding: EdgeInsets.only(right: 10),
                         child: Icon(Icons.room)),
-                    Center(child: Text("Piazza Vittorio  Veneto 3\nTolfa RM",
+                    Center(child: Text("Piazza Vittorio Veneto 3\nTolfa RM",
                       style: TextStyle(fontSize: 20),))
                   ]),
                   SizedBox(height: 10,),

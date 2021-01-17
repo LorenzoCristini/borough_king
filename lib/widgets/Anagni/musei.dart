@@ -106,53 +106,53 @@ class Musei extends StatelessWidget {
 
   Widget FrontWidget(GlobalKey<SimpleFoldingCellState> key) {
     if(key == _foldingCellKey1){
-    return Container(
-        color: Color(0xFFecf2f9),
-        alignment: Alignment.center,
+      return Container(
+          color: Color(0xFFecf2f9),
+          alignment: Alignment.center,
 
-        child: Row(children: <Widget>[
-          Expanded(
-            flex: 1,
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15.0),
-                image: DecorationImage(
-                    image: AssetImage('assets/images/Tolfa/museoCivico.jpg'),
-                    fit: BoxFit.cover),
+          child: Row(children: <Widget>[
+            Expanded(
+              flex: 1,
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15.0),
+                  image: DecorationImage(
+                      image: AssetImage('assets/images/Tolfa/museoCivico.jpg'),
+                      fit: BoxFit.cover),
 
-              ),
-            ),
-          ),
-          Expanded(
-            flex: 2,
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15.0),
-                color: Color(0xFFecf2f9),
-              ),
-              child: Column(children: <Widget>[
-                Padding(
-                    padding: EdgeInsets.all(10.0),
-                    child: Center(child: Text(
-                      "Museo Civico", style: TextStyle(fontSize: 23,fontFamily: "Times New Roman"),))
                 ),
-                Padding(
-                    padding: EdgeInsets.all(10.0),
-                    child: Row(mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Padding(padding: EdgeInsets.only(right: 10),
-                              child: Icon(Icons.room)),
-                          Center(child: Text(
-                            "Largo 15 Marzo\nTolfa RM", style: TextStyle(
-                              fontSize: 18),))
-                        ])
-                )
-
-              ]),
+              ),
             ),
-          ),
-        ])
-    );
+            Expanded(
+              flex: 2,
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15.0),
+                  color: Color(0xFFecf2f9),
+                ),
+                child: Column(children: <Widget>[
+                  Padding(
+                      padding: EdgeInsets.all(10.0),
+                      child: Center(child: Text(
+                        "Museo Civico", style: TextStyle(fontSize: 23,fontFamily: "Times New Roman"),))
+                  ),
+                  Padding(
+                      padding: EdgeInsets.all(10.0),
+                      child: Row(mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Padding(padding: EdgeInsets.only(right: 10),
+                                child: Icon(Icons.room)),
+                            Center(child: Text(
+                              "Largo 15 Marzo\nTolfa RM", style: TextStyle(
+                                fontSize: 18),))
+                          ])
+                  )
+
+                ]),
+              ),
+            ),
+          ])
+      );
     } else if (key == _foldingCellKey2){
       return Container(
           color: Color(0xFFecf2f9),
@@ -225,7 +225,7 @@ class Musei extends StatelessWidget {
                   Row(children: <Widget>[
                     Padding(padding: EdgeInsets.only(right: 10),
                         child: Icon(Icons.room)),
-                    Center(child: Text("Piazza Vittorio  Veneto 3\nTolfa RM",
+                    Center(child: Text("Piazza Vittorio Veneto 3\nTolfa RM",
                       style: TextStyle(fontSize: 20),))
                   ]),
                   SizedBox(height: 10,),
@@ -291,11 +291,9 @@ class Musei extends StatelessWidget {
                       Center(child: Text("Largo 15 Marzo\nTolfa RM",
                         style: TextStyle(fontSize: 20),))
                     ]),
+                    SizedBox(height: 10,),
                     Align(alignment: Alignment.topLeft,
-                        child: Text(
-                          "Descrizione", style: TextStyle(fontSize: 18),)),
-                    Align(alignment: Alignment.topLeft,
-                        child: Text("Descrizione epica finita male",
+                        child: Text("Descrizione museo civico",
                           style: TextStyle(fontSize: 18),)),
                     SizedBox(height: 10,),
                     Align(alignment: Alignment.topLeft,
@@ -325,7 +323,7 @@ class Musei extends StatelessWidget {
                         child: Row(children: <Widget>[
                           Text("Fatica", style: TextStyle(fontSize: 18),),
                           Padding(padding: EdgeInsets.only(left: 150),
-                              child: Text("💧"),),
+                            child: Text("💧"),),
                         ])),
                   ]),
             ),
