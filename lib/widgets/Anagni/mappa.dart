@@ -38,7 +38,7 @@ class MappaAn extends StatelessWidget {
       body: Container(
         child: PhotoView(
           backgroundDecoration: BoxDecoration(color: Colors.white),
-          imageProvider: AssetImage('assets/images/Bracciano/mappa.JPG'),),
+          imageProvider: AssetImage('assets/images/Anagni/mappa.JPG'),),
       ),
       bottomNavigationBar: BottomNavigationBar(
         // Server per inserire la barra inferiore
