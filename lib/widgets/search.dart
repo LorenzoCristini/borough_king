@@ -305,8 +305,9 @@ class search extends StatelessWidget {
   }
 }
 
+List<String> recentList = ['Qui vicino'];
 class Search extends SearchDelegate {
-  List<String> recentList = ['Qui vicino'];
+  //List<String> recentList = ['Qui vicino'];
   @override
   List<Widget> buildActions(BuildContext context) {
     return <Widget>[
@@ -363,7 +364,11 @@ class Search extends SearchDelegate {
                 ? null
                 : IconButton(
               icon: Icon(Icons.clear),
-              onPressed: () {},
+              onPressed: () {
+                selectedResult = suggestionList[index];
+                recentList.remove(selectedResult);
+
+              },
             ),
             onTap: () {
               selectedResult = suggestionList[index];
@@ -392,7 +397,10 @@ class Search extends SearchDelegate {
               ? null
               : IconButton(
             icon: Icon(Icons.clear),
-            onPressed: () {},
+            onPressed: () {
+              selectedResult = suggestionList[index];
+              recentList.remove(selectedResult);
+            },
           ),
           onTap: () {
             selectedResult = suggestionList[index];
