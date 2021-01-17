@@ -307,7 +307,6 @@ class search extends StatelessWidget {
 
 List<String> recentList = ['Qui vicino'];
 class Search extends SearchDelegate {
-  //List<String> recentList = ['Qui vicino'];
   @override
   List<Widget> buildActions(BuildContext context) {
     return <Widget>[
@@ -357,6 +356,7 @@ class Search extends SearchDelegate {
       itemBuilder: (context, index) {
         if(query != ''){
           return ListTile(
+
             title: Padding(padding: EdgeInsets.only(left: 50),child:Text(
               suggestionList[index],
             ),),
