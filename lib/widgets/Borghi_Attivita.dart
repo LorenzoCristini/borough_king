@@ -1,9 +1,9 @@
 import 'dart:math';
 import 'package:borough_king/main.dart';
-import 'package:borough_king/widgets/Anagni/kek.dart';
-import 'package:borough_king/widgets/Bracciano/kek.dart';
-import 'package:borough_king/widgets/Calcata/kek.dart';
-import 'package:borough_king/widgets/Subiaco/kek.dart';
+import 'package:borough_king/widgets/Anagni/info.dart';
+import 'package:borough_king/widgets/Bracciano/info.dart';
+import 'package:borough_king/widgets/Calcata/info.dart';
+import 'package:borough_king/widgets/Subiaco/info.dart';
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import "package:borough_king/widgets/preferiti.dart";
