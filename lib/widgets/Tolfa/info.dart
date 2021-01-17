@@ -35,16 +35,19 @@ class Info_Tolfa extends StatelessWidget {
           ),
           Text(
             'Descrizione',
-            style: TextStyle(fontSize: 30),
+            style: TextStyle(fontSize: 30, fontFamily: "Times New Roman"),
           ),
           Text(
-            "Tolfa è un comune italiano di 4 924 abitanti della città metropolitana di Roma Capitale nel Lazio.",
+            "Tolfa è un comune italiano di 4 924 abitanti della città metropolitana di Roma Capitale nel Lazio."
+                "Il termine Tolfa ha origine incerta: potrebbe derivare da 'Tulphae', dalla radice tol- (sollevare), "
+                "riferito alla sua posizione geografica; oppure, secondo un'altra ipotesi, "
+            "potrebbe riferirsi al nome di un principe longobardo, forse Agilulfo o Ataulfo.",
             style: TextStyle(fontSize: 18),
           ),
           SizedBox(
-            height: 100,
+            height: 50,
           ),
-          Text("Numeri Utili",
+          Text("Numeri Utili ☎️",
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
           SizedBox(height: 20),
           Text("Carabinieri, Stazione di Tolfa",

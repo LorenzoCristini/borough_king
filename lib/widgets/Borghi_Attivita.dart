@@ -1,5 +1,9 @@
 import 'dart:math';
 import 'package:borough_king/main.dart';
+import 'package:borough_king/widgets/Anagni/kek.dart';
+import 'package:borough_king/widgets/Bracciano/kek.dart';
+import 'package:borough_king/widgets/Calcata/kek.dart';
+import 'package:borough_king/widgets/Subiaco/kek.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import "package:flutter/material.dart";
@@ -306,6 +310,20 @@ class SubiacoState extends State<Subiaco> {
           Container(
             child: Image.asset('assets/images/subiaco.jpg'),
           ),
+          Container(
+              alignment: Alignment.topRight,
+              child: IconButton(
+                  icon: Icon(
+                    Icons.info_outlined,
+                    color: Colors.white,
+                    size: 34.0,
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Info_Subiaco()));
+                  })),
           Padding(
             padding: EdgeInsets.fromLTRB(0, 180, 0, 0),
             child: Container(
@@ -474,6 +492,20 @@ class AnagniState extends State<Anagni> {
           Container(
             child: Image.asset('assets/images/anagni.jpg'),
           ),
+          Container(
+              alignment: Alignment.topRight,
+              child: IconButton(
+                  icon: Icon(
+                    Icons.info_outlined,
+                    color: Colors.white,
+                    size: 34.0,
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Info_Anagni()));
+                  })),
           Padding(
             padding: EdgeInsets.fromLTRB(0, 180, 0, 0),
             child: Container(
@@ -642,6 +674,20 @@ class BraccianoState extends State<Bracciano> {
           Container(
             child: Image.asset('assets/images/bracciano.jpg'),
           ),
+          Container(
+              alignment: Alignment.topRight,
+              child: IconButton(
+                  icon: Icon(
+                    Icons.info_outlined,
+                    color: Colors.white,
+                    size: 34.0,
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Info_Bracciano()));
+                  })),
           Padding(
             padding: EdgeInsets.fromLTRB(0, 190, 0, 0),
             child: Container(
@@ -809,6 +855,20 @@ class CalcataState extends State<Calcata> {
           Container(
             child: Image.asset('assets/images/calcata.jpg'),
           ),
+          Container(
+              alignment: Alignment.topRight,
+              child: IconButton(
+                  icon: Icon(
+                    Icons.info_outlined,
+                    color: Colors.white,
+                    size: 34.0,
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Info_Calcata()));
+                  })),
           Padding(
             padding: EdgeInsets.fromLTRB(0, 200, 0, 0),
             child: Container(
