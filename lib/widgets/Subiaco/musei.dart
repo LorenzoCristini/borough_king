@@ -6,7 +6,7 @@ import "package:borough_king/widgets/preferiti.dart";
 import "package:borough_king/widgets/occasioni_fotografiche.dart";
 import 'package:folding_cell/folding_cell.dart';
 
-class Musei extends StatelessWidget {
+class MuseiSubiaco extends StatelessWidget {
   final _foldingCellKey1 = GlobalKey<SimpleFoldingCellState>();
   final _foldingCellKey2 = GlobalKey<SimpleFoldingCellState>();
   @override
@@ -117,7 +117,7 @@ class Musei extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
-                      image: AssetImage('assets/images/Tolfa/museoCivico.jpg'),
+                      image: AssetImage('assets/images/Subiaco/ponte.jpg'),
                       fit: BoxFit.cover),
 
                 ),
@@ -134,7 +134,7 @@ class Musei extends StatelessWidget {
                   Padding(
                       padding: EdgeInsets.all(10.0),
                       child: Center(child: Text(
-                        "Museo Civico", style: TextStyle(fontSize: 23,fontFamily: "Times New Roman"),))
+                        "Polo Museale\nRocca di Subiaco", style: TextStyle(fontSize: 23,fontFamily: "Times New Roman"),))
                   ),
                   Padding(
                       padding: EdgeInsets.all(10.0),
@@ -143,7 +143,7 @@ class Musei extends StatelessWidget {
                             Padding(padding: EdgeInsets.only(right: 10),
                                 child: Icon(Icons.room)),
                             Center(child: Text(
-                              "Largo 15 Marzo\nTolfa RM", style: TextStyle(
+                              "Subiaco", style: TextStyle(
                                 fontSize: 18),))
                           ])
                   )
@@ -165,7 +165,7 @@ class Musei extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
-                      image: AssetImage('assets/images/Tolfa/archeologico.jpg'),
+                      image: AssetImage('assets/images/Subiaco/carta.jpg'),
                       fit: BoxFit.cover),
 
                 ),
@@ -180,9 +180,9 @@ class Musei extends StatelessWidget {
                 ),
                 child: Column(children: <Widget>[
                   Padding(
-                      padding: EdgeInsets.all(10.0),
+                      padding: EdgeInsets.all(12.0),
                       child: Center(child: Text(
-                        "Museo Archeologico", style: TextStyle(fontSize: 23,fontFamily: "Times New Roman"),))
+                        "Museo/Laboratorio “Il Borgo dei Cartai”", style: TextStyle(fontSize: 23,fontFamily: "Times New Roman"),))
                   ),
                   Padding(
                       padding: EdgeInsets.all(10.0),
@@ -191,7 +191,7 @@ class Musei extends StatelessWidget {
                             Padding(padding: EdgeInsets.only(right: 10),
                                 child: Icon(Icons.room)),
                             Center(child: Text(
-                              "Piazza Vittorio Veneto 3\nTolfa RM", style: TextStyle(
+                              "Via degli Opifici \n00028 Subiaco", style: TextStyle(
                                 fontSize: 18),))
                           ])
                   )
@@ -217,7 +217,7 @@ class Musei extends StatelessWidget {
                 children: <Widget>[
                   Align(alignment: Alignment.topLeft,
                       child: Row(children: <Widget>[
-                        Text("Museo Archeologico", style: TextStyle(fontSize: 25),),
+                        Text("Museo/Laboratorio \n“Il Borgo dei Cartai”", style: TextStyle(fontSize: 25),),
                         Padding(padding: EdgeInsets.only(left: 70  ),
                           child: IconButton(onPressed:() {/*Aggiungere cambio preferiti*/},icon:Icon(Icons.favorite_border,size: 30,),),),
                       ])),
@@ -225,40 +225,41 @@ class Musei extends StatelessWidget {
                   Row(children: <Widget>[
                     Padding(padding: EdgeInsets.only(right: 10),
                         child: Icon(Icons.room)),
-                    Center(child: Text("Piazza Vittorio Veneto 3\nTolfa RM",
-                      style: TextStyle(fontSize: 20),))
+                    Center(child: Text("Via degli Opifici \n00028 Subiaco",
+                      style: TextStyle(fontSize: 16),))
                   ]),
                   SizedBox(height: 10,),
                   Align(alignment: Alignment.topLeft,
-                      child: Text("Il museo archeologico permette di ritornare e assaporare i sapovi della tevva",
-                        style: TextStyle(fontSize: 18),)),
+                      child: Text("Situato all’interno dell’ex Mulino Carlani, la struttura è stata restaurata e"
+                          " resa museo/laboratorio per la preservazione e lo studio della carta fatta a mano e le tecniche di stampa.",
+                        style: TextStyle(fontSize: 16),)),
                   SizedBox(height: 10,),
                   Align(alignment: Alignment.topLeft,
-                      child: Text("Orario", style: TextStyle(fontSize: 18),)),
+                      child: Text("Orario", style: TextStyle(fontSize: 16),)),
                   Align(alignment: Alignment.topLeft,
                       child: Row(children: <Widget>[
-                        Text("Lun-ven", style: TextStyle(fontSize: 18),),
+                        Text("Lun-ven", style: TextStyle(fontSize: 16),),
                         Padding(padding: EdgeInsets.only(left: 50),
                             child: Text(
-                              "9:00-18:00", style: TextStyle(fontSize: 18),)),
+                              "9:00-18:00", style: TextStyle(fontSize: 16),)),
                       ])),
                   SizedBox(height: 20,),
                   Align(alignment: Alignment.topLeft,
                       child: Row(children: <Widget>[
-                        Text("Costo", style: TextStyle(fontSize: 18),),
+                        Text("Costo", style: TextStyle(fontSize: 16),),
                         Padding(padding: EdgeInsets.only(left: 150),
-                            child: Icon(Icons.euro, size: 17,)),
+                            child: Text("€€",style: TextStyle(fontSize: 16),))
                       ])),
                   Align(alignment: Alignment.topLeft,
                       child: Row(children: <Widget>[
-                        Text("Tempo", style: TextStyle(fontSize: 18),),
+                        Text("Tempo", style: TextStyle(fontSize: 16),),
                         Padding(padding: EdgeInsets.only(left: 125),
                             child: Text(
-                              "45m-1h", style: TextStyle(fontSize: 18),)),
+                              "45m-1h", style: TextStyle(fontSize: 16),)),
                       ])),
                   Align(alignment: Alignment.topLeft,
                       child: Row(children: <Widget>[
-                        Text("Fatica", style: TextStyle(fontSize: 18),),
+                        Text("Fatica", style: TextStyle(fontSize: 16),),
                         Padding(padding: EdgeInsets.only(left: 150),
                             child: Text("💧💧")),
                       ])),
@@ -279,51 +280,50 @@ class Musei extends StatelessWidget {
                   children: <Widget>[
                     Align(alignment: Alignment.topLeft,
                         child: Row(children: <Widget>[
-                          Text("Museo Civico", style: TextStyle(fontSize: 25),),
-                          Padding(padding: EdgeInsets.only(left: 160  ),
+                          Text("Polo Museale\nRocca di Subiaco", style: TextStyle(fontSize: 25),),
+                          Padding(padding: EdgeInsets.only(left: 100  ),
                             child: IconButton(onPressed:() {/*Aggiungere cambio preferiti*/},icon:Icon(Icons.favorite_border,size: 30,),),),
                         ])),
-                    Align(alignment: Alignment.topLeft,
-                        child: Text("Tolfa", style: TextStyle(fontSize: 20),)),
+                    SizedBox(height: 10,),
                     Row(children: <Widget>[
                       Padding(padding: EdgeInsets.only(right: 10),
                           child: Icon(Icons.room)),
-                      Center(child: Text("Largo 15 Marzo\nTolfa RM",
+                      Center(child: Text("Subiaco",
                         style: TextStyle(fontSize: 20),))
                     ]),
                     SizedBox(height: 10,),
                     Align(alignment: Alignment.topLeft,
-                        child: Text("Descrizione museo civico",
-                          style: TextStyle(fontSize: 18),)),
+                        child: Text("Al suo interno, risiedono due musei rappresentativi della storia della Città di Subiaco:\nMuseo della Carta\nMuseo della Stampa",
+                          style: TextStyle(fontSize: 16),)),
                     SizedBox(height: 10,),
                     Align(alignment: Alignment.topLeft,
-                        child: Text("Orario", style: TextStyle(fontSize: 18),)),
+                        child: Text("Orario", style: TextStyle(fontSize: 16),)),
                     Align(alignment: Alignment.topLeft,
                         child: Row(children: <Widget>[
-                          Text("Lun-ven", style: TextStyle(fontSize: 18),),
+                          Text("Lun-gio", style: TextStyle(fontSize: 16),),
                           Padding(padding: EdgeInsets.only(left: 50),
                               child: Text(
-                                "9:00-18:00", style: TextStyle(fontSize: 18),)),
+                                "10:30-16:30", style: TextStyle(fontSize: 16),)),
                         ])),
                     SizedBox(height: 20,),
                     Align(alignment: Alignment.topLeft,
                         child: Row(children: <Widget>[
-                          Text("Costo", style: TextStyle(fontSize: 18),),
+                          Text("Costo", style: TextStyle(fontSize: 16),),
                           Padding(padding: EdgeInsets.only(left: 150),
-                              child: Icon(Icons.euro, size: 17,)),
+                              child: Text("€€",style: TextStyle(fontSize: 16),))
                         ])),
                     Align(alignment: Alignment.topLeft,
                         child: Row(children: <Widget>[
-                          Text("Tempo", style: TextStyle(fontSize: 18),),
+                          Text("Tempo", style: TextStyle(fontSize: 16),),
                           Padding(padding: EdgeInsets.only(left: 125),
                               child: Text(
-                                "1h-1.5h", style: TextStyle(fontSize: 18),)),
+                                "1h-1.5h", style: TextStyle(fontSize: 16),)),
                         ])),
                     Align(alignment: Alignment.topLeft,
                         child: Row(children: <Widget>[
-                          Text("Fatica", style: TextStyle(fontSize: 18),),
+                          Text("Fatica", style: TextStyle(fontSize: 16),),
                           Padding(padding: EdgeInsets.only(left: 150),
-                            child: Text("💧"),),
+                            child: Text("💧💧"),),
                         ])),
                   ]),
             ),
