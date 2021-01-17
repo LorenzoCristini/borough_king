@@ -1,15 +1,12 @@
 import 'dart:math';
 import 'package:borough_king/main.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import "package:flutter/material.dart";
 import "package:borough_king/widgets/preferiti.dart";
 import "package:borough_king/widgets/occasioni_fotografiche.dart";
-import "package:flutter/src/rendering/box.dart";
-import 'package:flutter/src/rendering/sliver_multi_box_adaptor.dart';
-import 'package:borough_king/main.dart';
 import 'package:folding_cell/folding_cell.dart';
 import 'package:borough_king/Icons/app_icons.dart';
+
 class ListaAttivita extends StatelessWidget {
   final _foldingCellKey = GlobalKey<SimpleFoldingCellState>();
 
@@ -24,6 +21,7 @@ class ListaAttivita extends StatelessWidget {
       ),
 
       body: Container(
+
           child: ListView(
               scrollDirection: Axis.vertical,
               children: <Widget>[
@@ -90,6 +88,7 @@ class ListaAttivita extends StatelessWidget {
           ),
         ],
       ),);
+
   }
 
   Widget FrontWidget() {
@@ -140,8 +139,8 @@ class ListaAttivita extends StatelessWidget {
           ),
         ])
     );
-  }
 
+  }
 
   Widget InnerWidget() {
     return Container(

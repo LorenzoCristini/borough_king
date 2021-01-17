@@ -19,14 +19,6 @@ class Attivita {
 
 
 class Borghi_Attivita_Tolfa extends StatelessWidget {
-  final List<Attivita> attivita = [
-    Attivita(nome: 'Botteghe', foto: 'store-24px.jpg'),
-    Attivita(nome: 'Monumenti e Parchi', foto: 'account_balance-24px.jpg'),
-    Attivita(nome: 'Musei', foto: 'museum-24px.jpg'),
-    Attivita(nome: 'Occasioni Fotografiche', foto: 'insert_photo-24px.jpg'),
-    Attivita(nome: 'Mappa', foto: 'map-24px.jpg'),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,87 +38,8 @@ class Borghi_Attivita_Tolfa extends StatelessWidget {
           )
         ],
       ),
-      body: ListView(children: <Widget>[
-        Stack(
-          children: <Widget>[
-            Container(
-              child: Image.asset('assets/images/tolfa.jpg'),
-            ),
-            Container(
-                alignment: Alignment.topRight,
-                child: IconButton(
-                    icon: Icon(
-                      Icons.info_outlined,
-                      color: Colors.white,
-                      size: 34.0,
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Info_Tolfa()));
-                    })),
-            Padding(
-              padding: EdgeInsets.fromLTRB(0, 180, 0, 0),
-              child: Container(
-                  alignment: Alignment.bottomLeft,
-                  child: IconButton(
-                    icon: Icon(
-                      Icons.favorite_border,
-                      color: Colors.black,
-                      size: 40.0,
-                    ),
-                    onPressed: () {},
-                  )),
-            ), ],
-        ),
-        SizedBox(
-          height:10,
-        ),
-        Text(
-          'Attività',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 25.0,
-            color: Colors.black,
-            //letterSpacing: 1.0,
-            fontWeight: FontWeight.bold,
-            fontFamily: "Times New Roman",
-          ),
-        ),
-        SizedBox(
-          height:10,
-        ),
-        ListView.builder(
-          itemCount: attivita.length,
-          shrinkWrap: true,
-          physics: new NeverScrollableScrollPhysics(),
-          itemBuilder: (context, index) {
-            return Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 2.0, horizontal: 4.0),
-              child: Card(
-                  child: ListTile(
-                onTap: () {Navigator.of(context).push(new MaterialPageRoute(builder:
-                    (BuildContext context) => ListaAttivita()));},
-                title: Text(attivita[index].nome),
-                leading: ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(6.0)),
-                  child: Image.asset(
-                      'assets/images/Icons/${attivita[index].foto}'),
-                ),
-                trailing: Icon(
-                    Icons.arrow_forward,
-                    color: Colors.black,
-                    size: 30,
-                  ),
+      body: Post(),
 
-                ),
-              ),
-            );
-          },
-        )
-      ]),
       bottomNavigationBar: BottomNavigationBar(
         // Server per inserire la barra inferiore
         currentIndex: 2,
@@ -175,6 +88,114 @@ class Borghi_Attivita_Tolfa extends StatelessWidget {
   }
 }
 
+class Post extends StatefulWidget{
+  @override
+  PostState createState() => new PostState();
+}
+
+bool liked = false;
+class PostState extends State<Post> {
+  _pressed() {
+    setState(() {
+      liked= !liked;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final List<Attivita> attivita = [
+      Attivita(nome: 'Botteghe', foto: 'store-24px.jpg'),
+      Attivita(nome: 'Monumenti e Parchi', foto: 'account_balance-24px.jpg'),
+      Attivita(nome: 'Musei', foto: 'museum-24px.jpg'),
+      Attivita(nome: 'Occasioni Fotografiche', foto: 'insert_photo-24px.jpg'),
+      Attivita(nome: 'Mappa', foto: 'map-24px.jpg'),
+    ];
+    return ListView(children: <Widget>[
+      Stack(
+        children: <Widget>[
+          Container(
+            child: Image.asset('assets/images/tolfa.jpg'),
+          ),
+          Container(
+              alignment: Alignment.topRight,
+              child: IconButton(
+                  icon: Icon(
+                    Icons.info_outlined,
+                    color: Colors.white,
+                    size: 34.0,
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Info_Tolfa()));
+                  })),
+          Padding(
+            padding: EdgeInsets.fromLTRB(0, 180, 0, 0),
+            child: Container(
+                alignment: Alignment.bottomLeft,
+                child: IconButton(
+                  icon: Icon(liked ? Icons.favorite : Icons.favorite_border_outlined,
+                      color: liked ? Colors.redAccent : Colors.black),
+                  iconSize: 40,
+                  onPressed: () => _pressed(),
+                ),),
+          ),
+        ],
+      ),
+      SizedBox(
+        height: 10,
+      ),
+      Text(
+        'Attività',
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontSize: 25.0,
+          color: Colors.black,
+          //letterSpacing: 1.0,
+          fontWeight: FontWeight.bold,
+          fontFamily: "Times New Roman",
+        ),
+      ),
+      SizedBox(
+        height: 10,
+      ),
+      ListView.builder(
+        itemCount: attivita.length,
+        shrinkWrap: true,
+        physics: new NeverScrollableScrollPhysics(),
+        itemBuilder: (context, index) {
+          return Padding(
+            padding:
+            const EdgeInsets.symmetric(vertical: 2.0, horizontal: 4.0),
+            child: Card(
+              child: ListTile(
+                onTap: () {
+                  Navigator.of(context).push(new MaterialPageRoute(builder:
+                      (BuildContext context) => notImplemented()));
+                },
+                title: Text(attivita[index].nome),
+                leading: ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(6.0)),
+                  child: Image.asset(
+                      'assets/images/Icons/${attivita[index].foto}'),
+                ),
+                trailing: Icon(
+                  Icons.arrow_forward,
+                  color: Colors.black,
+                  size: 30,
+                ),
+
+              ),
+            ),
+          );
+        },
+      ),
+    ]);
+  }
+
+}
+
 class Borghi_Attivita_Subiaco extends StatelessWidget {
   final List<Attivita> attivita = [
     Attivita(nome: 'Botteghe', foto: 'store-24px.jpg'),
@@ -203,71 +224,7 @@ class Borghi_Attivita_Subiaco extends StatelessWidget {
           )
         ],
       ),
-      body: ListView(children: <Widget>[
-        Stack(
-          children: <Widget>[
-            Container(
-              child: Image.asset('assets/images/subiaco.jpg'),
-            ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(0, 180, 0, 0),
-              child: Container(
-                  alignment: Alignment.bottomLeft,
-                  child: IconButton(
-                    icon: Icon(
-                      Icons.favorite_border_outlined,
-                      color: Colors.black,
-                      size: 40.0,
-                    ),
-                    onPressed: () {},
-                  )),
-            ), ],
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Text(
-          'Attività',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 25.0,
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-            fontFamily: "Times New Roman",
-          ),
-        ),
-        SizedBox(
-          height:10,
-        ),
-        ListView.builder(
-          itemCount: attivita.length,
-          shrinkWrap: true,
-          physics: new NeverScrollableScrollPhysics(),
-          itemBuilder: (context, index) {
-            return Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 2.0, horizontal: 4.0),
-              child: Card(
-                  child: ListTile(
-                onTap: () {},
-                title: Text(attivita[index].nome),
-                leading: ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(6.0)),
-                  child: Image.asset(
-                      'assets/images/Icons/${attivita[index].foto}'),
-                ),
-                trailing: Icon(
-                    Icons.arrow_forward,
-                    color: Colors.black,
-                    size: 30,
-                  ),
-
-                ),
-              ),
-            );
-          },
-        )
-      ]),
+      body: Subiaco(),
 
 
 
@@ -317,6 +274,95 @@ class Borghi_Attivita_Subiaco extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class Subiaco extends StatefulWidget{
+  @override
+  SubiacoState createState() => new SubiacoState();
+}
+
+bool like = false;
+class SubiacoState extends State<Subiaco> {
+  _pressed() {
+    setState(() {
+      like = !like;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final List<Attivita> attivita = [
+      Attivita(nome: 'Botteghe', foto: 'store-24px.jpg'),
+      Attivita(nome: 'Monumenti e Parchi', foto: 'account_balance-24px.jpg'),
+      Attivita(nome: 'Musei', foto: 'museum-24px.jpg'),
+      Attivita(nome: 'Occasioni Fotografiche', foto: 'insert_photo-24px.jpg'),
+      Attivita(nome: 'Mappa', foto: 'map-24px.jpg'),
+    ];
+    return ListView(children: <Widget>[
+      Stack(
+        children: <Widget>[
+          Container(
+            child: Image.asset('assets/images/subiaco.jpg'),
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(0, 180, 0, 0),
+            child: Container(
+                alignment: Alignment.bottomLeft,
+                child: IconButton(
+                  icon: Icon(like ? Icons.favorite : Icons.favorite_border_outlined,
+                  color: like ? Colors.redAccent : Colors.black),
+                  iconSize: 40,
+                  onPressed: () => _pressed(),
+                  ),),
+          ),
+        ],
+      ),
+      SizedBox(
+        height: 10,
+      ),
+      Text(
+        'Attività',
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontSize: 25.0,
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+          fontFamily: "Times New Roman",
+        ),
+      ),
+      SizedBox(
+        height: 10,
+      ),
+      ListView.builder(
+        itemCount: attivita.length,
+        shrinkWrap: true,
+        physics: new NeverScrollableScrollPhysics(),
+        itemBuilder: (context, index) {
+          return Padding(
+            padding:
+            const EdgeInsets.symmetric(vertical: 2.0, horizontal: 4.0),
+            child: Card(
+              child: ListTile(
+                onTap: () {},
+                title: Text(attivita[index].nome),
+                leading: ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(6.0)),
+                  child: Image.asset(
+                      'assets/images/Icons/${attivita[index].foto}'),
+                ),
+                trailing: Icon(
+                  Icons.arrow_forward,
+                  color: Colors.black,
+                  size: 30,
+                ),
+
+              ),
+            ),
+          );
+        },
+      ),
+    ]);
   }
 }
 
@@ -348,74 +394,7 @@ class Borghi_Attivita_Anagni extends StatelessWidget {
           )
         ],
       ),
-      body: ListView(children: <Widget>[
-        Stack(
-          children: <Widget>[
-            Container(
-              child: Image.asset('assets/images/anagni.jpg'),
-            ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(0, 180, 0, 0),
-              child: Container(
-                  alignment: Alignment.bottomLeft,
-                  child: IconButton(
-                    icon: Icon(
-                      Icons.favorite_border_outlined,
-                      color: Colors.black,
-                      size: 40.0,
-                    ),
-                    onPressed: () {},
-                  )),
-            ), ],
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Text(
-          'Attività',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 25.0,
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-            fontFamily: "Times New Roman",
-          ),
-        ),
-        SizedBox(
-          height:10,
-        ),
-        ListView.builder(
-          itemCount: attivita.length,
-          shrinkWrap: true,
-          physics: new NeverScrollableScrollPhysics(),
-          itemBuilder: (context, index) {
-            return Padding(
-              padding:
-              const EdgeInsets.symmetric(vertical: 2.0, horizontal: 4.0),
-              child: Card(
-                  child: ListTile(
-                    onTap: () {},
-                    title: Text(attivita[index].nome),
-                    leading: ClipRRect(
-                      borderRadius: BorderRadius.all(Radius.circular(6.0)),
-                      child: Image.asset(
-                          'assets/images/Icons/${attivita[index].foto}'),
-                    ),
-                    trailing: Icon(
-                        Icons.arrow_forward,
-                        color: Colors.black,
-                        size: 30,
-                      ),
-
-                    ),
-                  ),
-            );
-          },
-        )
-      ]),
-
-
-
+      body: Anagni(),
 
       bottomNavigationBar: BottomNavigationBar(
         // Server per inserire la barra inferiore
@@ -462,6 +441,96 @@ class Borghi_Attivita_Anagni extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class Anagni extends StatefulWidget{
+  @override
+  AnagniState createState() => new AnagniState();
+}
+
+bool lik = false;
+class AnagniState extends State<Anagni> {
+  _pressed() {
+    setState(() {
+      lik = !lik;
+    });
+  }
+
+
+  @override
+  Widget build(BuildContext context) {
+    final List<Attivita> attivita = [
+      Attivita(nome: 'Botteghe', foto: 'store-24px.jpg'),
+      Attivita(nome: 'Monumenti e Parchi', foto: 'account_balance-24px.jpg'),
+      Attivita(nome: 'Musei', foto: 'museum-24px.jpg'),
+      Attivita(nome: 'Occasioni Fotografiche', foto: 'insert_photo-24px.jpg'),
+      Attivita(nome: 'Mappa', foto: 'map-24px.jpg'),
+    ];
+    return ListView(children: <Widget>[
+      Stack(
+        children: <Widget>[
+          Container(
+            child: Image.asset('assets/images/anagni.jpg'),
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(0, 180, 0, 0),
+            child: Container(
+                alignment: Alignment.bottomLeft,
+                child: IconButton(
+                  icon: Icon(lik ? Icons.favorite : Icons.favorite_border_outlined,
+                      color: lik ? Colors.redAccent : Colors.black),
+                  iconSize: 40,
+                  onPressed: () => _pressed(),
+                ),),
+          ),
+        ],
+      ),
+      SizedBox(
+        height: 10,
+      ),
+      Text(
+        'Attività',
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontSize: 25.0,
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+          fontFamily: "Times New Roman",
+        ),
+      ),
+      SizedBox(
+        height: 10,
+      ),
+      ListView.builder(
+        itemCount: attivita.length,
+        shrinkWrap: true,
+        physics: new NeverScrollableScrollPhysics(),
+        itemBuilder: (context, index) {
+          return Padding(
+            padding:
+            const EdgeInsets.symmetric(vertical: 2.0, horizontal: 4.0),
+            child: Card(
+              child: ListTile(
+                onTap: () {},
+                title: Text(attivita[index].nome),
+                leading: ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(6.0)),
+                  child: Image.asset(
+                      'assets/images/Icons/${attivita[index].foto}'),
+                ),
+                trailing: Icon(
+                  Icons.arrow_forward,
+                  color: Colors.black,
+                  size: 30,
+                ),
+
+              ),
+            ),
+          );
+        },
+      ),
+    ]);
   }
 }
 
@@ -493,74 +562,7 @@ class Borghi_Attivita_Bracciano extends StatelessWidget {
           )
         ],
       ),
-      body: ListView(children: <Widget>[
-        Stack(
-          children: <Widget>[
-            Container(
-              child: Image.asset('assets/images/bracciano.jpg'),
-            ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(0, 190, 0, 0),
-              child: Container(
-                  alignment: Alignment.bottomLeft,
-                  child: IconButton(
-                    icon: Icon(
-                      Icons.favorite_border_outlined,
-                      color: Colors.black,
-                      size: 40.0,
-                    ),
-                    onPressed: () {},
-                  )),
-            ), ],
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Text(
-          'Attività',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 25.0,
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-            fontFamily: "Times New Roman",
-          ),
-        ),
-        SizedBox(
-          height:10,
-        ),
-        ListView.builder(
-          itemCount: attivita.length,
-          shrinkWrap: true,
-          physics: new NeverScrollableScrollPhysics(),
-          itemBuilder: (context, index) {
-            return Padding(
-              padding:
-              const EdgeInsets.symmetric(vertical: 2.0, horizontal: 4.0),
-              child: Card(
-                  child: ListTile(
-                    onTap: () {},
-                    title: Text(attivita[index].nome),
-                    leading: ClipRRect(
-                      borderRadius: BorderRadius.all(Radius.circular(6.0)),
-                      child: Image.asset(
-                          'assets/images/Icons/${attivita[index].foto}'),
-                    ),
-                    trailing: Icon(
-                        Icons.arrow_forward,
-                        color: Colors.black,
-                        size: 30,
-                      ),
-
-                    ),
-                  ),
-            );
-          },
-        )
-      ]),
-
-
-
+      body: Bracciano(),
 
       bottomNavigationBar: BottomNavigationBar(
         // Server per inserire la barra inferiore
@@ -610,6 +612,95 @@ class Borghi_Attivita_Bracciano extends StatelessWidget {
   }
 }
 
+class Bracciano extends StatefulWidget{
+  @override
+  BraccianoState createState() => new BraccianoState();
+}
+
+bool likee = false;
+class BraccianoState extends State<Bracciano> {
+  _pressed() {
+    setState(() {
+      likee = !likee;
+    });
+  }
+
+
+  @override
+  Widget build(BuildContext context) {
+    final List<Attivita> attivita = [
+      Attivita(nome: 'Botteghe', foto: 'store-24px.jpg'),
+      Attivita(nome: 'Monumenti e Parchi', foto: 'account_balance-24px.jpg'),
+      Attivita(nome: 'Musei', foto: 'museum-24px.jpg'),
+      Attivita(nome: 'Occasioni Fotografiche', foto: 'insert_photo-24px.jpg'),
+      Attivita(nome: 'Mappa', foto: 'map-24px.jpg'),
+    ];
+    return ListView(children: <Widget>[
+      Stack(
+        children: <Widget>[
+          Container(
+            child: Image.asset('assets/images/bracciano.jpg'),
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(0, 190, 0, 0),
+            child: Container(
+                alignment: Alignment.bottomLeft,
+                child: IconButton(
+                  icon: Icon(likee ? Icons.favorite : Icons.favorite_border_outlined,
+                      color: likee ? Colors.redAccent : Colors.black),
+                  iconSize: 40,
+                  onPressed: () => _pressed(),
+                ),),
+          ),
+        ],
+      ),
+      SizedBox(
+        height: 10,
+      ),
+      Text(
+        'Attività',
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontSize: 25.0,
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+          fontFamily: "Times New Roman",
+        ),
+      ),
+      SizedBox(
+        height: 10,
+      ),
+      ListView.builder(
+        itemCount: attivita.length,
+        shrinkWrap: true,
+        physics: new NeverScrollableScrollPhysics(),
+        itemBuilder: (context, index) {
+          return Padding(
+            padding:
+            const EdgeInsets.symmetric(vertical: 2.0, horizontal: 4.0),
+            child: Card(
+              child: ListTile(
+                onTap: () {},
+                title: Text(attivita[index].nome),
+                leading: ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(6.0)),
+                  child: Image.asset(
+                      'assets/images/Icons/${attivita[index].foto}'),
+                ),
+                trailing: Icon(
+                  Icons.arrow_forward,
+                  color: Colors.black,
+                  size: 30,
+                ),
+
+              ),
+            ),
+          );
+        },
+      ),
+    ]);
+  }
+}
 class Borghi_Attivita_Calcata extends StatelessWidget {
   final List<Attivita> attivita = [
     Attivita(nome: 'Botteghe', foto: 'store-24px.jpg'),
@@ -638,74 +729,7 @@ class Borghi_Attivita_Calcata extends StatelessWidget {
           )
         ],
       ),
-      body: ListView(children: <Widget>[
-        Stack(
-          children: <Widget>[
-            Container(
-              child: Image.asset('assets/images/calcata.jpg'),
-            ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(0, 200, 0, 0),
-              child: Container(
-                  alignment: Alignment.bottomLeft,
-                  child: IconButton(
-                    icon: Icon(
-                      Icons.favorite_border_outlined,
-                      color: Colors.black,
-                      size: 40.0,
-                    ),
-                    onPressed: () {},
-                  )),
-            ), ],
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Text(
-          'Attività',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 25.0,
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-            fontFamily: "Times New Roman",
-          ),
-        ),
-        SizedBox(
-          height:10,
-        ),
-        ListView.builder(
-          itemCount: attivita.length,
-          shrinkWrap: true,
-          physics: new NeverScrollableScrollPhysics(),
-          itemBuilder: (context, index) {
-            return Padding(
-              padding:
-              const EdgeInsets.symmetric(vertical: 2.0, horizontal: 4.0),
-              child: Card(
-                  child: ListTile(
-                    onTap: () {},
-                    title: Text(attivita[index].nome),
-                    leading: ClipRRect(
-                      borderRadius: BorderRadius.all(Radius.circular(6.0)),
-                      child: Image.asset(
-                          'assets/images/Icons/${attivita[index].foto}'),
-                    ),
-                    trailing: Icon(
-                        Icons.arrow_forward,
-                        color: Colors.black,
-                        size: 30,
-                      ),
-
-                    ),
-                  ),
-            );
-          },
-        )
-      ]),
-
-
-
+      body: Calcata(),
 
       bottomNavigationBar: BottomNavigationBar(
         // Server per inserire la barra inferiore
@@ -755,3 +779,93 @@ class Borghi_Attivita_Calcata extends StatelessWidget {
   }
 }
 
+class Calcata extends StatefulWidget{
+  @override
+  CalcataState createState() => new CalcataState();
+}
+
+bool mipiace = false;
+class CalcataState extends State<Calcata> {
+  _pressed() {
+    setState(() {
+      mipiace = !mipiace;
+    });
+  }
+
+
+  @override
+  Widget build(BuildContext context) {
+    final List<Attivita> attivita = [
+      Attivita(nome: 'Botteghe', foto: 'store-24px.jpg'),
+      Attivita(nome: 'Monumenti e Parchi', foto: 'account_balance-24px.jpg'),
+      Attivita(nome: 'Musei', foto: 'museum-24px.jpg'),
+      Attivita(nome: 'Occasioni Fotografiche', foto: 'insert_photo-24px.jpg'),
+      Attivita(nome: 'Mappa', foto: 'map-24px.jpg'),
+    ];
+    return ListView(children: <Widget>[
+      Stack(
+        children: <Widget>[
+          Container(
+            child: Image.asset('assets/images/calcata.jpg'),
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(0, 200, 0, 0),
+            child: Container(
+                alignment: Alignment.bottomLeft,
+                child: IconButton(
+                  icon: Icon(mipiace ? Icons.favorite : Icons.favorite_border_outlined,
+                      color: mipiace ? Colors.redAccent : Colors.black),
+                  iconSize: 40,
+                  onPressed: () => _pressed(),
+                ),),
+          ),
+        ],
+      ),
+      SizedBox(
+        height: 10,
+      ),
+      Text(
+        'Attività',
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontSize: 25.0,
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+          fontFamily: "Times New Roman",
+        ),
+      ),
+      SizedBox(
+        height: 10,
+      ),
+      ListView.builder(
+        itemCount: attivita.length,
+        shrinkWrap: true,
+        physics: new NeverScrollableScrollPhysics(),
+        itemBuilder: (context, index) {
+          return Padding(
+            padding:
+            const EdgeInsets.symmetric(vertical: 2.0, horizontal: 4.0),
+            child: Card(
+              child: ListTile(
+                onTap: () {},
+                title: Text(attivita[index].nome),
+                leading: ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(6.0)),
+                  child: Image.asset(
+                      'assets/images/Icons/${attivita[index].foto}'),
+                ),
+                trailing: Icon(
+                  Icons.arrow_forward,
+                  color: Colors.black,
+                  size: 30,
+                ),
+
+              ),
+            ),
+          );
+        },
+      ),
+    ]);
+
+  }
+}
