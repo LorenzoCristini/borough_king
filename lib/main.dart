@@ -1,5 +1,4 @@
 import 'dart:math';
-// Liberare lo stack ogni volta che si ritorna alla home (?)
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import "package:flutter/material.dart";

@@ -31,6 +31,7 @@ dependencies:
   cupertino_icons: ^1.0.0
   # ParoleInInglese
   english_words: ^3.1.5
+  folding_cell: ^1.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -51,6 +52,7 @@ flutter:
     - assets/images/
     - assets/images/OccFotograf/
     - assets/images/Icons/
+    - assets/images/Tolfa/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

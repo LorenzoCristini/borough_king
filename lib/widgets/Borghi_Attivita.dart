@@ -108,7 +108,7 @@ class Borghi_Attivita_Tolfa extends StatelessWidget {
               child: Card(
                   child: ListTile(
                 onTap: () {Navigator.of(context).push(new MaterialPageRoute(builder:
-                    (BuildContext context) => notImplemented()));},
+                    (BuildContext context) => ListaAttivita()));},
                 title: Text(attivita[index].nome),
                 leading: ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(6.0)),
@@ -132,7 +132,7 @@ class Borghi_Attivita_Tolfa extends StatelessWidget {
         currentIndex: 2,
         type: BottomNavigationBarType.fixed,
         backgroundColor: Color(0xff90EE90),
-        selectedItemColor: Colors.black,
+        selectedItemColor: Colors.black.withOpacity(.60),
         unselectedItemColor: Colors.black.withOpacity(.60),
         selectedFontSize: 13.5,
         unselectedFontSize: 13.5,
@@ -277,7 +277,7 @@ class Borghi_Attivita_Subiaco extends StatelessWidget {
         currentIndex: 2,
         type: BottomNavigationBarType.fixed,
         backgroundColor: Color(0xff90EE90),
-        selectedItemColor: Colors.black,
+        selectedItemColor: Colors.black.withOpacity(.60),
         unselectedItemColor: Colors.black.withOpacity(.60),
         selectedFontSize: 13.5,
         unselectedFontSize: 13.5,
@@ -422,7 +422,7 @@ class Borghi_Attivita_Anagni extends StatelessWidget {
         currentIndex: 2,
         type: BottomNavigationBarType.fixed,
         backgroundColor: Color(0xff90EE90),
-        selectedItemColor: Colors.black,
+        selectedItemColor: Colors.black.withOpacity(.60),
         unselectedItemColor: Colors.black.withOpacity(.60),
         selectedFontSize: 13.5,
         unselectedFontSize: 13.5,
@@ -567,7 +567,7 @@ class Borghi_Attivita_Bracciano extends StatelessWidget {
         currentIndex: 2,
         type: BottomNavigationBarType.fixed,
         backgroundColor: Color(0xff90EE90),
-        selectedItemColor: Colors.black,
+        selectedItemColor: Colors.black.withOpacity(.60),
         unselectedItemColor: Colors.black.withOpacity(.60),
         selectedFontSize: 13.5,
         unselectedFontSize: 13.5,
@@ -712,7 +712,7 @@ class Borghi_Attivita_Calcata extends StatelessWidget {
         currentIndex: 2,
         type: BottomNavigationBarType.fixed,
         backgroundColor: Color(0xff90EE90),
-        selectedItemColor: Colors.black,
+        selectedItemColor: Colors.black.withOpacity(.60),
         unselectedItemColor: Colors.black.withOpacity(.60),
         selectedFontSize: 13.5,
         unselectedFontSize: 13.5,
