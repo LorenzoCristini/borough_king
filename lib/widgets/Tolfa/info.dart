@@ -5,9 +5,7 @@ import 'package:flutter/foundation.dart';
 import "package:flutter/material.dart";
 import "package:borough_king/widgets/preferiti.dart";
 import "package:borough_king/widgets/occasioni_fotografiche.dart";
-import "package:flutter/src/rendering/box.dart";
-import 'package:flutter/src/rendering/sliver_multi_box_adaptor.dart';
-import 'package:borough_king/main.dart';
+import 'package:borough_king/widgets/search.dart';
 
 class Info_Tolfa extends StatelessWidget {
   @override
@@ -24,7 +22,16 @@ class Info_Tolfa extends StatelessWidget {
               color: Colors.black,
               size: 30,
             ),
-            onPressed: () {},
+            onPressed: () {
+              List<String> borghi = [
+                "Tolfa",
+                "Anagni",
+                "Subiaco",
+                "Bracciano",
+                "Calcata"
+              ];
+              showSearch(context: context, delegate: Search(borghi));
+            },
           )
         ],
       ),

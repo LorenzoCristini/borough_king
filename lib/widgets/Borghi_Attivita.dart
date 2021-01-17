@@ -5,15 +5,13 @@ import 'package:borough_king/widgets/Bracciano/kek.dart';
 import 'package:borough_king/widgets/Calcata/kek.dart';
 import 'package:borough_king/widgets/Subiaco/kek.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import "package:flutter/material.dart";
 import "package:borough_king/widgets/preferiti.dart";
 import "package:borough_king/widgets/occasioni_fotografiche.dart";
-import "package:flutter/src/rendering/box.dart";
-import 'package:flutter/src/rendering/sliver_multi_box_adaptor.dart';
-import 'package:borough_king/main.dart';
 import 'package:borough_king/widgets/Tolfa/info.dart';
 import 'package:borough_king/widgets/Tolfa/musei.dart';
+import 'package:borough_king/widgets/search.dart';
+
 class Attivita {
   String nome;
   String foto;
@@ -38,7 +36,16 @@ class Borghi_Attivita_Tolfa extends StatelessWidget {
               color: Colors.black,
               size: 30,
             )),
-            onPressed: () {},
+            onPressed: () {
+              List<String> borghi = [
+                "Tolfa",
+                "Anagni",
+                "Subiaco",
+                "Bracciano",
+                "Calcata"
+              ];
+              showSearch(context: context, delegate: Search(borghi));
+            },
           )
         ],
       ),
@@ -225,7 +232,16 @@ class Borghi_Attivita_Subiaco extends StatelessWidget {
               color: Colors.black,
               size: 30,
             )),
-            onPressed: () {},
+            onPressed: () {
+              List<String> borghi = [
+                "Tolfa",
+                "Anagni",
+                "Subiaco",
+                "Bracciano",
+                "Calcata"
+              ];
+              showSearch(context: context, delegate: Search(borghi));
+            },
           )
         ],
       ),
@@ -409,7 +425,16 @@ class Borghi_Attivita_Anagni extends StatelessWidget {
                   color: Colors.black,
                   size: 30,
                 )),
-            onPressed: () {},
+            onPressed: () {
+              List<String> borghi = [
+                "Tolfa",
+                "Anagni",
+                "Subiaco",
+                "Bracciano",
+                "Calcata"
+              ];
+              showSearch(context: context, delegate: Search(borghi));
+            },
           )
         ],
       ),
@@ -591,7 +616,16 @@ class Borghi_Attivita_Bracciano extends StatelessWidget {
                   color: Colors.black,
                   size: 30,
                 )),
-            onPressed: () {},
+            onPressed: () {
+              List<String> borghi = [
+                "Tolfa",
+                "Anagni",
+                "Subiaco",
+                "Bracciano",
+                "Calcata"
+              ];
+              showSearch(context: context, delegate: Search(borghi));
+            },
           )
         ],
       ),
@@ -772,7 +806,16 @@ class Borghi_Attivita_Calcata extends StatelessWidget {
                   color: Colors.black,
                   size: 30,
                 )),
-            onPressed: () {},
+            onPressed: () {
+              List<String> borghi = [
+              "Tolfa",
+              "Anagni",
+              "Subiaco",
+              "Bracciano",
+              "Calcata"
+            ];
+            showSearch(context: context, delegate: Search(borghi));
+            },
           )
         ],
       ),
