@@ -8,6 +8,7 @@ import "package:flutter/material.dart";
 import 'package:borough_king/widgets/preferiti.dart';
 import 'package:borough_king/widgets/search.dart';
 import 'package:photo_view/photo_view.dart';
+
 class MappaTo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
