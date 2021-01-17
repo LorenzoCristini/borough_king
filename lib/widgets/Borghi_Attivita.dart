@@ -219,6 +219,7 @@ class Borghi_Attivita_Subiaco extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Subiaco", style: TextStyle(color: Colors.black)),
@@ -402,6 +403,8 @@ class SubiacoState extends State<Subiaco> {
 }
 
 class Borghi_Attivita_Anagni extends StatelessWidget {
+  final List<StatelessWidget> change = [notImplemented(),notImplemented(),notImplemented(),notImplemented(),notImplemented()];
+
   final List<Attivita> attivita = [
     Attivita(nome: 'Botteghe', foto: 'store-24px.jpg'),
     Attivita(nome: 'Monumenti e Parchi', foto: 'account_balance-24px.jpg'),
