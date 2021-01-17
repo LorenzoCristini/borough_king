@@ -5,6 +5,7 @@ import "package:flutter/material.dart";
 import "package:borough_king/widgets/preferiti.dart";
 import "package:borough_king/widgets/occasioni_fotografiche.dart";
 import 'package:folding_cell/folding_cell.dart';
+import 'package:borough_king/widgets/search.dart';
 
 class Musei extends StatelessWidget {
   final _foldingCellKey1 = GlobalKey<SimpleFoldingCellState>();
@@ -17,6 +18,25 @@ class Musei extends StatelessWidget {
             "Musei", style: TextStyle(color: Colors.black)),
         backgroundColor: Color(0xff90EE90),
         iconTheme: IconThemeData(color: Colors.black),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.search,
+              color: Colors.black,
+              size: 30,
+            ),
+            onPressed: () {
+              List<String> borghi = [
+                "Tolfa",
+                "Anagni",
+                "Subiaco",
+                "Bracciano",
+                "Calcata"
+              ];
+              showSearch(context: context, delegate: Search(borghi));
+            },
+          )
+        ],
       ),
 
       body: Container(
@@ -283,8 +303,7 @@ class Musei extends StatelessWidget {
                           Padding(padding: EdgeInsets.only(left: 160  ),
                             child: IconButton(onPressed:() {/*Aggiungere cambio preferiti*/},icon:Icon(Icons.favorite_border,size: 30,),),),
                         ])),
-                    Align(alignment: Alignment.topLeft,
-                        child: Text("Tolfa", style: TextStyle(fontSize: 20),)),
+
                     Row(children: <Widget>[
                       Padding(padding: EdgeInsets.only(right: 10),
                           child: Icon(Icons.room)),

@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:borough_king/main.dart';
 
+
 import 'package:borough_king/widgets/Bracciano/info.dart';
 //Calcata
 import 'package:borough_king/widgets/Calcata/botteghe.dart';
@@ -9,6 +10,7 @@ import 'package:borough_king/widgets/Calcata/musei.dart';
 import 'package:borough_king/widgets/Calcata/info.dart';
 import 'package:borough_king/widgets/Calcata/occasioni.dart';
 //Subiaco
+
 import 'package:borough_king/widgets/Subiaco/info.dart';
 import 'package:borough_king/widgets/Subiaco/botteghe.dart';
 import 'package:borough_king/widgets/Subiaco/monumenti.dart';
@@ -25,12 +27,24 @@ import 'package:borough_king/widgets/Anagni/botteghe.dart';
 import 'package:borough_king/widgets/Anagni/monumenti.dart';
 import 'package:borough_king/widgets/Anagni/occasioni.dart';
 import 'package:borough_king/widgets/Anagni/musei.dart';
+//Calcata
+import 'package:borough_king/widgets/Calcata/botteghe.dart';
+import 'package:borough_king/widgets/Calcata/monumenti.dart';
+import 'package:borough_king/widgets/Calcata/musei.dart';
+import 'package:borough_king/widgets/Calcata/info.dart';
+import 'package:borough_king/widgets/Calcata/occasioni.dart';
 //Tolfa
 import 'package:borough_king/widgets/Tolfa/info.dart';
 import 'package:borough_king/widgets/Tolfa/musei.dart';
 import 'package:borough_king/widgets/Tolfa/botteghe.dart';
 import 'package:borough_king/widgets/Tolfa/monumenti.dart';
 import 'package:borough_king/widgets/Tolfa/occasioni.dart';
+//Bracciano
+import 'package:borough_king/widgets/Bracciano/info.dart';
+import 'package:borough_king/widgets/Bracciano/musei.dart';
+import 'package:borough_king/widgets/Bracciano/occasioni.dart';
+import 'package:borough_king/widgets/Bracciano/monumenti.dart';
+import 'package:borough_king/widgets/Bracciano/botteghe.dart';
 class Attivita {
   String nome;
   String foto;
@@ -720,6 +734,7 @@ class BraccianoState extends State<Bracciano> {
 
   @override
   Widget build(BuildContext context) {
+    final List<StatelessWidget> change = [BottegheBr(),MonumentiBr(),MuseiBr(),OccasioniBr(),notImplemented()];
     final List<Attivita> attivita = [
       Attivita(nome: 'Botteghe', foto: 'store-24px.jpg'),
       Attivita(nome: 'Monumenti e Parchi', foto: 'account_balance-24px.jpg'),
@@ -786,7 +801,8 @@ class BraccianoState extends State<Bracciano> {
             const EdgeInsets.symmetric(vertical: 2.0, horizontal: 4.0),
             child: Card(
               child: ListTile(
-                onTap: () {},
+                onTap: () {Navigator.of(context).push(new MaterialPageRoute(builder:
+                    (BuildContext context) => change[index]));},
                 title: Text(attivita[index].nome),
                 leading: ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(6.0)),

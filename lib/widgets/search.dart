@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import "package:flutter/material.dart";
 import 'package:borough_king/widgets/Borghi_Attivita.dart';
+import 'package:borough_king/widgets/quiVicino.dart';
 
 class search extends StatelessWidget {
   @override
@@ -305,6 +306,7 @@ class search extends StatelessWidget {
 }
 
 class Search extends SearchDelegate {
+  List<String> recentList = ['Qui vicino', 'Tolfa', 'Subiaco'];
   @override
   List<Widget> buildActions(BuildContext context) {
     return <Widget>[
@@ -342,7 +344,6 @@ class Search extends SearchDelegate {
   final List<String> listExample;
   Search(this.listExample);
 
-  List<String> recentList = ['Qui vicino', 'Tolfa', 'Subiaco'];
 
   Widget buildSuggestions(BuildContext context) {
     List<String> suggestionList = [];
@@ -353,7 +354,34 @@ class Search extends SearchDelegate {
     return ListView.builder(
       itemCount: suggestionList.length,
       itemBuilder: (context, index) {
-        return ListTile(
+        if(query != ''){
+          return ListTile(
+            title: Padding(padding: EdgeInsets.only(left: 50),child:Text(
+              suggestionList[index],
+            ),),
+            trailing: suggestionList[index] == 'Qui vicino'
+                ? null
+                : IconButton(
+              icon: Icon(Icons.clear),
+              onPressed: () {},
+            ),
+            onTap: () {
+              selectedResult = suggestionList[index];
+              if (recentList.contains(selectedResult)){recentList.remove(selectedResult);}
+              recentList = ['Qui Vicino'] + [selectedResult] + recentList.sublist(1);
+
+              if (selectedResult == 'Tolfa'){Navigator.push(context, MaterialPageRoute(builder: (context) => Borghi_Attivita_Tolfa()));}
+              else if (selectedResult == 'Subiaco'){ Navigator.push(context, MaterialPageRoute(builder: (context) => Borghi_Attivita_Subiaco()));}
+              else if (selectedResult == 'Bracciano') {Navigator.push(context, MaterialPageRoute(builder: (context) => Borghi_Attivita_Bracciano()));}
+              else if (selectedResult == 'Anagni') {Navigator.push(context, MaterialPageRoute(builder: (context) => Borghi_Attivita_Anagni()));}
+              else if (selectedResult == 'Calcata') {Navigator.push(context, MaterialPageRoute(builder: (context) => Borghi_Attivita_Calcata()));}
+              else if (selectedResult == 'Qui vicino') {Navigator.push(context, MaterialPageRoute(builder: (context) => quiVicino()));}
+            },
+          );
+        }
+        else {
+          return ListTile(
+
           leading: suggestionList[index] == 'Qui vicino'
               ? Icon(Icons.near_me)
               : Icon(Icons.watch_later_outlined),
@@ -368,15 +396,19 @@ class Search extends SearchDelegate {
           ),
           onTap: () {
             selectedResult = suggestionList[index];
+            if(selectedResult != 'Qui vicino'){
+            if (recentList.contains(selectedResult)){recentList.remove(selectedResult);}
+            recentList = ['Qui vicino'] + [selectedResult] + recentList.sublist(1);}
 
             if (selectedResult == 'Tolfa'){Navigator.push(context, MaterialPageRoute(builder: (context) => Borghi_Attivita_Tolfa()));}
             else if (selectedResult == 'Subiaco'){ Navigator.push(context, MaterialPageRoute(builder: (context) => Borghi_Attivita_Subiaco()));}
             else if (selectedResult == 'Bracciano') {Navigator.push(context, MaterialPageRoute(builder: (context) => Borghi_Attivita_Bracciano()));}
             else if (selectedResult == 'Anagni') {Navigator.push(context, MaterialPageRoute(builder: (context) => Borghi_Attivita_Anagni()));}
             else if (selectedResult == 'Calcata') {Navigator.push(context, MaterialPageRoute(builder: (context) => Borghi_Attivita_Calcata()));}
-            else if (selectedResult == 'Qui vicino') {Navigator.push(context, MaterialPageRoute(builder: (context) => notImplemented()));}
+            if (selectedResult == 'Qui vicino') {Navigator.push(context, MaterialPageRoute(builder: (context) => quiVicino()));}
           },
         );
+        }
       },
     );
   }

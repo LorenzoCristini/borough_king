@@ -8,6 +8,7 @@ import "package:borough_king/cardOccFot/rocca.dart";
 import "package:borough_king/cardOccFot/ragione.dart";
 import "package:borough_king/cardOccFot/lago.dart";
 import "package:borough_king/cardOccFot/scolastica.dart";
+import 'package:borough_king/widgets/search.dart';
 
 class occasioniFotografiche extends StatelessWidget {
   final List<String> images = ['assets/images/OccFotograf/rocca.jpg','assets/images/OccFotograf/ragione.jpg','assets/images/OccFotograf/lago.jpg','assets/images/OccFotograf/monastero.jpg'];
@@ -21,6 +22,25 @@ class occasioniFotografiche extends StatelessWidget {
           title: Text("Occasioni fotografiche", style: TextStyle(color: Colors.black)),
           backgroundColor: Color(0xff90EE90),
           iconTheme: IconThemeData(color: Colors.black),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.search,
+              color: Colors.black,
+              size: 30,
+            ),
+            onPressed: () {
+              List<String> borghi = [
+                "Tolfa",
+                "Anagni",
+                "Subiaco",
+                "Bracciano",
+                "Calcata"
+              ];
+              showSearch(context: context, delegate: Search(borghi));
+            },
+          )
+        ],
         ),
 
         body: Column(
