@@ -6,15 +6,15 @@ import "package:borough_king/widgets/preferiti.dart";
 import "package:borough_king/widgets/occasioni_fotografiche.dart";
 import 'package:folding_cell/folding_cell.dart';
 
-class BottegheAn extends StatelessWidget {
+class OccasioniAn extends StatelessWidget {
   final _foldingCellKey1 = GlobalKey<SimpleFoldingCellState>();
-  final _foldingCellKey2 = GlobalKey<SimpleFoldingCellState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-            "Botteghe", style: TextStyle(color: Colors.black)),
+            "Occasioni Fotografiche", style: TextStyle(color: Colors.black)),
         backgroundColor: Color(0xff90EE90),
         iconTheme: IconThemeData(color: Colors.black),
       ),
@@ -38,20 +38,7 @@ class BottegheAn extends StatelessWidget {
                         padding: EdgeInsets.all(10.0)
                     ),
                   ),),
-                GestureDetector(
-                  onTap: () => _foldingCellKey2?.currentState?.toggleFold(),
-                  child: Container(
-                    child: SimpleFoldingCell.create(
-                        key: _foldingCellKey2,
-                        frontWidget: FrontWidget(_foldingCellKey2),
-                        innerWidget: InnerWidget(_foldingCellKey2),
-                        cellSize: Size(MediaQuery
-                            .of(context)
-                            .size
-                            .width, 175),
-                        padding: EdgeInsets.all(10.0)
-                    ),
-                  ),),
+
 
               ]
           )
@@ -105,7 +92,7 @@ class BottegheAn extends StatelessWidget {
   }
 
   Widget FrontWidget(GlobalKey<SimpleFoldingCellState> key) {
-    if(key == _foldingCellKey2){
+    if (key == _foldingCellKey1){
       return Container(
           color: Color(0xFFecf2f9),
           alignment: Alignment.center,
@@ -117,7 +104,7 @@ class BottegheAn extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
-                      image: AssetImage('assets/images/Anagni/bott1.jpg'),
+                      image: AssetImage('assets/images/OccFotograf/ragione.jpg'),
                       fit: BoxFit.cover),
 
                 ),
@@ -134,7 +121,7 @@ class BottegheAn extends StatelessWidget {
                   Padding(
                       padding: EdgeInsets.all(10.0),
                       child: Center(child: Text(
-                        "Erzinio a tavola", style: TextStyle(fontSize: 23,fontFamily: "Times New Roman"),))
+                        "Palazzo della Ragione", style: TextStyle(fontSize: 21,fontFamily: "Times New Roman"),))
                   ),
                   Padding(
                       padding: EdgeInsets.all(10.0),
@@ -143,55 +130,7 @@ class BottegheAn extends StatelessWidget {
                             Padding(padding: EdgeInsets.only(right: 10),
                                 child: Icon(Icons.room)),
                             Center(child: Text(
-                              "Contrada Castagnola, 14\nGuarcino FR", style: TextStyle(
-                                fontSize: 18),))
-                          ])
-                  )
-
-                ]),
-              ),
-            ),
-          ])
-      );
-    } else if (key == _foldingCellKey1){
-      return Container(
-          color: Color(0xFFecf2f9),
-          alignment: Alignment.center,
-
-          child: Row(children: <Widget>[
-            Expanded(
-              flex: 1,
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15.0),
-                  image: DecorationImage(
-                      image: AssetImage('assets/images/Anagni/tarsie.PNG'),
-                      fit: BoxFit.cover),
-
-                ),
-              ),
-            ),
-            Expanded(
-              flex: 2,
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15.0),
-                  color: Color(0xFFecf2f9),
-                ),
-                child: Column(children: <Widget>[
-                  Padding(
-                      padding: EdgeInsets.all(10.0),
-                      child: Center(child: Text(
-                        "Tarsie Turri", style: TextStyle(fontSize: 23,fontFamily: "Times New Roman"),))
-                  ),
-                  Padding(
-                      padding: EdgeInsets.all(10.0),
-                      child: Row(mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Padding(padding: EdgeInsets.only(right: 10),
-                                child: Icon(Icons.room)),
-                            Center(child: Text(
-                              "Via Vittorio Emanuele 291\nAnagni FR", style: TextStyle(
+                              "Via Vittorio Emanuele, 187\nAnagni FR", style: TextStyle(
                                 fontSize: 17),))
                           ])
                   )
@@ -206,68 +145,7 @@ class BottegheAn extends StatelessWidget {
   }
 
   Widget InnerWidget(GlobalKey<SimpleFoldingCellState> key) {
-    if (key == _foldingCellKey2){ return Container(
-        color: Color(0xFFecf2f9),
-        padding: EdgeInsets.only(top: 10),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
-          Padding(
-            padding: EdgeInsets.all(15.0),
-            child: Column(
-                children: <Widget>[
-                  Align(alignment: Alignment.topLeft,
-                      child: Row(children: <Widget>[
-                        Text("Erzinio a tavola", style: TextStyle(fontSize: 25),),
-                        Padding(padding: EdgeInsets.only(left: 70  ),
-                          child: IconButton(onPressed:() {/*Aggiungere cambio preferiti*/},icon:Icon(Icons.favorite_border,size: 30,),),),
-                      ])),
-
-                  Row(children: <Widget>[
-                    Padding(padding: EdgeInsets.only(right: 10),
-                        child: Icon(Icons.room)),
-                    Center(child: Text("Contrada Castagnola, 14\n Guarcino FR",
-                      style: TextStyle(fontSize: 20),))
-                  ]),
-                  SizedBox(height: 10,),
-                  Align(alignment: Alignment.topLeft,
-                      child: Text("Materie prime selezionate di allevamenti suini tracciabili, una sapiente stagionatura e una lavorazione di alta qualità.",
-                        style: TextStyle(fontSize: 18),)),
-                  SizedBox(height: 10,),
-                  Align(alignment: Alignment.topLeft,
-                      child: Text("Orario", style: TextStyle(fontSize: 18),)),
-                  Align(alignment: Alignment.topLeft,
-                      child: Row(children: <Widget>[
-                        Text("Lun-ven", style: TextStyle(fontSize: 18),),
-                        Padding(padding: EdgeInsets.only(left: 50),
-                            child: Text(
-                              "8:00-19:30", style: TextStyle(fontSize: 18),)),
-                      ])),
-                  SizedBox(height: 20,),
-                  Align(alignment: Alignment.topLeft,
-                      child: Row(children: <Widget>[
-                        Text("Costo", style: TextStyle(fontSize: 18),),
-                        Padding(padding: EdgeInsets.only(left: 150),
-                            child: Text("€€",style: TextStyle(fontSize: 18),)),
-                      ])),
-                  Align(alignment: Alignment.topLeft,
-                      child: Row(children: <Widget>[
-                        Text("Tempo", style: TextStyle(fontSize: 18),),
-                        Padding(padding: EdgeInsets.only(left: 125),
-                            child: Text(
-                              "15m", style: TextStyle(fontSize: 18),)),
-                      ])),
-                  Align(alignment: Alignment.topLeft,
-                      child: Row(children: <Widget>[
-                        Text("Fatica", style: TextStyle(fontSize: 18),),
-                        Padding(padding: EdgeInsets.only(left: 150),
-                            child: Text("💧")),
-                      ])),
-                ]),
-          ),
-
-        ],)
-    );}
-    else if( key == _foldingCellKey1){
+    if( key == _foldingCellKey1){
       return Container(
           color: Color(0xFFecf2f9),
           padding: EdgeInsets.only(top: 10),
@@ -279,19 +157,19 @@ class BottegheAn extends StatelessWidget {
                   children: <Widget>[
                     Align(alignment: Alignment.topLeft,
                         child: Row(children: <Widget>[
-                          Text("Tarsie Turri", style: TextStyle(fontSize: 25),),
-                          Padding(padding: EdgeInsets.only(left: 160  ),
+                          Text("Palazzo della Ragione", style: TextStyle(fontSize: 25),),
+                          Padding(padding: EdgeInsets.only(left: 60  ),
                             child: IconButton(onPressed:() {/*Aggiungere cambio preferiti*/},icon:Icon(Icons.favorite_border,size: 30,),),),
                         ])),
-                                        Row(children: <Widget>[
+                    Row(children: <Widget>[
                       Padding(padding: EdgeInsets.only(right: 10),
                           child: Icon(Icons.room)),
-                      Center(child: Text("Via Vittorio Emanuele 291\nAnagni FR",
+                      Center(child: Text("Via Vittorio Emanuele, 187\nAnagni FR",
                         style: TextStyle(fontSize: 20),))
                     ]),
                     SizedBox(height: 10,),
                     Align(alignment: Alignment.topLeft,
-                        child: Text("Quadri unici e bellissimi, lavori di tecnica e arte sopraffina, favolose prospettive create solo unendo piccole lamine di svariati legni.",
+                        child: Text("L'edificio fu eretto tre il 1159 e il 1163 dal Magister Jacobus da Yseiarchitector.",
                           style: TextStyle(fontSize: 18),)),
                     SizedBox(height: 10,),
                     Align(alignment: Alignment.topLeft,
@@ -301,14 +179,14 @@ class BottegheAn extends StatelessWidget {
                           Text("Lun-ven", style: TextStyle(fontSize: 18),),
                           Padding(padding: EdgeInsets.only(left: 50),
                               child: Text(
-                                "10:00-17:00", style: TextStyle(fontSize: 18),)),
+                                "8:00-13:00", style: TextStyle(fontSize: 18),)),
                         ])),
                     SizedBox(height: 20,),
                     Align(alignment: Alignment.topLeft,
                         child: Row(children: <Widget>[
                           Text("Costo", style: TextStyle(fontSize: 18),),
                           Padding(padding: EdgeInsets.only(left: 150),
-                              child: Text("€€",style: TextStyle(fontSize: 18),)),
+                              child: Text("€",style: TextStyle(fontSize: 18),)),
                         ])),
                     Align(alignment: Alignment.topLeft,
                         child: Row(children: <Widget>[

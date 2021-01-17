@@ -95,7 +95,7 @@ class Info_Anagni extends StatelessWidget {
         currentIndex: 2,
         type: BottomNavigationBarType.fixed,
         backgroundColor: Color(0xff90EE90),
-        selectedItemColor: Colors.black,
+        selectedItemColor: Colors.black.withOpacity(.60),
         unselectedItemColor: Colors.black.withOpacity(.60),
         selectedFontSize: 13.5,
         unselectedFontSize: 13.5,

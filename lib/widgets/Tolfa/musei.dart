@@ -247,7 +247,7 @@ class Musei extends StatelessWidget {
                       child: Row(children: <Widget>[
                         Text("Costo", style: TextStyle(fontSize: 18),),
                         Padding(padding: EdgeInsets.only(left: 150),
-                            child: Icon(Icons.euro, size: 17,)),
+                            child: Text("€€",style: TextStyle(fontSize: 18),)),
                       ])),
                   Align(alignment: Alignment.topLeft,
                       child: Row(children: <Widget>[
@@ -310,7 +310,7 @@ class Musei extends StatelessWidget {
                         child: Row(children: <Widget>[
                           Text("Costo", style: TextStyle(fontSize: 18),),
                           Padding(padding: EdgeInsets.only(left: 150),
-                              child: Icon(Icons.euro, size: 17,)),
+                              child: Text("€€",style: TextStyle(fontSize: 18),)),
                         ])),
                     Align(alignment: Alignment.topLeft,
                         child: Row(children: <Widget>[
