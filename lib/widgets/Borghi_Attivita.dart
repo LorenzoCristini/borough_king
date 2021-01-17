@@ -1,21 +1,30 @@
 import 'dart:math';
 import 'package:borough_king/main.dart';
-import 'package:borough_king/widgets/Anagni/info.dart';
+
 import 'package:borough_king/widgets/Bracciano/info.dart';
 import 'package:borough_king/widgets/Calcata/botteghe.dart';
 import 'package:borough_king/widgets/Calcata/monumenti.dart';
 import 'package:borough_king/widgets/Calcata/musei.dart';
 import 'package:borough_king/widgets/Calcata/info.dart';
-import 'package:borough_king/widgets/Calcata/occassioni.dart';
+import 'package:borough_king/widgets/Calcata/occasioni.dart';
 import 'package:borough_king/widgets/Subiaco/info.dart';
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import "package:borough_king/widgets/preferiti.dart";
 import "package:borough_king/widgets/occasioni_fotografiche.dart";
+import 'package:borough_king/widgets/search.dart';
+//Anagni
+import 'package:borough_king/widgets/Anagni/info.dart';
+import 'package:borough_king/widgets/Anagni/botteghe.dart';
+import 'package:borough_king/widgets/Anagni/monumenti.dart';
+import 'package:borough_king/widgets/Anagni/occasioni.dart';
+import 'package:borough_king/widgets/Anagni/musei.dart';
+//Tolfa
 import 'package:borough_king/widgets/Tolfa/info.dart';
 import 'package:borough_king/widgets/Tolfa/musei.dart';
-import 'package:borough_king/widgets/search.dart';
-
+import 'package:borough_king/widgets/Tolfa/botteghe.dart';
+import 'package:borough_king/widgets/Tolfa/monumenti.dart';
+import 'package:borough_king/widgets/Tolfa/occasioni.dart';
 class Attivita {
   String nome;
   String foto;
@@ -117,7 +126,7 @@ class PostState extends State<Post> {
 
   @override
   Widget build(BuildContext context) {
-    final List<StatelessWidget> change = [notImplemented(),notImplemented(),Musei(),notImplemented(),notImplemented()];
+    final List<StatelessWidget> change = [BottegheTo(),MonumentiTo(),Musei(),OccasioniTo(),notImplemented()];
     final List<Attivita> attivita = [
       Attivita(nome: 'Botteghe', foto: 'store-24px.jpg'),
       Attivita(nome: 'Monumenti e Parchi', foto: 'account_balance-24px.jpg'),
@@ -406,7 +415,7 @@ class SubiacoState extends State<Subiaco> {
 }
 
 class Borghi_Attivita_Anagni extends StatelessWidget {
-  final List<StatelessWidget> change = [notImplemented(),notImplemented(),notImplemented(),notImplemented(),notImplemented()];
+
 
   final List<Attivita> attivita = [
     Attivita(nome: 'Botteghe', foto: 'store-24px.jpg'),
@@ -510,6 +519,7 @@ class AnagniState extends State<Anagni> {
 
   @override
   Widget build(BuildContext context) {
+    final List<StatelessWidget> change = [BottegheAn(),MonumentiAn(),MuseiAn(),OccasioniAn(),notImplemented()];
     final List<Attivita> attivita = [
       Attivita(nome: 'Botteghe', foto: 'store-24px.jpg'),
       Attivita(nome: 'Monumenti e Parchi', foto: 'account_balance-24px.jpg'),
@@ -576,7 +586,8 @@ class AnagniState extends State<Anagni> {
             const EdgeInsets.symmetric(vertical: 2.0, horizontal: 4.0),
             child: Card(
               child: ListTile(
-                onTap: () {},
+                onTap: () {Navigator.of(context).push(new MaterialPageRoute(builder:
+                    (BuildContext context) => change[index]));},
                 title: Text(attivita[index].nome),
                 leading: ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(6.0)),
