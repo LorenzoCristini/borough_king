@@ -15,7 +15,7 @@ class MonumentiTo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-            "Musei", style: TextStyle(color: Colors.black)),
+            "Monumenti e Parchi", style: TextStyle(color: Colors.black)),
         backgroundColor: Color(0xff90EE90),
         iconTheme: IconThemeData(color: Colors.black),
         actions: <Widget>[
