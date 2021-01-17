@@ -103,6 +103,7 @@ class PostState extends State<Post> {
 
   @override
   Widget build(BuildContext context) {
+    final List<StatelessWidget> change = [notImplemented(),notImplemented(),Musei(),notImplemented(),notImplemented()];
     final List<Attivita> attivita = [
       Attivita(nome: 'Botteghe', foto: 'store-24px.jpg'),
       Attivita(nome: 'Monumenti e Parchi', foto: 'account_balance-24px.jpg'),
@@ -172,7 +173,7 @@ class PostState extends State<Post> {
               child: ListTile(
                 onTap: () {
                   Navigator.of(context).push(new MaterialPageRoute(builder:
-                      (BuildContext context) => notImplemented()));
+                      (BuildContext context) => change[index]));
                 },
                 title: Text(attivita[index].nome),
                 leading: ClipRRect(

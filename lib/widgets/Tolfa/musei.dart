@@ -7,7 +7,7 @@ import "package:borough_king/widgets/occasioni_fotografiche.dart";
 import 'package:folding_cell/folding_cell.dart';
 import 'package:borough_king/Icons/app_icons.dart';
 
-class ListaAttivita extends StatelessWidget {
+class Musei extends StatelessWidget {
   final _foldingCellKey = GlobalKey<SimpleFoldingCellState>();
 
   @override
@@ -93,7 +93,7 @@ class ListaAttivita extends StatelessWidget {
 
   Widget FrontWidget() {
     return Container(
-
+        color: Color(0xFFecf2f9),
         alignment: Alignment.center,
 
         child: Row(children: <Widget>[
