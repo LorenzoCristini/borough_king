@@ -78,6 +78,7 @@ class occasioniFotografiche extends StatelessWidget {
           },
         ),),
       ],),
+
       bottomNavigationBar: BottomNavigationBar(
         // Server per inserire la barra inferiore
         currentIndex: 2,
@@ -126,3 +127,4 @@ class occasioniFotografiche extends StatelessWidget {
 
   }
 }
+
