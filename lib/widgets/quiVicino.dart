@@ -5,23 +5,24 @@ import 'package:borough_king/widgets/occasioni_fotografiche.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import "package:flutter/material.dart";
+import 'package:borough_king/widgets/preferiti.dart';
 import 'package:borough_king/widgets/search.dart';
 
-class preferiti extends StatelessWidget {
+class quiVicino extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-        title: Text("I miei preferiti", style: TextStyle(color: Colors.black)),
-    backgroundColor: Color(0xff90EE90),
-    iconTheme: IconThemeData(color: Colors.black),
-          actions: <Widget>[
-        IconButton(
-        icon: Icon(
-          Icons.search,
-          color: Colors.black,
-          size: 30,
-        ),
+      appBar: AppBar(
+          title: Text("Qui vicino", style: TextStyle(color: Colors.black)),
+          backgroundColor: Color(0xff90EE90),
+          iconTheme: IconThemeData(color: Colors.black),
+        actions: <Widget>[
+      IconButton(
+      icon: Icon(
+        Icons.search,
+        color: Colors.black,
+        size: 30,
+      ),
       onPressed: () {
         List<String> borghi = [
           "Tolfa",
@@ -34,22 +35,21 @@ class preferiti extends StatelessWidget {
       },
     )
     ],),
+      body: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15.0),
+          image: DecorationImage(
+              image: AssetImage('assets/images/quiVicino.png'),
+          fit: BoxFit.cover),
 
-      body: Column(
-          children: <Widget>[
-
-      Padding(padding: EdgeInsets.all(10),
-        child:Text("Per non dimenticare dove hai lasciato il ❤",
-            style: TextStyle(fontSize: 23,fontFamily: "Times New Roman"),
-        textAlign: TextAlign.center),
+        ),
       ),
-    ]),
-    bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: BottomNavigationBar(
         // Server per inserire la barra inferiore
         currentIndex: 1,
         type: BottomNavigationBarType.fixed,
         backgroundColor: Color(0xff90EE90),
-        selectedItemColor: Colors.black,
+        selectedItemColor: Colors.black.withOpacity(.60),
         unselectedItemColor: Colors.black.withOpacity(.60),
         selectedFontSize: 13.5,
         unselectedFontSize: 13.5,

@@ -5,8 +5,9 @@ import "package:flutter/material.dart";
 import "package:borough_king/widgets/preferiti.dart";
 import "package:borough_king/widgets/occasioni_fotografiche.dart";
 import 'package:folding_cell/folding_cell.dart';
+import 'package:borough_king/widgets/search.dart';
 
-class Musei extends StatelessWidget {
+class MuseiBr extends StatelessWidget {
   final _foldingCellKey1 = GlobalKey<SimpleFoldingCellState>();
   final _foldingCellKey2 = GlobalKey<SimpleFoldingCellState>();
   @override
@@ -17,6 +18,25 @@ class Musei extends StatelessWidget {
             "Musei", style: TextStyle(color: Colors.black)),
         backgroundColor: Color(0xff90EE90),
         iconTheme: IconThemeData(color: Colors.black),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.search,
+              color: Colors.black,
+              size: 30,
+            ),
+            onPressed: () {
+              List<String> borghi = [
+                "Tolfa",
+                "Anagni",
+                "Subiaco",
+                "Bracciano",
+                "Calcata"
+              ];
+              showSearch(context: context, delegate: Search(borghi));
+            },
+          )
+        ],
       ),
 
       body: Container(
@@ -117,7 +137,7 @@ class Musei extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
-                      image: AssetImage('assets/images/Tolfa/museoCivico.jpg'),
+                      image: AssetImage('assets/images/Bracciano/mus1.JPG'),
                       fit: BoxFit.cover),
 
                 ),
@@ -143,7 +163,7 @@ class Musei extends StatelessWidget {
                             Padding(padding: EdgeInsets.only(right: 10),
                                 child: Icon(Icons.room)),
                             Center(child: Text(
-                              "Largo 15 Marzo\nTolfa RM", style: TextStyle(
+                              "Via Umberto I\nBracciano RM", style: TextStyle(
                                 fontSize: 18),))
                           ])
                   )
@@ -165,7 +185,7 @@ class Musei extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
-                      image: AssetImage('assets/images/Tolfa/archeologico.jpg'),
+                      image: AssetImage('assets/images/Bracciano/mus2.jpg'),
                       fit: BoxFit.cover),
 
                 ),
@@ -182,7 +202,7 @@ class Musei extends StatelessWidget {
                   Padding(
                       padding: EdgeInsets.all(10.0),
                       child: Center(child: Text(
-                        "Museo Archeologico", style: TextStyle(fontSize: 23,fontFamily: "Times New Roman"),))
+                        "Museo storico aeronautica militare", style: TextStyle(fontSize: 20,fontFamily: "Times New Roman"),))
                   ),
                   Padding(
                       padding: EdgeInsets.all(10.0),
@@ -191,7 +211,7 @@ class Musei extends StatelessWidget {
                             Padding(padding: EdgeInsets.only(right: 10),
                                 child: Icon(Icons.room)),
                             Center(child: Text(
-                              "Piazza Vittorio Veneto 3\nTolfa RM", style: TextStyle(
+                              "Strada Circumlacuale \n Bracciano RM", style: TextStyle(
                                 fontSize: 18),))
                           ])
                   )
@@ -217,20 +237,20 @@ class Musei extends StatelessWidget {
                 children: <Widget>[
                   Align(alignment: Alignment.topLeft,
                       child: Row(children: <Widget>[
-                        Text("Museo Archeologico", style: TextStyle(fontSize: 25),),
-                        Padding(padding: EdgeInsets.only(left: 70  ),
+                        Text("Museo storico aeronautica\nmilitare", style: TextStyle(fontSize: 25),),
+                        Padding(padding: EdgeInsets.only(left: 15  ),
                           child: IconButton(onPressed:() {/*Aggiungere cambio preferiti*/},icon:Icon(Icons.favorite_border,size: 30,),),),
                       ])),
 
                   Row(children: <Widget>[
                     Padding(padding: EdgeInsets.only(right: 10),
                         child: Icon(Icons.room)),
-                    Center(child: Text("Piazza Vittorio Veneto 3\nTolfa RM",
+                    Center(child: Text("Strada Circumlacuale \n Bracciano RM",
                       style: TextStyle(fontSize: 20),))
                   ]),
                   SizedBox(height: 10,),
                   Align(alignment: Alignment.topLeft,
-                      child: Text("Il museo archeologico permette di ritornare e assaporare i sapovi della tevva",
+                      child: Text("​​​Il Museo Storico ha sede nell’Idroscalo di Vigna di Valle, il più antico in Italia.",
                         style: TextStyle(fontSize: 18),)),
                   SizedBox(height: 10,),
                   Align(alignment: Alignment.topLeft,
@@ -240,27 +260,27 @@ class Musei extends StatelessWidget {
                         Text("Lun-ven", style: TextStyle(fontSize: 18),),
                         Padding(padding: EdgeInsets.only(left: 50),
                             child: Text(
-                              "9:00-18:00", style: TextStyle(fontSize: 18),)),
+                              "9:00-17:30", style: TextStyle(fontSize: 18),)),
                       ])),
                   SizedBox(height: 20,),
                   Align(alignment: Alignment.topLeft,
                       child: Row(children: <Widget>[
                         Text("Costo", style: TextStyle(fontSize: 18),),
                         Padding(padding: EdgeInsets.only(left: 150),
-                            child: Icon(Icons.euro, size: 17,)),
+                            child: Text("€€",style: TextStyle(fontSize: 18),)),
                       ])),
                   Align(alignment: Alignment.topLeft,
                       child: Row(children: <Widget>[
                         Text("Tempo", style: TextStyle(fontSize: 18),),
                         Padding(padding: EdgeInsets.only(left: 125),
                             child: Text(
-                              "45m-1h", style: TextStyle(fontSize: 18),)),
+                              "45m-1:15h", style: TextStyle(fontSize: 18),)),
                       ])),
                   Align(alignment: Alignment.topLeft,
                       child: Row(children: <Widget>[
                         Text("Fatica", style: TextStyle(fontSize: 18),),
                         Padding(padding: EdgeInsets.only(left: 150),
-                            child: Text("💧💧")),
+                            child: Text("💧💧💧")),
                       ])),
                 ]),
           ),
@@ -283,17 +303,16 @@ class Musei extends StatelessWidget {
                           Padding(padding: EdgeInsets.only(left: 160  ),
                             child: IconButton(onPressed:() {/*Aggiungere cambio preferiti*/},icon:Icon(Icons.favorite_border,size: 30,),),),
                         ])),
-                    Align(alignment: Alignment.topLeft,
-                        child: Text("Tolfa", style: TextStyle(fontSize: 20),)),
+
                     Row(children: <Widget>[
                       Padding(padding: EdgeInsets.only(right: 10),
                           child: Icon(Icons.room)),
-                      Center(child: Text("Largo 15 Marzo\nTolfa RM",
+                      Center(child: Text("Via Umberto I\nBracciano RM",
                         style: TextStyle(fontSize: 20),))
                     ]),
                     SizedBox(height: 10,),
                     Align(alignment: Alignment.topLeft,
-                        child: Text("Descrizione museo civico",
+                        child: Text("Il Museo Civico di Bracciano ha sede all’interno dell’ex convento di Santa Maria Novella",
                           style: TextStyle(fontSize: 18),)),
                     SizedBox(height: 10,),
                     Align(alignment: Alignment.topLeft,
@@ -303,21 +322,21 @@ class Musei extends StatelessWidget {
                           Text("Lun-ven", style: TextStyle(fontSize: 18),),
                           Padding(padding: EdgeInsets.only(left: 50),
                               child: Text(
-                                "9:00-18:00", style: TextStyle(fontSize: 18),)),
+                                "8:00-17:00", style: TextStyle(fontSize: 18),)),
                         ])),
                     SizedBox(height: 20,),
                     Align(alignment: Alignment.topLeft,
                         child: Row(children: <Widget>[
                           Text("Costo", style: TextStyle(fontSize: 18),),
                           Padding(padding: EdgeInsets.only(left: 150),
-                              child: Icon(Icons.euro, size: 17,)),
+                              child: Text("€",style: TextStyle(fontSize: 18),)),
                         ])),
                     Align(alignment: Alignment.topLeft,
                         child: Row(children: <Widget>[
                           Text("Tempo", style: TextStyle(fontSize: 18),),
                           Padding(padding: EdgeInsets.only(left: 125),
                               child: Text(
-                                "1h-1.5h", style: TextStyle(fontSize: 18),)),
+                                "1.5h", style: TextStyle(fontSize: 18),)),
                         ])),
                     Align(alignment: Alignment.topLeft,
                         child: Row(children: <Widget>[
