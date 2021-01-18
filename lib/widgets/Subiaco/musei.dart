@@ -225,7 +225,30 @@ class MuseiSubiaco extends StatelessWidget {
   }
 
   Widget InnerWidget(GlobalKey<SimpleFoldingCellState> key) {
-    if (key == _foldingCellKey2){ return Container(
+    if (key == _foldingCellKey2){ return Post();}
+    else if( key == _foldingCellKey1){
+      return Post1();
+    }
+
+  }
+}
+
+class Post1 extends StatefulWidget{
+  @override
+  Post1State createState() => new Post1State();
+}
+
+bool like = false;
+class Post1State extends State<Post1> {
+  _pressed() {
+    setState(() {
+      like = !like;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
         color: Color(0xFFecf2f9),
         padding: EdgeInsets.only(top: 10),
         child: Column(
@@ -236,9 +259,97 @@ class MuseiSubiaco extends StatelessWidget {
                 children: <Widget>[
                   Align(alignment: Alignment.topLeft,
                       child: Row(children: <Widget>[
-                        Text("Museo/Laboratorio \n“Il Borgo dei Cartai”", style: TextStyle(fontSize: 25),),
-                        Padding(padding: EdgeInsets.only(left: 70  ),
-                          child: IconButton(onPressed:() {/*Aggiungere cambio preferiti*/},icon:Icon(Icons.favorite_border,size: 30,),),),
+                        Text("Polo Museale\nRocca di Subiaco",
+                          style: TextStyle(fontSize: 25),),
+                        Padding(padding: EdgeInsets.only(left: 100),
+                          child: IconButton( icon: Icon(like ? Icons.favorite : Icons.favorite_border_outlined,
+                              color: like ? Colors.redAccent : Colors.black),
+                            iconSize: 30,
+                            onPressed: () => _pressed(),
+                          ),),
+                      ])),
+                  SizedBox(height: 10,),
+                  Row(children: <Widget>[
+                    Padding(padding: EdgeInsets.only(right: 10),
+                        child: Icon(Icons.room)),
+                    Center(child: Text("Subiaco",
+                      style: TextStyle(fontSize: 20),))
+                  ]),
+                  SizedBox(height: 10,),
+                  Align(alignment: Alignment.topLeft,
+                      child: Text(
+                        "Al suo interno, risiedono due musei rappresentativi della storia della Città di Subiaco:\nMuseo della Carta\nMuseo della Stampa",
+                        style: TextStyle(fontSize: 16),)),
+                  SizedBox(height: 10,),
+                  Align(alignment: Alignment.topLeft,
+                      child: Text("Orario", style: TextStyle(fontSize: 16),)),
+                  Align(alignment: Alignment.topLeft,
+                      child: Row(children: <Widget>[
+                        Text("Lun-gio", style: TextStyle(fontSize: 16),),
+                        Padding(padding: EdgeInsets.only(left: 50),
+                            child: Text(
+                              "10:30-16:30", style: TextStyle(fontSize: 16),)),
+                      ])),
+                  SizedBox(height: 20,),
+                  Align(alignment: Alignment.topLeft,
+                      child: Row(children: <Widget>[
+                        Text("Costo", style: TextStyle(fontSize: 16),),
+                        Padding(padding: EdgeInsets.only(left: 150),
+                            child: Text("€€", style: TextStyle(fontSize: 16),))
+                      ])),
+                  Align(alignment: Alignment.topLeft,
+                      child: Row(children: <Widget>[
+                        Text("Tempo", style: TextStyle(fontSize: 16),),
+                        Padding(padding: EdgeInsets.only(left: 125),
+                            child: Text(
+                              "1h-1.5h", style: TextStyle(fontSize: 16),)),
+                      ])),
+                  Align(alignment: Alignment.topLeft,
+                      child: Row(children: <Widget>[
+                        Text("Fatica", style: TextStyle(fontSize: 16),),
+                        Padding(padding: EdgeInsets.only(left: 150),
+                          child: Text("💧💧"),),
+                      ])),
+                ]),
+          ),
+
+        ],)
+    );
+  }}
+class Post extends StatefulWidget{
+  @override
+  PostState createState() => new PostState();
+}
+
+bool liked = false;
+class PostState extends State<Post> {
+  _pressed() {
+    setState(() {
+      liked = !liked;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        color: Color(0xFFecf2f9),
+        padding: EdgeInsets.only(top: 10),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+          Padding(
+            padding: EdgeInsets.all(15.0),
+            child: Column(
+                children: <Widget>[
+                  Align(alignment: Alignment.topLeft,
+                      child: Row(children: <Widget>[
+                        Text("Museo/Laboratorio \n“Il Borgo dei Cartai”",
+                          style: TextStyle(fontSize: 25),),
+                        Padding(padding: EdgeInsets.only(left: 70),
+                          child: IconButton(icon: Icon(liked ? Icons.favorite : Icons.favorite_border_outlined,
+                              color: liked ? Colors.redAccent : Colors.black),
+                            iconSize: 30,
+                            onPressed: () => _pressed(),
+                          ),),
                       ])),
 
                   Row(children: <Widget>[
@@ -249,8 +360,9 @@ class MuseiSubiaco extends StatelessWidget {
                   ]),
                   SizedBox(height: 10,),
                   Align(alignment: Alignment.topLeft,
-                      child: Text("Situato all’interno dell’ex Mulino Carlani, la struttura è stata restaurata e"
-                          " resa museo/laboratorio per la preservazione e lo studio della carta fatta a mano e le tecniche di stampa.",
+                      child: Text(
+                        "Situato all’interno dell’ex Mulino Carlani, la struttura è stata restaurata e"
+                            " resa museo/laboratorio per la preservazione e lo studio della carta fatta a mano e le tecniche di stampa.",
                         style: TextStyle(fontSize: 16),)),
                   SizedBox(height: 10,),
                   Align(alignment: Alignment.topLeft,
@@ -267,7 +379,7 @@ class MuseiSubiaco extends StatelessWidget {
                       child: Row(children: <Widget>[
                         Text("Costo", style: TextStyle(fontSize: 16),),
                         Padding(padding: EdgeInsets.only(left: 150),
-                            child: Text("€€",style: TextStyle(fontSize: 16),))
+                            child: Text("€€", style: TextStyle(fontSize: 16),))
                       ])),
                   Align(alignment: Alignment.topLeft,
                       child: Row(children: <Widget>[
@@ -286,70 +398,5 @@ class MuseiSubiaco extends StatelessWidget {
           ),
 
         ],)
-    );}
-    else if( key == _foldingCellKey1){
-      return Container(
-          color: Color(0xFFecf2f9),
-          padding: EdgeInsets.only(top: 10),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
-            Padding(
-              padding: EdgeInsets.all(15.0),
-              child: Column(
-                  children: <Widget>[
-                    Align(alignment: Alignment.topLeft,
-                        child: Row(children: <Widget>[
-                          Text("Polo Museale\nRocca di Subiaco", style: TextStyle(fontSize: 25),),
-                          Padding(padding: EdgeInsets.only(left: 100  ),
-                            child: IconButton(onPressed:() {/*Aggiungere cambio preferiti*/},icon:Icon(Icons.favorite_border,size: 30,),),),
-                        ])),
-                    SizedBox(height: 10,),
-                    Row(children: <Widget>[
-                      Padding(padding: EdgeInsets.only(right: 10),
-                          child: Icon(Icons.room)),
-                      Center(child: Text("Subiaco",
-                        style: TextStyle(fontSize: 20),))
-                    ]),
-                    SizedBox(height: 10,),
-                    Align(alignment: Alignment.topLeft,
-                        child: Text("Al suo interno, risiedono due musei rappresentativi della storia della Città di Subiaco:\nMuseo della Carta\nMuseo della Stampa",
-                          style: TextStyle(fontSize: 16),)),
-                    SizedBox(height: 10,),
-                    Align(alignment: Alignment.topLeft,
-                        child: Text("Orario", style: TextStyle(fontSize: 16),)),
-                    Align(alignment: Alignment.topLeft,
-                        child: Row(children: <Widget>[
-                          Text("Lun-gio", style: TextStyle(fontSize: 16),),
-                          Padding(padding: EdgeInsets.only(left: 50),
-                              child: Text(
-                                "10:30-16:30", style: TextStyle(fontSize: 16),)),
-                        ])),
-                    SizedBox(height: 20,),
-                    Align(alignment: Alignment.topLeft,
-                        child: Row(children: <Widget>[
-                          Text("Costo", style: TextStyle(fontSize: 16),),
-                          Padding(padding: EdgeInsets.only(left: 150),
-                              child: Text("€€",style: TextStyle(fontSize: 16),))
-                        ])),
-                    Align(alignment: Alignment.topLeft,
-                        child: Row(children: <Widget>[
-                          Text("Tempo", style: TextStyle(fontSize: 16),),
-                          Padding(padding: EdgeInsets.only(left: 125),
-                              child: Text(
-                                "1h-1.5h", style: TextStyle(fontSize: 16),)),
-                        ])),
-                    Align(alignment: Alignment.topLeft,
-                        child: Row(children: <Widget>[
-                          Text("Fatica", style: TextStyle(fontSize: 16),),
-                          Padding(padding: EdgeInsets.only(left: 150),
-                            child: Text("💧💧"),),
-                        ])),
-                  ]),
-            ),
-
-          ],)
-      );
-    }
-
-  }
-}
+    );
+  }}

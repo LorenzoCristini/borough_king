@@ -6,6 +6,7 @@ import "package:borough_king/widgets/preferiti.dart";
 import "package:borough_king/widgets/occasioni_fotografiche.dart";
 import 'package:folding_cell/folding_cell.dart';
 import 'package:borough_king/widgets/search.dart';
+
 class MonuCalcata extends StatelessWidget {
   final _foldingCellKey1 = GlobalKey<SimpleFoldingCellState>();
   final _foldingCellKey2 = GlobalKey<SimpleFoldingCellState>();
@@ -225,7 +226,29 @@ class MonuCalcata extends StatelessWidget {
   }
 
   Widget InnerWidget(GlobalKey<SimpleFoldingCellState> key) {
-    if (key == _foldingCellKey2){ return Container(
+    if (key == _foldingCellKey2){ return Post();}
+    else if( key == _foldingCellKey1){
+      return Post1();
+    }
+
+  }
+}
+class Post1 extends StatefulWidget{
+  @override
+  Post1State createState() => new Post1State();
+}
+
+bool like = false;
+class Post1State extends State<Post1> {
+  _pressed() {
+    setState(() {
+      like = !like;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
         color: Color(0xFFecf2f9),
         padding: EdgeInsets.only(top: 10),
         child: Column(
@@ -236,22 +259,103 @@ class MonuCalcata extends StatelessWidget {
                 children: <Widget>[
                   Align(alignment: Alignment.topLeft,
                       child: Row(children: <Widget>[
-                        Text("Chiesa del SS. \nNome di Gesù", style: TextStyle(fontSize: 25),),
-                        Padding(padding: EdgeInsets.only(left: 100  ),
-                          child: IconButton(onPressed:() {/*Aggiungere cambio preferiti*/},icon:Icon(Icons.favorite_border,size: 30,),),),
+                        Text(
+                          "Valle del Treja", style: TextStyle(fontSize: 25),),
+                        Padding(padding: EdgeInsets.only(left: 140),
+                          child: IconButton(icon: Icon(like ? Icons.favorite : Icons.favorite_border_outlined,
+                              color: like ? Colors.redAccent : Colors.black),
+                            iconSize: 30,
+                            onPressed: () => _pressed(),
+                          ),),
+                      ])),
+                  Row(children: <Widget>[
+                    Padding(padding: EdgeInsets.only(right: 10),
+                        child: Icon(Icons.room)),
+                    Center(child: Text("Calcata VT",
+                      style: TextStyle(fontSize: 20),))
+                  ]),
+                  SizedBox(height: 10,),
+                  Align(alignment: Alignment.topLeft,
+                      child: Text(
+                        "Il parco regionale Valle del Treja è un'area naturale protetta del Lazio, "
+                            "compresa nei territori del comune di Calcata in provincia di Viterbo e Mazzano Romano. Ha una superficie di 628 ettari.",
+                        style: TextStyle(fontSize: 18),)),
+                  SizedBox(height: 30,),
+                  Align(alignment: Alignment.topLeft,
+                      child: Row(children: <Widget>[
+                        Text("Costo", style: TextStyle(fontSize: 18),),
+                        Padding(padding: EdgeInsets.only(left: 150),
+                            child: Icon(Icons.euro, size: 17,)),
+                      ])),
+                  Align(alignment: Alignment.topLeft,
+                      child: Row(children: <Widget>[
+                        Text("Tempo", style: TextStyle(fontSize: 18),),
+                        Padding(padding: EdgeInsets.only(left: 125),
+                            child: Text(
+                              "2h-3h", style: TextStyle(fontSize: 18),)),
+                      ])),
+                  Align(alignment: Alignment.topLeft,
+                      child: Row(children: <Widget>[
+                        Text("Fatica", style: TextStyle(fontSize: 18),),
+                        Padding(padding: EdgeInsets.only(left: 120),
+                          child: Text("💧💧💧💧"),),
+                      ])),
+                ]),
+          ),
+
+        ],)
+    );
+  }
+}
+
+class Post extends StatefulWidget{
+  @override
+  PostState createState() => new PostState();
+}
+
+bool liked = false;
+class PostState extends State<Post> {
+  _pressed() {
+    setState(() {
+      liked = !liked;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        color: Color(0xFFecf2f9),
+        padding: EdgeInsets.only(top: 10),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+          Padding(
+            padding: EdgeInsets.all(15.0),
+            child: Column(
+                children: <Widget>[
+                  Align(alignment: Alignment.topLeft,
+                      child: Row(children: <Widget>[
+                        Text("Chiesa del SS. \nNome di Gesù",
+                          style: TextStyle(fontSize: 25),),
+                        Padding(padding: EdgeInsets.only(left: 100),
+                          child: IconButton( icon: Icon(liked ? Icons.favorite : Icons.favorite_border_outlined,
+                              color: liked ? Colors.redAccent : Colors.black),
+                            iconSize: 30,
+                            onPressed: () => _pressed(),
+                          ),),
                       ])),
 
                   Row(children: <Widget>[
                     Padding(padding: EdgeInsets.only(right: 10),
                         child: Icon(Icons.room)),
-                    Center(child: Text("Piazza Umberto I \n 01030 Calcata Vecchia \n VT",
+                    Center(child: Text(
+                      "Piazza Umberto I \n 01030 Calcata Vecchia \n VT",
                       style: TextStyle(fontSize: 16),))
                   ]),
                   SizedBox(height: 10,),
                   Align(alignment: Alignment.topLeft,
                       child: Text(
-                          "L’interno della chiesa conserva un fonte battesimale, "
-                          "un’acquasantiera del XVI secolo  e un ciclo pittorico di Storie del Cristo.",
+                        "L’interno della chiesa conserva un fonte battesimale, "
+                            "un’acquasantiera del XVI secolo  e un ciclo pittorico di Storie del Cristo.",
                         style: TextStyle(fontSize: 16),)),
                   SizedBox(height: 10,),
                   Align(alignment: Alignment.topLeft,
@@ -287,60 +391,5 @@ class MonuCalcata extends StatelessWidget {
           ),
 
         ],)
-    );}
-    else if( key == _foldingCellKey1){
-      return Container(
-          color: Color(0xFFecf2f9),
-          padding: EdgeInsets.only(top: 10),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
-            Padding(
-              padding: EdgeInsets.all(15.0),
-              child: Column(
-                  children: <Widget>[
-                    Align(alignment: Alignment.topLeft,
-                        child: Row(children: <Widget>[
-                          Text("Valle del Treja", style: TextStyle(fontSize: 25),),
-                          Padding(padding: EdgeInsets.only(left: 140  ),
-                            child: IconButton(onPressed:() {/*Aggiungere cambio preferiti*/},icon:Icon(Icons.favorite_border,size: 30,),),),
-                        ])),
-                    Row(children: <Widget>[
-                      Padding(padding: EdgeInsets.only(right: 10),
-                          child: Icon(Icons.room)),
-                      Center(child: Text("Calcata VT",
-                        style: TextStyle(fontSize: 20),))
-                    ]),
-                    SizedBox(height: 10,),
-                    Align(alignment: Alignment.topLeft,
-                        child: Text("Il parco regionale Valle del Treja è un'area naturale protetta del Lazio, "
-                            "compresa nei territori del comune di Calcata in provincia di Viterbo e Mazzano Romano. Ha una superficie di 628 ettari.",
-                          style: TextStyle(fontSize: 18),)),
-                    SizedBox(height: 30,),
-                    Align(alignment: Alignment.topLeft,
-                        child: Row(children: <Widget>[
-                          Text("Costo", style: TextStyle(fontSize: 18),),
-                          Padding(padding: EdgeInsets.only(left: 150),
-                              child: Icon(Icons.euro, size: 17,)),
-                        ])),
-                    Align(alignment: Alignment.topLeft,
-                        child: Row(children: <Widget>[
-                          Text("Tempo", style: TextStyle(fontSize: 18),),
-                          Padding(padding: EdgeInsets.only(left: 125),
-                              child: Text(
-                                "2h-3h", style: TextStyle(fontSize: 18),)),
-                        ])),
-                    Align(alignment: Alignment.topLeft,
-                        child: Row(children: <Widget>[
-                          Text("Fatica", style: TextStyle(fontSize: 18),),
-                          Padding(padding: EdgeInsets.only(left: 120),
-                            child: Text("💧💧💧💧"),),
-                        ])),
-                  ]),
-            ),
-
-          ],)
-      );
-    }
-
-  }
-}
+    );
+  }}

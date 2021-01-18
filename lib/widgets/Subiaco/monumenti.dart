@@ -225,7 +225,30 @@ class MonuSubiaco extends StatelessWidget {
   }
 
   Widget InnerWidget(GlobalKey<SimpleFoldingCellState> key) {
-    if (key == _foldingCellKey2){ return Container(
+    if (key == _foldingCellKey2){ return Post1();}
+    else if( key == _foldingCellKey1){
+      return Post();
+    }
+
+  }
+}
+
+class Post extends StatefulWidget{
+  @override
+  PostState createState() => new PostState();
+}
+
+bool liked = false;
+class PostState extends State<Post> {
+  _pressed() {
+    setState(() {
+      liked = !liked;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
         color: Color(0xFFecf2f9),
         padding: EdgeInsets.only(top: 10),
         child: Column(
@@ -236,9 +259,99 @@ class MonuSubiaco extends StatelessWidget {
                 children: <Widget>[
                   Align(alignment: Alignment.topLeft,
                       child: Row(children: <Widget>[
-                        Text("Ponte di San Francesco", style: TextStyle(fontSize: 25),),
-                        Padding(padding: EdgeInsets.only(left: 50  ),
-                          child: IconButton(onPressed:() {/*Aggiungere cambio preferiti*/},icon:Icon(Icons.favorite_border,size: 30,),),),
+                        Text(
+                          "Rocca abbaziale", style: TextStyle(fontSize: 25),),
+                        Padding(padding: EdgeInsets.only(left: 100),
+                          child: IconButton( icon: Icon(liked ? Icons.favorite : Icons.favorite_border_outlined,
+                              color: liked ? Colors.redAccent : Colors.black),
+                            iconSize: 30,
+                            onPressed: () => _pressed(),
+                          ),),
+                      ])),
+                  Row(children: <Widget>[
+                    Padding(padding: EdgeInsets.only(right: 10),
+                        child: Icon(Icons.room)),
+                    Center(child: Text("Subiaco",
+                      style: TextStyle(fontSize: 18),))
+                  ]),
+                  SizedBox(height: 10,),
+                  Align(alignment: Alignment.topLeft,
+                      child: Text("La rocca Abbaziale "
+                          "fu costruita su una ripida collina per scopi difensivi con fortificazioni, carceri, ed è dotata di una torre di avvistamento ed una chiesa. "
+                          "In più, la rocca di Subiaco custodisce pregevoli opere d’arte al suo interno, relative ai secoli XVI e XVIII.",
+                        style: TextStyle(fontSize: 16),)),
+                  SizedBox(height: 10,),
+                  Align(alignment: Alignment.topLeft,
+                      child: Text("Orario", style: TextStyle(fontSize: 16),)),
+                  Align(alignment: Alignment.topLeft,
+                      child: Row(children: <Widget>[
+                        Text("Mar-Dom", style: TextStyle(fontSize: 16),),
+                        Padding(padding: EdgeInsets.only(left: 50),
+                            child: Text(
+                              "10:00-19:00", style: TextStyle(fontSize: 16),)),
+                      ])),
+                  SizedBox(height: 10,),
+                  Align(alignment: Alignment.topLeft,
+                      child: Row(children: <Widget>[
+                        Text("Costo", style: TextStyle(fontSize: 15),),
+                        Padding(padding: EdgeInsets.only(left: 150),
+                            child: Text("€€", style: TextStyle(fontSize: 16),))
+                      ])),
+                  Align(alignment: Alignment.topLeft,
+                      child: Row(children: <Widget>[
+                        Text("Tempo", style: TextStyle(fontSize: 15),),
+                        Padding(padding: EdgeInsets.only(left: 125),
+                            child: Text(
+                              "1h-1.5h", style: TextStyle(fontSize: 16),)),
+                      ])),
+                  Align(alignment: Alignment.topLeft,
+                      child: Row(children: <Widget>[
+                        Text("Fatica", style: TextStyle(fontSize: 15),),
+                        Padding(padding: EdgeInsets.only(left: 140),
+                          child: Text("💧💧"),),
+                      ])),
+                ]),
+          ),
+
+        ],)
+    );
+  }
+}
+
+class Post1 extends StatefulWidget{
+  @override
+  Post1State createState() => new Post1State();
+}
+
+bool like = false;
+class Post1State extends State<Post1> {
+  _pressed() {
+    setState(() {
+      like = !like;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        color: Color(0xFFecf2f9),
+        padding: EdgeInsets.only(top: 10),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+          Padding(
+            padding: EdgeInsets.all(15.0),
+            child: Column(
+                children: <Widget>[
+                  Align(alignment: Alignment.topLeft,
+                      child: Row(children: <Widget>[
+                        Text("Ponte di San Francesco",
+                          style: TextStyle(fontSize: 25),),
+                        Padding(padding: EdgeInsets.only(left: 30),
+                          child: IconButton(icon: Icon(like ? Icons.favorite : Icons.favorite_border_outlined,
+                              color: like ? Colors.redAccent : Colors.black),
+                            iconSize: 30,
+                            onPressed: () => _pressed(),
+                          ),),
                       ])),
 
                   Row(children: <Widget>[
@@ -249,8 +362,9 @@ class MonuSubiaco extends StatelessWidget {
                   ]),
                   SizedBox(height: 10,),
                   Align(alignment: Alignment.topLeft,
-                      child: Text("Altro simbolo della cittadina è il Ponte di San Francesco, un arco medievale ben conservato che domina il corso del fiume Aniene. "
-                          "Una campata di quasi 40 metri che regala uno scorcio mozzafiato sul fiume e sulla cittadina.",
+                      child: Text(
+                        "Altro simbolo della cittadina è il Ponte di San Francesco, un arco medievale ben conservato che domina il corso del fiume Aniene. "
+                            "Una campata di quasi 40 metri che regala uno scorcio mozzafiato sul fiume e sulla cittadina.",
                         style: TextStyle(fontSize: 18),)),
 
                   SizedBox(height: 20,),
@@ -258,7 +372,7 @@ class MonuSubiaco extends StatelessWidget {
                       child: Row(children: <Widget>[
                         Text("Costo", style: TextStyle(fontSize: 18),),
                         Padding(padding: EdgeInsets.only(left: 150),
-                          child: Text("€",style: TextStyle(fontSize: 18),),),
+                          child: Text("€", style: TextStyle(fontSize: 18),),),
                       ])),
                   Align(alignment: Alignment.topLeft,
                       child: Row(children: <Widget>[
@@ -277,71 +391,5 @@ class MonuSubiaco extends StatelessWidget {
           ),
 
         ],)
-    );}
-    else if( key == _foldingCellKey1){
-      return Container(
-          color: Color(0xFFecf2f9),
-          padding: EdgeInsets.only(top: 10),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
-            Padding(
-              padding: EdgeInsets.all(15.0),
-              child: Column(
-                  children: <Widget>[
-                    Align(alignment: Alignment.topLeft,
-                        child: Row(children: <Widget>[
-                          Text("Rocca abbaziale", style: TextStyle(fontSize: 25),),
-                          Padding(padding: EdgeInsets.only(left: 70),
-                            child: IconButton(onPressed:() {/*Aggiungere cambio preferiti*/},icon:Icon(Icons.favorite_border,size: 30,),),),
-                        ])),
-                    Row(children: <Widget>[
-                      Padding(padding: EdgeInsets.only(right: 10),
-                          child: Icon(Icons.room)),
-                      Center(child: Text("Subiaco",
-                        style: TextStyle(fontSize: 18),))
-                    ]),
-                    SizedBox(height: 10,),
-                    Align(alignment: Alignment.topLeft,
-                        child: Text("La rocca Abbaziale "
-                            "fu costruita su una ripida collina per scopi difensivi con fortificazioni, carceri, ed è dotata di una torre di avvistamento ed una chiesa. "
-                            "In più, la rocca di Subiaco custodisce pregevoli opere d’arte al suo interno, relative ai secoli XVI e XVIII.",
-                          style: TextStyle(fontSize: 16),)),
-                    SizedBox(height: 10,),
-                    Align(alignment: Alignment.topLeft,
-                        child: Text("Orario", style: TextStyle(fontSize: 16),)),
-                    Align(alignment: Alignment.topLeft,
-                        child: Row(children: <Widget>[
-                          Text("Mar-Dom", style: TextStyle(fontSize: 16),),
-                          Padding(padding: EdgeInsets.only(left: 50),
-                              child: Text(
-                                "10:00-19:00", style: TextStyle(fontSize: 16),)),
-                        ])),
-                    SizedBox(height: 10,),
-                    Align(alignment: Alignment.topLeft,
-                        child: Row(children: <Widget>[
-                          Text("Costo", style: TextStyle(fontSize: 15),),
-                          Padding(padding: EdgeInsets.only(left: 150),
-                              child: Text("€€",style: TextStyle(fontSize: 16),))
-                        ])),
-                    Align(alignment: Alignment.topLeft,
-                        child: Row(children: <Widget>[
-                          Text("Tempo", style: TextStyle(fontSize: 15),),
-                          Padding(padding: EdgeInsets.only(left: 125),
-                              child: Text(
-                                "1h-1.5h", style: TextStyle(fontSize: 16),)),
-                        ])),
-                    Align(alignment: Alignment.topLeft,
-                        child: Row(children: <Widget>[
-                          Text("Fatica", style: TextStyle(fontSize: 15),),
-                          Padding(padding: EdgeInsets.only(left: 140),
-                            child: Text("💧💧"),),
-                        ])),
-                  ]),
-            ),
-
-          ],)
-      );
-    }
-
-  }
-}
+    );
+  }}
