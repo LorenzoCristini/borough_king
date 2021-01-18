@@ -6,6 +6,7 @@ import "package:borough_king/widgets/preferiti.dart";
 import "package:borough_king/widgets/occasioni_fotografiche.dart";
 import 'package:folding_cell/folding_cell.dart';
 import 'package:borough_king/widgets/search.dart';
+import 'package:borough_king/widgets/Preferiti/preferitiSubiaco.dart';
 class MuseiSubiaco extends StatelessWidget {
   final _foldingCellKey1 = GlobalKey<SimpleFoldingCellState>();
   final _foldingCellKey2 = GlobalKey<SimpleFoldingCellState>();
@@ -136,7 +137,7 @@ class MuseiSubiaco extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
-                      image: AssetImage('assets/images/Subiaco/ponte.jpg'),
+                      image: AssetImage('assets/images/Subiaco/Polo Museale Rocca di Subiaco.jpg'),
                       fit: BoxFit.cover),
 
                 ),
@@ -184,7 +185,7 @@ class MuseiSubiaco extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
-                      image: AssetImage('assets/images/Subiaco/carta.jpg'),
+                      image: AssetImage('assets/images/Subiaco/Museo della Carta.jpg'),
                       fit: BoxFit.cover),
 
                 ),
@@ -243,6 +244,8 @@ class Post1State extends State<Post1> {
   _pressed() {
     setState(() {
       like = !like;
+      cards.contains('Polo Museale Rocca di Subiaco') ? cards.remove('Polo Museale Rocca di Subiaco') : cards.add('Polo Museale Rocca di Subiaco');
+      !borghi.contains('Subiaco')  ? borghi.add('Subiaco') : null;
     });
   }
 
@@ -326,6 +329,8 @@ class PostState extends State<Post> {
   _pressed() {
     setState(() {
       liked = !liked;
+      cards.contains('Museo della Carta') ? cards.remove('Museo della Carta') : cards.add('Museo della Carta');
+      !borghi.contains('Subiaco')  ? borghi.add('Subiaco') : null;
     });
   }
 

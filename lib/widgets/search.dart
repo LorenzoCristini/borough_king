@@ -8,6 +8,7 @@ import "package:flutter/material.dart";
 import 'package:borough_king/widgets/Borghi_Attivita.dart';
 import 'package:borough_king/widgets/quiVicino.dart';
 
+
 class search extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -342,22 +343,26 @@ class Search extends SearchDelegate {
   @override
   Widget buildResults(BuildContext context) => notImplemented();
   final List<String> listExample;
+
   Search(this.listExample);
 
 
   Widget buildSuggestions(BuildContext context) {
     List<String> suggestionList = [];
     String selectedResult = '';
-    query.isEmpty  ? suggestionList = recentList : suggestionList.addAll(listExample.where(
-          (element) => element.contains(RegExp('^$query',caseSensitive: false)),
-    ));
+    query.isEmpty ? suggestionList = recentList : suggestionList.addAll(
+        listExample.where(
+              (element) =>
+              element.contains(RegExp('^$query', caseSensitive: false)),
+        ));
     return ListView.builder(
+
       itemCount: suggestionList.length,
       itemBuilder: (context, index) {
-        if(query != ''){
+        if (query != '') {
           return ListTile(
 
-            title: Padding(padding: EdgeInsets.only(left: 50),child:Text(
+            title: Padding(padding: EdgeInsets.only(left: 50), child: Text(
               suggestionList[index],
             ),),
             trailing: suggestionList[index] == 'Qui vicino'
@@ -367,56 +372,100 @@ class Search extends SearchDelegate {
               onPressed: () {
                 selectedResult = suggestionList[index];
                 recentList.remove(selectedResult);
-
               },
             ),
             onTap: () {
               selectedResult = suggestionList[index];
-              if(selectedResult != 'Qui vicino'){
-              if (recentList.contains(selectedResult)){recentList.remove(selectedResult);}
-              recentList = ['Qui vicino'] + [selectedResult] + recentList.sublist(1);}
-              if (selectedResult == 'Tolfa'){Navigator.push(context, MaterialPageRoute(builder: (context) => Borghi_Attivita_Tolfa()));}
-              else if (selectedResult == 'Subiaco'){ Navigator.push(context, MaterialPageRoute(builder: (context) => Borghi_Attivita_Subiaco()));}
-              else if (selectedResult == 'Bracciano') {Navigator.push(context, MaterialPageRoute(builder: (context) => Borghi_Attivita_Bracciano()));}
-              else if (selectedResult == 'Anagni') {Navigator.push(context, MaterialPageRoute(builder: (context) => Borghi_Attivita_Anagni()));}
-              else if (selectedResult == 'Calcata') {Navigator.push(context, MaterialPageRoute(builder: (context) => Borghi_Attivita_Calcata()));}
-              else if (selectedResult == 'Qui vicino') {Navigator.push(context, MaterialPageRoute(builder: (context) => quiVicino()));}
+              if (selectedResult != 'Qui vicino') {
+                if (recentList.contains(selectedResult)) {
+                  recentList.remove(selectedResult);
+                }
+                recentList =
+                    ['Qui vicino'] + [selectedResult] + recentList.sublist(1);
+              }
+
+              if (selectedResult == 'Tolfa') {
+                Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => Borghi_Attivita_Tolfa()));
+              }
+              else if (selectedResult == 'Subiaco') {
+                Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => Borghi_Attivita_Subiaco()));
+              }
+              else if (selectedResult == 'Bracciano') {
+                Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => Borghi_Attivita_Bracciano()));
+              }
+              else if (selectedResult == 'Anagni') {
+                Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => Borghi_Attivita_Anagni()));
+              }
+              else if (selectedResult == 'Calcata') {
+                Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => Borghi_Attivita_Calcata()));
+              }
+              else if (selectedResult == 'Qui vicino') {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => quiVicino()));
+              }
             },
           );
         }
         else {
           return ListTile(
 
-          leading: suggestionList[index] == 'Qui vicino'
-              ? Icon(Icons.near_me)
-              : Icon(Icons.watch_later_outlined),
-          title: Text(
-            suggestionList[index],
-          ),
-          trailing: suggestionList[index] == 'Qui vicino'
-              ? null
-              : IconButton(
-            icon: Icon(Icons.clear),
-            onPressed: () {
+            leading: suggestionList[index] == 'Qui vicino'
+                ? Icon(Icons.near_me)
+                : Icon(Icons.watch_later_outlined),
+            title: Text(
+              suggestionList[index],
+            ),
+            trailing: suggestionList[index] == 'Qui vicino'
+                ? null
+                : IconButton(
+              icon: Icon(Icons.clear),
+              onPressed: () {
+                selectedResult = suggestionList[index];
+                recentList.remove(selectedResult);
+              },
+            ),
+            onTap: () {
               selectedResult = suggestionList[index];
-              recentList.remove(selectedResult);
+              if (selectedResult != 'Qui vicino') {
+                if (recentList.contains(selectedResult)) {
+                  recentList.remove(selectedResult);
+                }
+
+                recentList =
+                    ['Qui vicino'] + [selectedResult] + recentList.sublist(1);
+              }
+
+              if (selectedResult == 'Tolfa') {
+                Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => Borghi_Attivita_Tolfa()));
+              }
+              else if (selectedResult == 'Subiaco') {
+                Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => Borghi_Attivita_Subiaco()));
+              }
+              else if (selectedResult == 'Bracciano') {
+                Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => Borghi_Attivita_Bracciano()));
+              }
+              else if (selectedResult == 'Anagni') {
+                Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => Borghi_Attivita_Anagni()));
+              }
+              else if (selectedResult == 'Calcata') {
+                Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => Borghi_Attivita_Calcata()));
+              }
+              if (selectedResult == 'Qui vicino') {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => quiVicino()));
+              }
             },
-          ),
-          onTap: () {
-            selectedResult = suggestionList[index];
-            if(selectedResult != 'Qui vicino'){
-            if (recentList.contains(selectedResult)){recentList.remove(selectedResult);}
-
-            recentList = ['Qui vicino'] + [selectedResult] + recentList.sublist(1);}
-
-            if (selectedResult == 'Tolfa'){Navigator.push(context, MaterialPageRoute(builder: (context) => Borghi_Attivita_Tolfa()));}
-            else if (selectedResult == 'Subiaco'){ Navigator.push(context, MaterialPageRoute(builder: (context) => Borghi_Attivita_Subiaco()));}
-            else if (selectedResult == 'Bracciano') {Navigator.push(context, MaterialPageRoute(builder: (context) => Borghi_Attivita_Bracciano()));}
-            else if (selectedResult == 'Anagni') {Navigator.push(context, MaterialPageRoute(builder: (context) => Borghi_Attivita_Anagni()));}
-            else if (selectedResult == 'Calcata') {Navigator.push(context, MaterialPageRoute(builder: (context) => Borghi_Attivita_Calcata()));}
-            if (selectedResult == 'Qui vicino') {Navigator.push(context, MaterialPageRoute(builder: (context) => quiVicino()));}
-          },
-        );
+          );
         }
       },
     );

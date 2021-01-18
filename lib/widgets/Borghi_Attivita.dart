@@ -140,8 +140,10 @@ bool liked = false;
 class PostState extends State<Post> {
   _pressed() {
     setState(() {
-      liked= !liked;
-    });
+      borghi.contains('Tolfa') ? borghi.remove('Tolfa') : borghi.add('Tolfa');
+      borghi.contains('Tolfa') ? liked = true : liked = false;
+    }
+    );
   }
 
   @override
@@ -340,7 +342,8 @@ bool like = false;
 class SubiacoState extends State<Subiaco> {
   _pressed() {
     setState(() {
-      like = !like;
+      borghi.contains('Subiaco') ? borghi.remove('Subiaco') : borghi.add('Subiaco');
+      borghi.contains('Subiaco') ? like = true : like= false;
     });
   }
 
@@ -529,12 +532,16 @@ class Anagni extends StatefulWidget{
   @override
   AnagniState createState() => new AnagniState();
 }
-
 bool lik = false;
+
+
 class AnagniState extends State<Anagni> {
+
   _pressed() {
     setState(() {
-      lik = !lik;
+
+      borghi.contains('Anagni') ? borghi.remove('Anagni') : borghi.add('Anagni');
+      borghi.contains('Anagni') ? lik = true : lik= false;
     });
   }
 
@@ -727,7 +734,8 @@ bool likee = false;
 class BraccianoState extends State<Bracciano> {
   _pressed() {
     setState(() {
-      likee = !likee;
+      borghi.contains('Bracciano') ? borghi.remove('Bracciano') : borghi.add('Bracciano');
+      borghi.contains('Bracciano') ? likee = true : likee= false;
     });
   }
 
@@ -919,7 +927,10 @@ bool mipiace = false;
 class CalcataState extends State<Calcata> {
   _pressed() {
     setState(() {
-      mipiace = !mipiace;
+
+      borghi.contains('Calcata') ? borghi.remove('Calcata') : borghi.add('Calcata');
+      borghi.contains('Calcata') ? mipiace = true : mipiace= false;
+
     });
   }
 

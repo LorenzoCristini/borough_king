@@ -6,12 +6,15 @@ import "package:borough_king/widgets/preferiti.dart";
 import "package:borough_king/widgets/occasioni_fotografiche.dart";
 import 'package:folding_cell/folding_cell.dart';
 import 'package:borough_king/widgets/search.dart';
+import 'package:borough_king/widgets/Preferiti/preferitiTolfa.dart';
 
 class BottegheTo extends StatelessWidget {
   final _foldingCellKey1 = GlobalKey<SimpleFoldingCellState>();
   final _foldingCellKey2 = GlobalKey<SimpleFoldingCellState>();
   @override
+
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -73,7 +76,6 @@ class BottegheTo extends StatelessWidget {
               ]
           )
       ),
-
       bottomNavigationBar: BottomNavigationBar(
         // Server per inserire la barra inferiore
         currentIndex: 2,
@@ -134,7 +136,7 @@ class BottegheTo extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
-                      image: AssetImage('assets/images/Tolfa/bott2.jpg'),
+                      image: AssetImage('assets/images/Tolfa/La Cardellina.jpg'),
                       fit: BoxFit.cover),
 
                 ),
@@ -182,7 +184,7 @@ class BottegheTo extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
-                      image: AssetImage('assets/images/Tolfa/bott1.jpg'),
+                      image: AssetImage('assets/images/Tolfa/La Catana.jpg'),
                       fit: BoxFit.cover),
 
                 ),
@@ -240,6 +242,9 @@ class Post1State extends State<Post1> {
   _pressed() {
     setState(() {
       like = !like;
+      cards.contains('La Cardellina') ? cards.remove('La Cardellina') : cards.add('La Cardellina');
+      !borghi.contains('Tolfa')  ? borghi.add('Tolfa') : null;
+
     });
   }
 
@@ -322,6 +327,8 @@ class PostState extends State<Post> {
   _pressed() {
     setState(() {
       liked = !liked;
+      cards.contains('La Catana') ? cards.remove('La Catana') : cards.add('La Catana');
+      !borghi.contains('Tolfa')  ? borghi.add('Tolfa') : null;
     });
   }
 

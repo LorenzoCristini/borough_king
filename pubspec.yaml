@@ -33,9 +33,16 @@ dependencies:
   english_words: ^3.1.5
   folding_cell: ^1.0.0
   photo_view: ^0.10.3
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  flutter_launcher_icons: "^0.8.0"
+
+flutter_icons:
+    android: true
+    image_path: "assets/images/logoBK.jpg"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

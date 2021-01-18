@@ -6,6 +6,7 @@ import "package:borough_king/widgets/preferiti.dart";
 import "package:borough_king/widgets/occasioni_fotografiche.dart";
 import 'package:folding_cell/folding_cell.dart';
 import 'package:borough_king/widgets/search.dart';
+import 'package:borough_king/widgets/Preferiti/preferitiSubiaco.dart';
 
 class BottSubiaco extends StatelessWidget {
   final _foldingCellKey1 = GlobalKey<SimpleFoldingCellState>();
@@ -123,7 +124,7 @@ class BottSubiaco extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
-                      image: AssetImage('assets/images/Subiaco/bottega.jpg'),
+                      image: AssetImage('assets/images/Subiaco/La bottega dei sapori.jpg'),
                       fit: BoxFit.cover),
 
                 ),
@@ -183,6 +184,8 @@ class PostState extends State<Post> {
   _pressed() {
     setState(() {
       liked = !liked;
+      cards.contains('La bottega dei sapori') ? cards.remove('La bottega dei sapori') : cards.add('La bottega dei sapori');
+      !borghi.contains('Subiaco')  ? borghi.add('Subiaco') : null;
     });
   }
 

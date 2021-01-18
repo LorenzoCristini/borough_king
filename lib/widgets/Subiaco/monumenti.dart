@@ -6,6 +6,7 @@ import "package:borough_king/widgets/preferiti.dart";
 import "package:borough_king/widgets/occasioni_fotografiche.dart";
 import 'package:folding_cell/folding_cell.dart';
 import 'package:borough_king/widgets/search.dart';
+import 'package:borough_king/widgets/Preferiti/preferitiSubiaco.dart';
 class MonuSubiaco extends StatelessWidget {
   final _foldingCellKey1 = GlobalKey<SimpleFoldingCellState>();
   final _foldingCellKey2 = GlobalKey<SimpleFoldingCellState>();
@@ -136,7 +137,7 @@ class MonuSubiaco extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
-                      image: AssetImage('assets/images/Subiaco/ponte.jpg'),
+                      image: AssetImage('assets/images/Subiaco/Rocca Abbaziale.jpg'),
                       fit: BoxFit.cover),
 
                 ),
@@ -184,7 +185,7 @@ class MonuSubiaco extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
-                      image: AssetImage('assets/images/Subiaco/san.jpg'),
+                      image: AssetImage('assets/images/Subiaco/Ponte di San    Francesco.jpg'),
                       fit: BoxFit.cover),
 
                 ),
@@ -243,6 +244,9 @@ class PostState extends State<Post> {
   _pressed() {
     setState(() {
       liked = !liked;
+      cards.contains('Rocca Abbaziale') ? cards.remove('Rocca Abbaziale') : cards.add('Rocca Abbaziale');
+      !borghi.contains('Subiaco')  ? borghi.add('Subiaco') : null;
+
     });
   }
 
@@ -328,6 +332,9 @@ class Post1State extends State<Post1> {
   _pressed() {
     setState(() {
       like = !like;
+
+      cards.contains('Ponte di San    Francesco') ? cards.remove('Ponte di San    Francesco') : cards.add('Ponte di San    Francesco');
+      !borghi.contains('Subiaco')  ? borghi.add('Subiaco') : null;
     });
   }
 

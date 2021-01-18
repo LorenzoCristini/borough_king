@@ -1,49 +1,53 @@
 import 'dart:math';
-import 'dart:ui';
 import 'package:borough_king/main.dart';
-import 'package:borough_king/widgets/occasioni_fotografiche.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import "package:flutter/material.dart";
-import 'package:borough_king/widgets/preferiti.dart';
+import "package:borough_king/widgets/preferiti.dart";
+import "package:borough_king/cardOccFot/rocca.dart";
+import "package:borough_king/cardOccFot/ragione.dart";
+import "package:borough_king/cardOccFot/lago.dart";
+import "package:borough_king/cardOccFot/scolastica.dart";
 import 'package:borough_king/widgets/search.dart';
-import 'package:photo_view/photo_view.dart';
 
-class quiVicino extends StatelessWidget {
+class preferitiCalcata extends StatelessWidget {
+  final List<String> images = ['assets/images/OccFotograf/rocca.jpg','assets/images/OccFotograf/ragione.jpg','assets/images/OccFotograf/lago.jpg','assets/images/OccFotograf/monastero.jpg'];
+  final List<String> names = ['La Rocca','Palazzo della ragione','Lago','Monastero di Santa Scolastica'];
+  final List<String> places = ['Tolfa','Anagni','Bracciano','Subiaco'];
+  final List<StatelessWidget> classi = [rocca(), ragione() , lago(), scolastica()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text("Qui vicino", style: TextStyle(color: Colors.black)),
-          backgroundColor: Color(0xff90EE90),
-          iconTheme: IconThemeData(color: Colors.black),
+        title: Text("Attività preferite a Tolfa", style: TextStyle(color: Colors.black)),
+        backgroundColor: Color(0xff90EE90),
+        iconTheme: IconThemeData(color: Colors.black),
         actions: <Widget>[
-      IconButton(
-      icon: Icon(
-        Icons.search,
-        color: Colors.black,
-        size: 30,
+          IconButton(
+            icon: Icon(
+              Icons.search,
+              color: Colors.black,
+              size: 30,
+            ),
+            onPressed: () {
+              List<String> borghi = [
+                "Tolfa",
+                "Anagni",
+                "Subiaco",
+                "Bracciano",
+                "Calcata"
+              ];
+              showSearch(context: context, delegate: Search(borghi));
+            },
+          )
+        ],
       ),
-      onPressed: () {
-        List<String> borghi = [
-          "Tolfa",
-          "Anagni",
-          "Subiaco",
-          "Bracciano",
-          "Calcata"
-        ];
-        showSearch(context: context, delegate: Search(borghi));
-      },
-    )
-    ],),
-      body: Container(
-        child: PhotoView(
-          backgroundDecoration: BoxDecoration(color: Colors.white),
-          imageProvider: AssetImage('assets/images/quiVicino.png'),),
-      ),
+
+      body: Container(),
+
       bottomNavigationBar: BottomNavigationBar(
         // Server per inserire la barra inferiore
-        currentIndex: 1,
+        currentIndex: 2,
         type: BottomNavigationBarType.fixed,
         backgroundColor: Color(0xff90EE90),
         selectedItemColor: Colors.black.withOpacity(.60),
@@ -62,11 +66,6 @@ class quiVicino extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => preferiti()),
-            );
-          } else if (value == 2) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => occasioniFotografiche()),
             );
           }
         },
@@ -89,3 +88,4 @@ class quiVicino extends StatelessWidget {
 
   }
 }
+

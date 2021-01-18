@@ -6,6 +6,7 @@ import "package:borough_king/widgets/preferiti.dart";
 import "package:borough_king/widgets/occasioni_fotografiche.dart";
 import 'package:folding_cell/folding_cell.dart';
 import 'package:borough_king/widgets/search.dart';
+import 'package:borough_king/widgets/Preferiti/preferitiTolfa.dart';
 
 class MonumentiTo extends StatelessWidget {
   final _foldingCellKey1 = GlobalKey<SimpleFoldingCellState>();
@@ -179,9 +180,16 @@ class Post extends StatefulWidget{
 
 bool liked = false;
 class PostState extends State<Post> {
+  var count = cards.where((c) => c == 'La Rocca').toList().length;
   _pressed() {
     setState(() {
       liked = !liked;
+      if (count == 0) {
+        cards.add('La Rocca');
+      } else if (count == 1){
+      } else {cards.contains('La Rocca') ? cards.remove('La Rocca') : null;}
+
+      !borghi.contains('Tolfa') ? borghi.add('Tolfa') : null;
     });
   }
 
