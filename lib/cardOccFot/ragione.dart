@@ -1,6 +1,9 @@
 import 'package:borough_king/main.dart';
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
+import "package:borough_king/widgets/preferiti.dart";
+import 'package:borough_king/widgets/Preferiti/preferitiAnagni.dart';
+
 
 class ragione extends StatelessWidget {
   @override
@@ -11,7 +14,7 @@ class ragione extends StatelessWidget {
         child : AppBar(
             leading: IconButton(icon: Icon(Icons.clear,size: 35,),onPressed: (){Navigator.pop(context);},),
             flexibleSpace: Image(
-              image: AssetImage('assets/images/OccFotograf/ragione.jpg'
+              image: AssetImage('assets/images/Anagni/Palazzo della Ragione.jpg'
                   ''),
               fit: BoxFit.fill,
             ),
@@ -37,6 +40,8 @@ class PostState extends State<Post> {
   _pressed() {
     setState(() {
       liked = !liked;
+      cards.contains('Palazzo della Ragione') ? cards.remove('Palazzo della Ragione') : cards.add('Palazzo della Ragione');
+      !borghi.contains('Anagni')  ? borghi.add('Anagni') : null;
     });
   }
 
@@ -70,7 +75,7 @@ class PostState extends State<Post> {
               style: TextStyle(fontSize: 22, fontFamily: "Times New Roman")),
         ),
         Text(
-          "Il palazzo della Ragione è una delle poche e fra le più antiche strutture pubbliche comunali esistenti nel Lazio meridionale.",
+          "Il Palazzo della Ragione è una delle poche e fra le più antiche strutture pubbliche comunali esistenti nel Lazio meridionale.",
           style: TextStyle(fontSize: 20),),
         SizedBox(
           height: 10,

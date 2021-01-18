@@ -6,6 +6,7 @@ import "package:borough_king/widgets/preferiti.dart";
 import "package:borough_king/widgets/occasioni_fotografiche.dart";
 import 'package:folding_cell/folding_cell.dart';
 import 'package:borough_king/widgets/search.dart';
+import 'package:borough_king/widgets/Preferiti/preferitiBracciano.dart';
 
 class MuseiBr extends StatelessWidget {
   final _foldingCellKey1 = GlobalKey<SimpleFoldingCellState>();
@@ -137,7 +138,7 @@ class MuseiBr extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
-                      image: AssetImage('assets/images/Bracciano/mus1.JPG'),
+                      image: AssetImage('assets/images/Bracciano/Museo Civico.jpg'),
                       fit: BoxFit.cover),
 
                 ),
@@ -185,7 +186,7 @@ class MuseiBr extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
-                      image: AssetImage('assets/images/Bracciano/mus2.jpg'),
+                      image: AssetImage('assets/images/Bracciano/Museo storico aeronautica militare.jpg'),
                       fit: BoxFit.cover),
 
                 ),
@@ -244,6 +245,8 @@ class PostState extends State<Post> {
   _pressed() {
     setState(() {
       liked= !liked;
+      cards.contains('Museo Civico') ? cards.remove('Museo Civico') : cards.add('Museo Civico');
+      !borghi.contains('Bracciano')  ? borghi.add('Bracciano') : null;
     });
   }
 
@@ -327,6 +330,8 @@ class Post1State extends State<Post1> {
   _pressed() {
     setState(() {
       like = !like;
+      cards.contains('Museo storico aeronautica militare') ? cards.remove('Museo storico aeronautica militare') : cards.add('Museo storico aeronautica militare');
+      !borghi.contains('Bracciano')  ? borghi.add('Bracciano') : null;
     });
   }
 

@@ -6,6 +6,7 @@ import "package:borough_king/widgets/preferiti.dart";
 import "package:borough_king/widgets/occasioni_fotografiche.dart";
 import 'package:folding_cell/folding_cell.dart';
 import 'package:borough_king/widgets/search.dart';
+import 'package:borough_king/widgets/Preferiti/preferitiBracciano.dart';
 
 class MonumentiBr extends StatelessWidget {
   final _foldingCellKey1 = GlobalKey<SimpleFoldingCellState>();
@@ -124,7 +125,7 @@ class MonumentiBr extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
-                      image: AssetImage('assets/images/OccFotograf/lago.jpg'),
+                      image: AssetImage('assets/images/Bracciano/Lago di Bracciano.jpg'),
                       fit: BoxFit.cover),
 
                 ),
@@ -182,6 +183,8 @@ class PostState extends State<Post> {
   _pressed() {
     setState(() {
       liked = !liked;
+      cards.contains('Lago di Bracciano') ? cards.remove('Lago di Bracciano') : cards.add('Lago di Bracciano');
+      !borghi.contains('Bracciano')  ? borghi.add('Bracciano') : null;
     });
   }
 

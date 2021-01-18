@@ -6,6 +6,8 @@ import "package:borough_king/widgets/preferiti.dart";
 import "package:borough_king/widgets/occasioni_fotografiche.dart";
 import 'package:folding_cell/folding_cell.dart';
 import 'package:borough_king/widgets/search.dart';
+import 'package:borough_king/widgets/Preferiti/preferitiCalcata.dart';
+
 class Botteghe_Calcata extends StatelessWidget {
   final _foldingCellKey1 = GlobalKey<SimpleFoldingCellState>();
   final _foldingCellKey2 = GlobalKey<SimpleFoldingCellState>();
@@ -136,7 +138,7 @@ class Botteghe_Calcata extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
-                      image: AssetImage('assets/images/Calcata/bottegacalcata.jpg'),
+                      image: AssetImage('assets/images/Calcata/Bazaar dei sognatori.jpg'),
                       fit: BoxFit.cover),
 
                 ),
@@ -184,7 +186,7 @@ class Botteghe_Calcata extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
-                      image: AssetImage('assets/images/Calcata/artigianato.jpg'),
+                      image: AssetImage("assets/images/Calcata/L'artigianato di Marina.jpg"),
                       fit: BoxFit.cover),
 
                 ),
@@ -242,6 +244,8 @@ class Post1State extends State<Post1> {
   _pressed() {
     setState(() {
       like = !like;
+      cards.contains('Bazaar dei sognatori') ? cards.remove('Bazaar dei sognatori') : cards.add('Bazaar dei sognatori');
+      !borghi.contains('Calcata')  ? borghi.add('Calcata') : null;
     });
   }
 
@@ -327,6 +331,8 @@ class PostState extends State<Post> {
   _pressed() {
     setState(() {
       liked = !liked;
+      cards.contains("L'artigianato di Marina") ? cards.remove("L'artigianato di Marina") : cards.add("L'artigianato di Marina");
+      !borghi.contains('Calcata')  ? borghi.add('Calcata') : null;
     });
   }
 

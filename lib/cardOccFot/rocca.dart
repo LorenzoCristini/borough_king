@@ -1,6 +1,10 @@
 import 'package:borough_king/main.dart';
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
+import "package:borough_king/widgets/preferiti.dart";
+import 'package:borough_king/widgets/Preferiti/preferitiTolfa.dart';
+
+
 
 class rocca extends StatelessWidget {
   @override
@@ -11,7 +15,7 @@ class rocca extends StatelessWidget {
         child : AppBar(
             leading: IconButton(icon: Icon(Icons.clear,size: 35,),onPressed: (){Navigator.pop(context);},),
             flexibleSpace: Image(
-              image: AssetImage('assets/images/OccFotograf/rocca.jpg'),
+              image: AssetImage('assets/images/Tolfa/La Rocca.jpg'),
               fit: BoxFit.fill,
             ),
             backgroundColor: Colors.transparent,
@@ -36,6 +40,8 @@ class PostState extends State<Post> {
   _pressed() {
     setState(() {
       liked = !liked;
+      cards.contains('La Rocca') ? cards.remove('La Rocca') : cards.add('La Rocca');
+      !borghi.contains('Tolfa')  ? borghi.add('Tolfa') : null;
     });
   }
 

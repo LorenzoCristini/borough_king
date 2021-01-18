@@ -6,6 +6,8 @@ import "package:borough_king/widgets/preferiti.dart";
 import "package:borough_king/widgets/occasioni_fotografiche.dart";
 import 'package:folding_cell/folding_cell.dart';
 import 'package:borough_king/widgets/search.dart';
+import 'package:borough_king/widgets/Preferiti/preferitiCalcata.dart';
+
 class CalcataMusei extends StatelessWidget {
   final _foldingCellKey1 = GlobalKey<SimpleFoldingCellState>();
   final _foldingCellKey2 = GlobalKey<SimpleFoldingCellState>();
@@ -136,7 +138,7 @@ class CalcataMusei extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
-                      image: AssetImage('assets/images/Calcata/boscocalcata.jpg'),
+                      image: AssetImage('assets/images/Calcata/Opera Bosco Museo di Arte nella Natura.jpg'),
                       fit: BoxFit.cover),
 
                 ),
@@ -184,7 +186,7 @@ class CalcataMusei extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
-                      image: AssetImage('assets/images/Calcata/contadini.jpg'),
+                      image: AssetImage('assets/images/Calcata/Museo della civiltà contadina.jpg'),
                       fit: BoxFit.cover),
 
                 ),
@@ -242,6 +244,8 @@ class PostState extends State<Post> {
   _pressed() {
     setState(() {
       liked = !liked;
+      cards.contains('Opera Bosco Museo di Arte nella Natura') ? cards.remove('Opera Bosco Museo di Arte nella Natura') : cards.add('Opera Bosco Museo di Arte nella Natura');
+      !borghi.contains('Calcata')  ? borghi.add('Calcata') : null;
     });
   }
 
@@ -328,6 +332,8 @@ class Post1State extends State<Post1> {
   _pressed() {
     setState(() {
       like = !like;
+      cards.contains('Museo della civiltà contadina') ? cards.remove('Museo della civiltà contadina') : cards.add('Museo della civiltà contadina');
+      !borghi.contains('Calcata')  ? borghi.add('Calcata') : null;
     });
   }
 

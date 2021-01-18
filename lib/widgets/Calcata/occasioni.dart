@@ -6,6 +6,8 @@ import "package:borough_king/widgets/preferiti.dart";
 import "package:borough_king/widgets/occasioni_fotografiche.dart";
 import 'package:folding_cell/folding_cell.dart';
 import 'package:borough_king/widgets/search.dart';
+import 'package:borough_king/widgets/Preferiti/preferitiCalcata.dart';
+
 class OccasioniCalcata extends StatelessWidget {
   final _foldingCellKey1 = GlobalKey<SimpleFoldingCellState>();
   final _foldingCellKey2 = GlobalKey<SimpleFoldingCellState>();
@@ -136,7 +138,7 @@ class OccasioniCalcata extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
-                      image: AssetImage('assets/images/Calcata/calcatavecchia.jpg'),
+                      image: AssetImage('assets/images/Calcata/Calcata Vecchia.jpg'),
                       fit: BoxFit.cover),
 
                 ),
@@ -184,7 +186,7 @@ class OccasioniCalcata extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
-                      image: AssetImage('assets/images/Calcata/halloween.jpg'),
+                      image: AssetImage('assets/images/Calcata/Halloween a Calcata.jpg'),
                       fit: BoxFit.cover),
 
                 ),
@@ -243,6 +245,8 @@ class Post1State extends State<Post1> {
   _pressed() {
     setState(() {
       like = !like;
+      cards.contains('Calcata Vecchia') ? cards.remove('Calcata Vecchia') : cards.add('Calcata Vecchia');
+      !borghi.contains('Calcata')  ? borghi.add('Calcata') : null;
     });
   }
 
@@ -316,6 +320,8 @@ class PostState extends State<Post> {
   _pressed() {
     setState(() {
       liked = !liked;
+      cards.contains('Halloween a Calcata') ? cards.remove('Halloween a Calcata') : cards.add('Halloween a Calcata');
+      !borghi.contains('Calcata')  ? borghi.add('Calcata') : null;
     });
   }
 

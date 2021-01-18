@@ -1,6 +1,9 @@
 import 'package:borough_king/main.dart';
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
+import "package:borough_king/widgets/preferiti.dart";
+import 'package:borough_king/widgets/Preferiti/preferitiBracciano.dart';
+
 
 class lago extends StatelessWidget {
   @override
@@ -19,7 +22,7 @@ class lago extends StatelessWidget {
               },
             ),
             flexibleSpace: Image(
-              image: AssetImage('assets/images/OccFotograf/lago.jpg'
+              image: AssetImage('assets/images/Bracciano/Lago di Bracciano.jpg'
                   ''),
               fit: BoxFit.fill,
             ),
@@ -40,6 +43,8 @@ class PostState extends State<Post> {
   _pressed() {
     setState(() {
       liked= !liked;
+      cards.contains('Lago di Bracciano') ? cards.remove('Lago di Bracciano') : cards.add('Lago di Bracciano') ;
+      !borghi.contains('Bracciano')  ? borghi.add('Bracciano') : null;
     });
   }
 
@@ -55,12 +60,12 @@ class PostState extends State<Post> {
             Padding(
               padding: EdgeInsets.only(right: 150),
               child: Text(
-                'Lago',
-                style: TextStyle(fontSize: 30),
+                'Lago di Bracciano',
+                style: TextStyle(fontSize: 26),
               ),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(90, 0, 0, 0),
+              padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
               child: IconButton(
                 icon: Icon(liked ? Icons.favorite : Icons.favorite_border_outlined,
                 color: liked ? Colors.redAccent : Colors.black),

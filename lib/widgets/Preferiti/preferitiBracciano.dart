@@ -1,25 +1,76 @@
-import 'dart:math';
+
 import 'package:borough_king/main.dart';
+import 'package:borough_king/widgets/occasioni_fotografiche.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import "package:flutter/material.dart";
 import "package:borough_king/widgets/preferiti.dart";
-import "package:borough_king/cardOccFot/rocca.dart";
-import "package:borough_king/cardOccFot/ragione.dart";
-import "package:borough_king/cardOccFot/lago.dart";
-import "package:borough_king/cardOccFot/scolastica.dart";
 import 'package:borough_king/widgets/search.dart';
+import 'package:borough_king/widgets/Borghi_Attivita.dart';
 
+List<String> cards = [];
+
+class ListDisplay extends StatefulWidget {
+  @override
+  State createState() => new DynamicList();
+}
+
+class DynamicList extends State<ListDisplay> {
+
+  @override
+  Widget build (BuildContext context) {
+    return GridView.builder(
+
+      itemCount: cards.length,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        childAspectRatio: 8.0 / 10.0,
+        crossAxisCount: 2,
+      ),
+      itemBuilder: (BuildContext context, int index) {
+        return
+          GestureDetector(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => Borghi_Attivita_Bracciano()));
+              },
+              child: Padding(
+                  padding: EdgeInsets.all(5),
+                  child:   Card(
+                      elevation: 5,
+                      semanticContainer: true,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      clipBehavior: Clip.antiAlias,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Expanded(
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                      image: AssetImage('assets/images/Bracciano/${cards[index]}.jpg'),
+                                      fit: BoxFit.fill),
+                                ),
+                              )),
+                          Padding(
+                              padding: EdgeInsets.all(5.0),
+                              child: Text(
+                                cards[index],
+                                style: TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold),
+                              )),
+                        ],
+                      ))));
+      },
+    );
+
+  }
+}
 class preferitiBracciano extends StatelessWidget {
-  final List<String> images = ['assets/images/OccFotograf/rocca.jpg','assets/images/OccFotograf/ragione.jpg','assets/images/OccFotograf/lago.jpg','assets/images/OccFotograf/monastero.jpg'];
-  final List<String> names = ['La Rocca','Palazzo della ragione','Lago','Monastero di Santa Scolastica'];
-  final List<String> places = ['Tolfa','Anagni','Bracciano','Subiaco'];
-  final List<StatelessWidget> classi = [rocca(), ragione() , lago(), scolastica()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Attività preferite a Tolfa", style: TextStyle(color: Colors.black)),
+        title: Text("Attività preferite a Bracciano", style: TextStyle(color: Colors.black)),
         backgroundColor: Color(0xff90EE90),
         iconTheme: IconThemeData(color: Colors.black),
         actions: <Widget>[
@@ -43,7 +94,7 @@ class preferitiBracciano extends StatelessWidget {
         ],
       ),
 
-      body: Container(),
+      body: ListDisplay(),
 
       bottomNavigationBar: BottomNavigationBar(
         // Server per inserire la barra inferiore
@@ -66,6 +117,11 @@ class preferitiBracciano extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => preferiti()),
+            );
+          } else if (value == 3) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => occasioniFotografiche()),
             );
           }
         },

@@ -1,6 +1,8 @@
 import 'package:borough_king/main.dart';
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
+import "package:borough_king/widgets/preferiti.dart";
+import 'package:borough_king/widgets/Preferiti/preferitiSubiaco.dart';
 
 class scolastica extends StatelessWidget {
   @override
@@ -11,7 +13,7 @@ class scolastica extends StatelessWidget {
         child : AppBar(
             leading: IconButton(icon: Icon(Icons.clear,size: 35,),onPressed: (){Navigator.pop(context);},),
             flexibleSpace: Image(
-              image: AssetImage('assets/images/OccFotograf/monastero.jpg'
+              image: AssetImage('assets/images/Subiaco/Monastero di Santa Scolastica.jpg'
                   ''),
               fit: BoxFit.fill,
             ),
@@ -37,6 +39,8 @@ class PostState extends State<Post> {
   _pressed() {
     setState(() {
       liked = !liked;
+      cards.contains('Monastero di Santa Scolastica') ? cards.remove('Monastero di Santa Scolastica') : cards.add('Monastero di Santa Scolastica');
+      !borghi.contains('Subiaco')  ? borghi.add('Subiaco') : null;
     });
   }
 

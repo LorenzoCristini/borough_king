@@ -6,6 +6,7 @@ import "package:borough_king/widgets/preferiti.dart";
 import "package:borough_king/widgets/occasioni_fotografiche.dart";
 import 'package:folding_cell/folding_cell.dart';
 import 'package:borough_king/widgets/search.dart';
+import 'package:borough_king/widgets/Preferiti/preferitiCalcata.dart';
 
 class MonuCalcata extends StatelessWidget {
   final _foldingCellKey1 = GlobalKey<SimpleFoldingCellState>();
@@ -137,7 +138,7 @@ class MonuCalcata extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
-                      image: AssetImage('assets/images/Calcata/treja.jpg'),
+                      image: AssetImage('assets/images/Calcata/Valle del Treja.jpg'),
                       fit: BoxFit.cover),
 
                 ),
@@ -185,7 +186,7 @@ class MonuCalcata extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
-                      image: AssetImage('assets/images/Calcata/chiesacalcata.jpg'),
+                      image: AssetImage('assets/images/Calcata/Chiesa del SS. Nome di Gesù.jpg'),
                       fit: BoxFit.cover),
 
                 ),
@@ -243,6 +244,8 @@ class Post1State extends State<Post1> {
   _pressed() {
     setState(() {
       like = !like;
+      cards.contains('Valle del Treja') ? cards.remove('Valle del Treja') : cards.add('Valle del Treja');
+      !borghi.contains('Calcata')  ? borghi.add('Calcata') : null;
     });
   }
 
@@ -318,6 +321,8 @@ class PostState extends State<Post> {
   _pressed() {
     setState(() {
       liked = !liked;
+      cards.contains('Chiesa del SS. Nome di Gesù') ? cards.remove('Chiesa del SS. Nome di Gesù') : cards.add('Chiesa del SS. Nome di Gesù');
+      !borghi.contains('Calcata')  ? borghi.add('Calcata') : null;
     });
   }
 
