@@ -7,6 +7,7 @@ import "package:borough_king/widgets/occasioni_fotografiche.dart";
 import 'package:folding_cell/folding_cell.dart';
 import 'package:borough_king/widgets/search.dart';
 import 'package:borough_king/widgets/Preferiti/preferitiAnagni.dart';
+//Monumenti Anagni
 class MonumentiAn extends StatelessWidget {
   final _foldingCellKey1 = GlobalKey<SimpleFoldingCellState>();
   final _foldingCellKey2 = GlobalKey<SimpleFoldingCellState>();
