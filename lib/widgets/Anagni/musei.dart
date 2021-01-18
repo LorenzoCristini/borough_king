@@ -6,6 +6,7 @@ import "package:borough_king/widgets/preferiti.dart";
 import "package:borough_king/widgets/occasioni_fotografiche.dart";
 import 'package:folding_cell/folding_cell.dart';
 import 'package:borough_king/widgets/search.dart';
+import 'package:borough_king/widgets/Preferiti/preferitiAnagni.dart';
 class MuseiAn extends StatelessWidget {
   final _foldingCellKey1 = GlobalKey<SimpleFoldingCellState>();
 
@@ -123,7 +124,7 @@ class MuseiAn extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
-                      image: AssetImage('assets/images/Anagni/mon1.JPG'),
+                      image: AssetImage('assets/images/Anagni/Cattedrale Santa Maria.jpg'),
                       fit: BoxFit.cover),
 
                 ),
@@ -177,9 +178,16 @@ class Post extends StatefulWidget{
 
 bool liked = false;
 class PostState extends State<Post> {
+  var count = cards.where((c) => c == 'Cattedrale Santa Maria').toList().length;
   _pressed() {
     setState(() {
       liked = !liked;
+      if (count == 0) {
+        cards.add('Cattedrale Santa Maria');
+      } else if (count == 1){
+      } else {cards.contains('Cattedrale Santa Maria') ? cards.remove('Cattedrale Santa Maria') : null;}
+      cards.contains('Cattedrale Santa Maria') ? cards.remove('Cattedrale Santa Maria') : cards.add('Cattedrale Santa Maria');
+      !borghi.contains('Anagni')  ? borghi.add('Anagni') : null;
     });
   }
 

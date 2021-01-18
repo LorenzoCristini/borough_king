@@ -6,6 +6,7 @@ import "package:borough_king/widgets/preferiti.dart";
 import "package:borough_king/widgets/occasioni_fotografiche.dart";
 import 'package:folding_cell/folding_cell.dart';
 import 'package:borough_king/widgets/search.dart';
+import 'package:borough_king/widgets/Preferiti/preferitiAnagni.dart';
 class MonumentiAn extends StatelessWidget {
   final _foldingCellKey1 = GlobalKey<SimpleFoldingCellState>();
   final _foldingCellKey2 = GlobalKey<SimpleFoldingCellState>();
@@ -136,7 +137,7 @@ class MonumentiAn extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
-                      image: AssetImage('assets/images/Anagni/monu2.PNG'),
+                      image: AssetImage('assets/images/Anagni/Parco delle Rimembranze.jpg'),
                       fit: BoxFit.cover),
 
                 ),
@@ -184,7 +185,7 @@ class MonumentiAn extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
-                      image: AssetImage('assets/images/Anagni/mon1.JPG'),
+                      image: AssetImage('assets/images/Anagni/Cattedrale Santa Maria.jpg'),
                       fit: BoxFit.cover),
 
                 ),
@@ -239,9 +240,16 @@ class Post1 extends StatefulWidget{
 
 bool mipiace = false;
 class Post1State extends State<Post1> {
+  var count = cards.where((c) => c == 'Cattedrale Santa Maria').toList().length;
   _pressed() {
     setState(() {
       mipiace = !mipiace;
+      if (count == 0) {
+        cards.add('Cattedrale Santa Maria');
+      } else if (count == 1){
+      } else {cards.contains('Cattedrale Santa Maria') ? cards.remove('Cattedrale Santa Maria') : null;}
+      cards.contains('Cattedrale Santa Maria') ? cards.remove('Cattedrale Santa Maria') : cards.add('Cattedrale Santa Maria');
+      !borghi.contains('Anagni')  ? borghi.add('Anagni') : null;
     });
   }
 
@@ -326,6 +334,8 @@ class PostState extends State<Post> {
   _pressed() {
     setState(() {
       liked = !liked;
+      cards.contains('Parco delle Rimembranze') ? cards.remove('Parco delle Rimembranze') : cards.add('Parco delle Rimembranze');
+      !borghi.contains('Anagni')  ? borghi.add('Anagni') : null;
     });
   }
 

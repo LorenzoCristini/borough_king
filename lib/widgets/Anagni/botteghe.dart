@@ -6,6 +6,7 @@ import "package:borough_king/widgets/preferiti.dart";
 import "package:borough_king/widgets/occasioni_fotografiche.dart";
 import 'package:folding_cell/folding_cell.dart';
 import 'package:borough_king/widgets/search.dart';
+import 'package:borough_king/widgets/Preferiti/preferitiAnagni.dart';
 class BottegheAn extends StatelessWidget {
   final _foldingCellKey1 = GlobalKey<SimpleFoldingCellState>();
   final _foldingCellKey2 = GlobalKey<SimpleFoldingCellState>();
@@ -136,7 +137,7 @@ class BottegheAn extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
-                      image: AssetImage('assets/images/Anagni/bott1.jpg'),
+                      image: AssetImage('assets/images/Anagni/Erzinio a tavola.jpg'),
                       fit: BoxFit.cover),
 
                 ),
@@ -184,7 +185,7 @@ class BottegheAn extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
-                      image: AssetImage('assets/images/Anagni/tarsie.PNG'),
+                      image: AssetImage('assets/images/Anagni/Tarsie Turri.jpg'),
                       fit: BoxFit.cover),
 
                 ),
@@ -243,6 +244,8 @@ class Post1State extends State<Post1> {
   _pressed() {
     setState(() {
       liked = !liked;
+      cards.contains('Tarsie Turri') ? cards.remove('Tarsie Turri') : cards.add('Tarsie Turri');
+      !borghi.contains('Anagni')  ? borghi.add('Anagni') : null;
     });
   }
 
@@ -327,6 +330,8 @@ class PostState extends State<Post> {
   _pressed() {
     setState(() {
       mipiace = !mipiace;
+      cards.contains('Erzinio a tavola') ? cards.remove('Erzinio a tavola') : cards.add('Erzinio a tavola');
+      !borghi.contains('Anagni')  ? borghi.add('Anagni') : null;
     });
   }
 

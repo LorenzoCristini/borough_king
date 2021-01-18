@@ -6,6 +6,7 @@ import "package:borough_king/widgets/preferiti.dart";
 import "package:borough_king/widgets/occasioni_fotografiche.dart";
 import 'package:folding_cell/folding_cell.dart';
 import 'package:borough_king/widgets/search.dart';
+import 'package:borough_king/widgets/Preferiti/preferitiAnagni.dart';
 class OccasioniAn extends StatelessWidget {
   final _foldingCellKey1 = GlobalKey<SimpleFoldingCellState>();
 
@@ -123,7 +124,7 @@ class OccasioniAn extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
-                      image: AssetImage('assets/images/OccFotograf/ragione.jpg'),
+                      image: AssetImage('assets/images/Anagni/Palazzo della Ragione.jpg'),
                       fit: BoxFit.cover),
 
                 ),
@@ -180,6 +181,8 @@ class PostState extends State<Post> {
   _pressed() {
     setState(() {
       liked = !liked;
+      cards.contains('Palazzo della Ragione') ? cards.remove('Palazzo della Ragione') : cards.add('Palazzo della Ragione');
+      !borghi.contains('Anagni')  ? borghi.add('Anagni') : null;
     });
   }
 
