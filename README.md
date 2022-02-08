@@ -8,5 +8,6 @@ A new Flutter application.
 
 Questa applicazione è volta alla valorizzazione dei piccoli borghi del Lazio.
 Particolare attenzione è stata volta ai borghi di Anagni, Bracciano, Calcata, Subiaco e Tolfa.
+Puoi trovare un video illustrativo a questo link: https://www.youtube.com/watch?v=DVmburDp5-s. 
 Enjoy!
 
